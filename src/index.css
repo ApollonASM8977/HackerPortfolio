@@ -1,162 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0a0a0a;
-  color: #00ff41;
-  font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
+  background: #070b10;
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-}
-
-#root {
   min-height: 100vh;
-  width: 100%;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0a0a; }
-::-webkit-scrollbar-thumb { background: #00ff41; border-radius: 3px; }
+.mono { font-family: 'Fira Code', monospace; }
 
-/* Selection */
-::selection { background: #00ff4133; color: #00ff41; }
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #070b10; }
+::-webkit-scrollbar-thumb { background: #00ff4144; border-radius: 3px; }
 
-/* Terminal cursor blink */
-.cursor::after {
-  content: '█';
-  animation: blink 1s step-end infinite;
+/* ── Matrix canvas ─────────────────────────────────── */
+#matrix-canvas {
+  position: fixed; top: 0; left: 0;
+  opacity: 0.06; pointer-events: none; z-index: 0;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+/* ── Glow ──────────────────────────────────────────── */
+.glow-green { text-shadow: 0 0 12px #00ff4199; }
+.glow-cyan  { text-shadow: 0 0 12px #00d4ff99; }
 
-/* Scan line effect */
-.scanlines::before {
+/* ── Cursor blink ──────────────────────────────────── */
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.blink { animation: blink 1s step-end infinite; }
+
+/* ── Scanlines overlay ─────────────────────────────── */
+.scanlines::after {
   content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  position: fixed; top:0;left:0;right:0;bottom:0;
   background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 255, 65, 0.015) 2px,
-    rgba(0, 255, 65, 0.015) 4px
+    0deg, transparent, transparent 2px,
+    rgba(0,255,65,0.012) 2px, rgba(0,255,65,0.012) 4px
   );
-  pointer-events: none;
-  z-index: 9999;
+  pointer-events: none; z-index: 9999;
 }
 
-/* Glow text */
-.glow-green { text-shadow: 0 0 7px #00ff41, 0 0 14px #00ff41; }
-.glow-cyan  { text-shadow: 0 0 7px #00d4ff, 0 0 14px #00d4ff; }
-.glow-red   { text-shadow: 0 0 7px #ff0040, 0 0 14px #ff0040; }
+/* ── Glass panel ───────────────────────────────────── */
+.panel {
+  background: rgba(13,17,23,0.9);
+  border: 1px solid #1e2d42;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
 
-/* Panel */
+/* ── Hacker panel (dark bordered card) ─────────────── */
 .hacker-panel {
-  background: #0d1117;
+  background: rgba(13,17,23,0.85);
   border: 1px solid #1a2332;
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: border-color 0.25s;
+}
+.hacker-panel:hover { border-color: #2a3d55; }
+
+/* ── Solved challenge highlight ─────────────────────── */
+.challenge-solved { border-color: #00ff4133 !important; }
+
+/* ── Nav card (home page) ──────────────────────────── */
+.nav-card {
+  background: rgba(13,17,23,0.8);
+  border: 1px solid #1e2d42;
+  border-radius: 14px;
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
 }
-
-.hacker-panel::before {
+.nav-card::before {
   content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #00ff41, transparent);
-  opacity: 0.6;
+  position: absolute; top:0;left:0;right:0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.25s;
 }
+.nav-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.nav-card:hover::before { opacity: 1; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 
-/* Terminal input */
+/* ── Page transition ───────────────────────────────── */
+@keyframes pageIn  { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pageOut { from{opacity:1;transform:translateY(0)}     to{opacity:0;transform:translateY(-10px)} }
+.page-enter { animation: pageIn  0.35s ease forwards; }
+.page-exit  { animation: pageOut 0.2s  ease forwards; }
+
+/* ── Skill bar ─────────────────────────────────────── */
+.skill-bar { height: 5px; background: #1a2332; border-radius: 3px; overflow: hidden; }
+.skill-fill     { height: 100%; border-radius: 3px; transition: width 1.4s ease; }
+.skill-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #00ff4166, #00ff41); }
+
+/* ── Terminal inside page ──────────────────────────── */
+.terminal-bg {
+  background: #020408;
+  border: 1px solid #1a2332;
+  border-radius: 10px;
+  font-family: 'Fira Code', monospace;
+}
 .terminal-input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #00ff41;
-  font-family: inherit;
-  font-size: inherit;
-  width: 100%;
+  background: transparent; border: none; outline: none;
+  color: #00ff41; font-family: inherit; font-size: inherit; width: 100%;
   caret-color: #00ff41;
 }
 
-/* Skill bar */
-.skill-bar {
-  height: 6px;
-  background: #1a2332;
-  border-radius: 3px;
-  overflow: hidden;
+/* ── Back button ───────────────────────────────────── */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #555; font-size: 0.8rem; font-family: 'Fira Code', monospace;
+  transition: color 0.2s; cursor: pointer; border: none; background: none;
 }
+.back-btn:hover { color: #00ff41; }
 
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #00ff41, #00d4ff);
-  box-shadow: 0 0 8px #00ff4180;
-  transition: width 1.5s ease;
+/* ── Tag chip ──────────────────────────────────────── */
+.chip {
+  display: inline-block; padding: 2px 10px;
+  border: 1px solid #1e2d42; border-radius: 20px;
+  font-size: 0.7rem; color: #6b7280; font-family: 'Fira Code', monospace;
+  transition: all 0.2s;
 }
-
-/* Nav */
-.nav-link {
-  color: #666;
-  transition: color 0.2s;
-  font-size: 0.875rem;
-}
-.nav-link:hover { color: #00ff41; }
-.nav-link.active { color: #00ff41; }
-
-/* Challenge card */
-.challenge-locked { opacity: 0.5; filter: grayscale(1); cursor: not-allowed; }
-.challenge-solved { border-color: #00ff41 !important; }
-.challenge-solved::after {
-  content: '✓ SOLVED';
-  position: absolute;
-  top: 12px; right: 12px;
-  color: #00ff41;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-/* Glitch effect */
-@keyframes glitch {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-}
-.glitch:hover { animation: glitch 0.3s infinite; }
-
-/* Matrix canvas */
-#matrix-canvas {
-  position: fixed;
-  top: 0; left: 0;
-  opacity: 0.07;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Section fade-in */
-.section-fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.section-fade.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.chip:hover { border-color: #00ff4144; color: #00d4ff; }

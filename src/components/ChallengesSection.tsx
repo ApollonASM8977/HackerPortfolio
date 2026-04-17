@@ -70,21 +70,19 @@ export function ChallengesSection() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-4"
+        className="mb-12 text-center"
       >
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-[#666] text-sm">02.</span>
-          <h2 className="text-[#00ff41] text-2xl font-bold tracking-wide">{'<Challenges />'}</h2>
-          <div className="flex-1 h-px bg-[#1a2332]" />
-          <div className="flex items-center gap-2 text-xs text-[#666]">
-            <Trophy className="w-4 h-4 text-[#ffcc00]" />
-            <span className="text-[#ffcc00]">{solved.size}</span>
-            <span>/ {CHALLENGES.length} solved</span>
-          </div>
-        </div>
-        <p className="text-[#666] text-sm pl-10">
-          Real hacking challenges — test your skills in cryptography, Linux, web security and password cracking.
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          Hacking <span className="text-[#00ff41]">Challenges</span>
+        </h2>
+        <p className="text-[#555] text-sm max-w-xl mx-auto">
+          Real interactive challenges — test your skills in Linux, cryptography, password cracking and web exploitation.
         </p>
+        <div className="flex items-center justify-center gap-2 mt-4">
+          <Trophy className="w-4 h-4 text-[#ffcc00]" />
+          <span className="text-[#ffcc00] font-mono text-sm font-bold">{solved.size} / {CHALLENGES.length}</span>
+          <span className="text-[#444] text-sm">challenges solved</span>
+        </div>
       </motion.div>
 
       {/* Score bar */}

@@ -60,14 +60,14 @@ export function ProjectsSection() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-12"
+        className="mb-12 text-center"
       >
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-[#666] text-sm">03.</span>
-          <h2 className="text-[#00ff41] text-2xl font-bold tracking-wide">{'<Projects />'}</h2>
-          <div className="flex-1 h-px bg-[#1a2332]" />
-        </div>
-        <p className="text-[#666] text-sm pl-10">Real projects — built, secured, and deployed.</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          Featured <span className="text-[#00ff41]">Projects</span>
+        </h2>
+        <p className="text-[#555] text-sm max-w-xl mx-auto">
+          Real projects — built, secured, and pushed to GitHub.
+        </p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
