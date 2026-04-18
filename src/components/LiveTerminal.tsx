@@ -155,12 +155,29 @@ function getOutput(raw: string): CmdResult {
   return { lines: [{ text: `bash: ${base}: command not found`, color: '#ff6b6b' }] };
 }
 
+function playKeyClick() {
+  try {
+    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = 'square';
+    osc.frequency.value = 820;
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.045);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.045);
+  } catch { /* silently ignore if audio not available */ }
+}
+
 export function LiveTerminal() {
   const [lines, setLines]     = useState<Line[]>([]);
   const [state, setState]     = useState<TermState>('booting');
   const [inputVal, setInput]  = useState('');
   const [history, setHistory] = useState<string[]>([]);
   const [hIdx, setHIdx]       = useState(-1);
+  const [soundOn, setSoundOn] = useState(false);
 
   const inputRef  = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -207,7 +224,8 @@ export function LiveTerminal() {
   };
 
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') { runCmd(inputVal); return; }
+    if (soundOn && e.key.length === 1) playKeyClick();
+    if (e.key === 'Enter') { if (soundOn) playKeyClick(); runCmd(inputVal); return; }
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       const i = Math.min(hIdx + 1, history.length - 1);
@@ -234,6 +252,14 @@ export function LiveTerminal() {
         {state === 'running' && (
           <span className="ml-auto text-[#444] text-xs mono animate-pulse">running…</span>
         )}
+        <button
+          onClick={e => { e.stopPropagation(); setSoundOn(s => !s); }}
+          className="ml-auto text-[10px] mono px-1.5 py-0.5 rounded transition-colors"
+          style={{ color: soundOn ? '#00ff41' : '#333', border: `1px solid ${soundOn ? '#00ff4144' : '#1a2332'}` }}
+          title={soundOn ? 'Sound ON — click to mute' : 'Sound OFF — click to enable'}
+        >
+          {soundOn ? '🔊' : '🔇'}
+        </button>
       </div>
 
       {/* body */}

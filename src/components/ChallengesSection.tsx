@@ -1,6 +1,7 @@
 // © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import { Terminal, Key, Hash, Database, Trophy, Lock, Binary, Network, Shield, Code2, Eye, Cpu } from 'lucide-react';
 import { LinuxTerminal }         from './challenges/LinuxTerminal';
 import { CaesarChallenge }       from './challenges/CaesarChallenge';
@@ -149,15 +150,33 @@ const CHALLENGES = [
   },
 ];
 
+const STORAGE_KEY = 'apollon_solved_challenges';
+
 export function ChallengesSection() {
   const [active, setActive] = useState<string | null>(null);
-  const [solved, setSolved] = useState<Set<string>>(new Set());
+  const [solved, setSolved] = useState<Set<string>>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch { return new Set(); }
+  });
   const [showSuccess, setShowSuccess] = useState<string | null>(null);
+
+  // Persist to localStorage whenever solved changes
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...solved]));
+  }, [solved]);
 
   const handleSolve = (id: string) => {
     setSolved(prev => new Set([...prev, id]));
     setShowSuccess(id);
-    setTimeout(() => setShowSuccess(null), 3000);
+    setTimeout(() => setShowSuccess(null), 3500);
+    // 🎉 Confetti burst
+    confetti({ particleCount: 90, spread: 70, origin: { y: 0.55 },
+      colors: ['#00ff41', '#00d4ff', '#ffcc00', '#a855f7'] });
+    setTimeout(() =>
+      confetti({ particleCount: 40, spread: 120, origin: { y: 0.45 },
+        colors: ['#00ff41', '#ffcc00'] }), 300);
   };
 
   const allSolved = solved.size === CHALLENGES.length;

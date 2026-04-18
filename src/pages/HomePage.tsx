@@ -19,11 +19,23 @@ const NAV_CARDS = [
   { page: 'contact'    as Page, icon: <Mail className="w-5 h-5" />,       title: 'Contact',    desc: 'LinkedIn, GitHub, TryHackMe',         accent: '#ffcc00', num: '04' },
 ];
 
+function useVisitorCount() {
+  const [count] = useState(() => {
+    try {
+      const n = parseInt(localStorage.getItem('apollon_visits') || '0') + 1;
+      localStorage.setItem('apollon_visits', String(n));
+      return n;
+    } catch { return 1; }
+  });
+  return count;
+}
+
 export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
   const [roleIdx, setRoleIdx]     = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting]   = useState(false);
   const [ready, setReady]         = useState(false);
+  const visitorCount               = useVisitorCount();
 
   useEffect(() => { setTimeout(() => setReady(true), 200); }, []);
 
@@ -113,10 +125,14 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         ))}
       </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.2 }} transition={{ delay: 1.5 }}
-        className="mono text-[#2a2a2a] text-xs">
-        © 2026 Aboubacar Sidick Meite
-      </motion.p>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
+        className="flex flex-col items-center gap-1">
+        <p className="mono text-[#1e1e1e] text-xs">© 2026 Aboubacar Sidick Meite</p>
+        <p className="mono text-[#252525] text-[10px]">
+          visitor <span className="text-[#2a3a2a]">#{String(visitorCount).padStart(4,'0')}</span>
+          &nbsp;·&nbsp;session active
+        </p>
+      </motion.div>
     </div>
   );
 }
