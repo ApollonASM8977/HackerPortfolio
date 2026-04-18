@@ -1,5 +1,19 @@
 // © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+const QUOTES = [
+  { text: 'The quieter you become, the more you are able to hear.', author: 'Kali Linux' },
+  { text: 'Security is not a product, but a process.', author: 'Bruce Schneier' },
+  { text: 'The only truly secure system is one that is powered off.', author: 'Gene Spafford' },
+  { text: 'To catch a hacker, you must think like a hacker.', author: 'Unknown' },
+  { text: 'Given enough eyeballs, all bugs are shallow.', author: "Linus's Law" },
+  { text: 'There are only two types of companies: those that have been hacked, and those that will be.', author: 'Robert Mueller' },
+  { text: 'Privacy is not for the paranoid — it is for the prepared.', author: 'Unknown' },
+  { text: 'In cybersecurity, offense informs defense.', author: 'Unknown' },
+  { text: 'Hackers are the immune system of the information age.', author: 'Ralph Nader' },
+  { text: 'The art of war is to subdue the enemy without fighting.', author: 'Sun Tzu' },
+];
 
 const STATS = [
   { label: 'TryHackMe Rank',  value: '[0xA] WIZARD', color: '#00d4ff' },
@@ -47,6 +61,46 @@ const f = (d = 0) => ({
   transition: { duration: 0.5, delay: d },
 });
 
+function QuoteRotator() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx(i => (i + 1) % QUOTES.length);
+        setVisible(true);
+      }, 500);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const q = QUOTES[idx];
+  return (
+    <div className="hacker-panel px-6 py-5 w-full text-center min-h-[96px] flex flex-col items-center justify-center gap-2">
+      <div className="mono text-[#444] text-xs mb-1">$ cat quotes.txt</div>
+      <AnimatePresence mode="wait">
+        {visible && (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <p className="text-[#aaa] text-sm italic leading-6 max-w-lg">
+              "{q.text}"
+            </p>
+            <span className="text-[#00ff41] text-xs mono">— {q.author}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export function AboutSection() {
   return (
     <div className="flex flex-col items-center w-full px-6 py-20 gap-20">
@@ -85,6 +139,11 @@ export function AboutSection() {
             🇺🇸 New Jersey &nbsp;·&nbsp; Originally 🇨🇮 Côte d'Ivoire
           </div>
         </div>
+      </motion.div>
+
+      {/* ── Quote rotator ──────────────────────────────────── */}
+      <motion.div {...f(0.13)} className="w-full max-w-2xl">
+        <QuoteRotator />
       </motion.div>
 
       {/* ── Stats ──────────────────────────────────────────── */}

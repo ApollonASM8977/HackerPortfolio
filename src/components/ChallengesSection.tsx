@@ -10,6 +10,9 @@ import { Base64Challenge }  from './challenges/Base64Challenge';
 import { BinaryChallenge }  from './challenges/BinaryChallenge';
 import { VigenereChallenge } from './challenges/VigenereChallenge';
 import { NetworkChallenge } from './challenges/NetworkChallenge';
+import { ROT13Challenge }   from './challenges/ROT13Challenge';
+import { JWTChallenge }     from './challenges/JWTChallenge';
+import { XSSChallenge }     from './challenges/XSSChallenge';
 
 const CHALLENGES = [
   {
@@ -83,6 +86,36 @@ const CHALLENGES = [
     component: NetworkChallenge,
   },
   {
+    id: 'rot13',
+    icon: <Key className="w-5 h-5" />,
+    title: 'ROT13 Cipher',
+    category: 'CRYPTO',
+    difficulty: 'Easy',
+    diffColor: '#00ff41',
+    description: 'Decode ROT13-encoded messages — the classic rotation cipher where every letter shifts by 13.',
+    component: ROT13Challenge,
+  },
+  {
+    id: 'jwt',
+    icon: <Shield className="w-5 h-5" />,
+    title: 'JWT Decode',
+    category: 'WEB',
+    difficulty: 'Medium',
+    diffColor: '#ffcc00',
+    description: 'Decode a JSON Web Token and discover why the "none" algorithm is a critical vulnerability.',
+    component: JWTChallenge,
+  },
+  {
+    id: 'xss',
+    icon: <Code2 className="w-5 h-5" />,
+    title: 'XSS Hunter',
+    category: 'WEB',
+    difficulty: 'Medium',
+    diffColor: '#ff6b6b',
+    description: 'Identify XSS vulnerabilities in PHP and JavaScript code. Spot, classify, and bypass filters.',
+    component: XSSChallenge,
+  },
+  {
     id: 'sql',
     icon: <Database className="w-5 h-5" />,
     title: 'SQL Injection',
@@ -121,7 +154,7 @@ export function ChallengesSection() {
           Hacking <span className="text-[#00ff41]">Challenges</span>
         </h2>
         <p className="text-[#555] text-sm max-w-xl mx-auto mb-5">
-          8 interactive challenges across Linux, crypto, encoding, network recon and web exploitation.
+          11 interactive challenges across Linux, crypto, encoding, network recon and web exploitation.
         </p>
 
         {/* Score */}
