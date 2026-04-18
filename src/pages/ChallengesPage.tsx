@@ -14,7 +14,7 @@ export function ChallengesPage({ navigate }: { navigate: (p: Page) => void }) {
         <span className="text-[#1e2d42] text-xs">·</span>
         <span className="mono text-[#333] text-xs">ctf_challenges.sh</span>
         <div className="ml-auto">
-          <span className="mono text-[#00d4ff] text-xs">11 challenges</span>
+          <span className="mono text-[#00d4ff] text-xs">13 challenges</span>
         </div>
       </div>
       <ChallengesSection />

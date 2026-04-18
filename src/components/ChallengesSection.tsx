@@ -1,18 +1,20 @@
 // © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, Key, Hash, Database, Trophy, Lock, Binary, Network, Shield, Code2 } from 'lucide-react';
-import { LinuxTerminal }    from './challenges/LinuxTerminal';
-import { CaesarChallenge }  from './challenges/CaesarChallenge';
-import { HashChallenge }    from './challenges/HashChallenge';
-import { SQLChallenge }     from './challenges/SQLChallenge';
-import { Base64Challenge }  from './challenges/Base64Challenge';
-import { BinaryChallenge }  from './challenges/BinaryChallenge';
-import { VigenereChallenge } from './challenges/VigenereChallenge';
-import { NetworkChallenge } from './challenges/NetworkChallenge';
-import { ROT13Challenge }   from './challenges/ROT13Challenge';
-import { JWTChallenge }     from './challenges/JWTChallenge';
-import { XSSChallenge }     from './challenges/XSSChallenge';
+import { Terminal, Key, Hash, Database, Trophy, Lock, Binary, Network, Shield, Code2, Eye, Cpu } from 'lucide-react';
+import { LinuxTerminal }         from './challenges/LinuxTerminal';
+import { CaesarChallenge }       from './challenges/CaesarChallenge';
+import { HashChallenge }         from './challenges/HashChallenge';
+import { SQLChallenge }          from './challenges/SQLChallenge';
+import { Base64Challenge }       from './challenges/Base64Challenge';
+import { BinaryChallenge }       from './challenges/BinaryChallenge';
+import { VigenereChallenge }     from './challenges/VigenereChallenge';
+import { NetworkChallenge }      from './challenges/NetworkChallenge';
+import { ROT13Challenge }        from './challenges/ROT13Challenge';
+import { JWTChallenge }          from './challenges/JWTChallenge';
+import { XSSChallenge }          from './challenges/XSSChallenge';
+import { SteganographyChallenge} from './challenges/SteganographyChallenge';
+import { ObfuscationChallenge }  from './challenges/ObfuscationChallenge';
 
 const CHALLENGES = [
   {
@@ -125,6 +127,26 @@ const CHALLENGES = [
     description: 'Exploit a vulnerable login form with SQL injection, then dump the entire database.',
     component: SQLChallenge,
   },
+  {
+    id: 'steganography',
+    icon: <Eye className="w-5 h-5" />,
+    title: 'Steganography',
+    category: 'STEGO',
+    difficulty: 'Medium',
+    diffColor: '#00ff41',
+    description: 'Hidden in plain sight — acrostic poem, matrix diagonals, and character position extraction.',
+    component: SteganographyChallenge,
+  },
+  {
+    id: 'obfuscation',
+    icon: <Cpu className="w-5 h-5" />,
+    title: 'Code Obfuscation',
+    category: 'REVERSE',
+    difficulty: 'Hard',
+    diffColor: '#a855f7',
+    description: 'Deobfuscate JavaScript CharCode arrays, eval(atob(…)), and Python chr() exec chains.',
+    component: ObfuscationChallenge,
+  },
 ];
 
 export function ChallengesSection() {
@@ -154,7 +176,7 @@ export function ChallengesSection() {
           Hacking <span className="text-[#00ff41]">Challenges</span>
         </h2>
         <p className="text-[#555] text-sm max-w-xl mx-auto mb-5">
-          11 interactive challenges across Linux, crypto, encoding, network recon and web exploitation.
+          13 interactive challenges across Linux, crypto, encoding, stego, reversing and web exploitation.
         </p>
 
         {/* Score */}
@@ -211,12 +233,15 @@ export function ChallengesSection() {
           >
             {/* Card */}
             <div
-              className={`hacker-panel cursor-pointer transition-all duration-300 ${
+              className={`hacker-panel transition-all duration-300 ${
                 solved.has(c.id) ? 'border-[#00ff4133]' : ''
               } ${active === c.id ? 'border-[#00ff4144]' : ''}`}
-              onClick={() => setActive(active === c.id ? null : c.id)}
             >
-              <div className="p-4">
+              {/* Clickable header only */}
+              <div
+                className="p-4 cursor-pointer select-none"
+                onClick={() => setActive(active === c.id ? null : c.id)}
+              >
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center gap-3">
                     <div className={`p-2 rounded border ${
@@ -242,14 +267,14 @@ export function ChallengesSection() {
                       </div>
                     </div>
                   </div>
-                  <span className="text-[#333] text-sm select-none">
+                  <span className="text-[#333] text-sm">
                     {active === c.id ? '▲' : '▼'}
                   </span>
                 </div>
                 <p className="text-[#4a5568] text-xs leading-5">{c.description}</p>
-              </div>
+              </div>{/* end clickable header */}
 
-              {/* Expanded */}
+              {/* Expanded — clicks inside do NOT bubble to the toggle */}
               <AnimatePresence>
                 {active === c.id && (
                   <motion.div
@@ -258,6 +283,7 @@ export function ChallengesSection() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
+                    onClick={e => e.stopPropagation()}
                   >
                     <div className="border-t border-[#1a2332] p-4">
                       <c.component onSolve={() => handleSolve(c.id)} />

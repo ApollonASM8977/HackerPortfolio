@@ -11,13 +11,26 @@ import { ContactPage }   from './pages/ContactPage';
 
 export type Page = 'home' | 'about' | 'challenges' | 'projects' | 'contact';
 
+const PAGE_ORDER: Record<Page, number> = {
+  home: 0, about: 1, challenges: 2, projects: 3, contact: 4,
+};
+
+function getTransitionClasses(from: Page, to: Page): { exit: string; enter: string } {
+  const f = PAGE_ORDER[from];
+  const t = PAGE_ORDER[to];
+  if (f === t) return { exit: 'page-exit', enter: 'page-enter' };
+  if (t > f)   return { exit: 'page-exit-left',  enter: 'page-enter-right' };
+                return { exit: 'page-exit-right', enter: 'page-enter-left'  };
+}
+
 export default function App() {
   const [page, setPage]       = useState<Page>('home');
   const [animClass, setAnim]  = useState('page-enter');
 
   const navigate = (to: Page) => {
-    setAnim('page-exit');
-    setTimeout(() => { setPage(to); setAnim('page-enter'); }, 200);
+    const { exit, enter } = getTransitionClasses(page, to);
+    setAnim(exit);
+    setTimeout(() => { setPage(to); setAnim(enter); }, 220);
   };
 
   // Reset scroll on page change
