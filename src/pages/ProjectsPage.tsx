@@ -5,27 +5,19 @@ import type { Page } from '../App';
 
 export function ProjectsPage({ navigate }: { navigate: (p: Page) => void }) {
   return (
-    <div className="relative z-10 min-h-screen w-full">
-
-      {/* ── Top bar ─────────────────────────────────────── */}
+    <div className="relative z-10 min-h-screen flex flex-col">
       <div className="sticky top-0 z-50 flex items-center gap-4 px-6 py-4
                       border-b border-[#0f1923] bg-[#070b10]/95 backdrop-blur-sm">
         <button className="back-btn" onClick={() => navigate('home')}>
-          <ChevronLeft className="w-4 h-4" />
-          home
+          <ChevronLeft className="w-4 h-4" />home
         </button>
         <span className="text-[#1e2d42] text-xs">·</span>
         <span className="mono text-[#333] text-xs">projects.sh</span>
-
         <div className="ml-auto">
           <span className="mono text-[#a855f7] text-xs">6 projects</span>
         </div>
       </div>
-
-      {/* ── Content ─────────────────────────────────────── */}
-      <div className="w-full">
-        <ProjectsSection />
-      </div>
+      <ProjectsSection />
     </div>
   );
 }

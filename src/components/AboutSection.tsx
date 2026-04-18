@@ -1,6 +1,5 @@
 // © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
 import { motion } from 'framer-motion';
-import { Terminal } from 'lucide-react';
 
 const STATS = [
   { label: 'TryHackMe Rank',  value: '[0xA] WIZARD', color: '#00d4ff' },
@@ -42,165 +41,151 @@ const INTERESTS = [
   '💻 Full-Stack Web Development',
 ];
 
-/* tiny fade-up helper */
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 22 },
+const f = (d = 0) => ({
+  initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, delay },
+  transition: { duration: 0.5, delay: d },
 });
 
 export function AboutSection() {
   return (
-    <section className="relative z-10 w-full px-6 py-20">
-      <div className="max-w-4xl mx-auto flex flex-col gap-20">
+    <div className="flex flex-col items-center w-full px-6 py-20 gap-20">
 
-        {/* ── Header ─────────────────────────────────────────── */}
-        <motion.div {...fadeUp(0)} className="text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            About <span className="text-[#00ff41]">Me</span>
-          </h2>
-          <p className="text-[#555] text-sm max-w-lg mx-auto leading-7">
-            Security researcher, full-stack developer, and CTF player — based in New Jersey.
-          </p>
-        </motion.div>
+      {/* ── Title ──────────────────────────────────────────── */}
+      <motion.div {...f(0)} className="text-center">
+        <h2 className="text-4xl font-bold text-white mb-4">
+          About <span className="text-[#00ff41]">Me</span>
+        </h2>
+        <p className="text-[#555] text-sm leading-7">
+          Security researcher, full-stack developer & CTF player — New Jersey, USA
+        </p>
+      </motion.div>
 
-        {/* ── Bio ────────────────────────────────────────────── */}
-        <motion.div {...fadeUp(0.1)} className="max-w-2xl mx-auto w-full space-y-5 text-center">
-          <p className="text-[#aaa] leading-8 text-sm">
-            I'm a cybersecurity graduate student at{' '}
-            <span className="text-[#00ff41]">Montclair State University</span>,
-            passionate about breaking and building secure systems.
-            I specialize in cryptography, ethical hacking, and full-stack development.
-          </p>
-          <p className="text-[#aaa] leading-8 text-sm">
-            On TryHackMe I hold the rank{' '}
-            <span className="text-[#00d4ff] font-bold">[0xA] WIZARD</span>, placing me in the{' '}
-            <span className="text-[#ffcc00]">top 4%</span> worldwide
-            with 21 badges and 98 completed rooms.
-          </p>
+      {/* ── Bio ────────────────────────────────────────────── */}
+      <motion.div {...f(0.1)} className="flex flex-col items-center gap-5 w-full max-w-2xl text-center">
+        <p className="text-[#aaa] leading-8 text-sm">
+          I'm a cybersecurity graduate student at{' '}
+          <span className="text-[#00ff41]">Montclair State University</span>, passionate about
+          breaking and building secure systems. I specialize in cryptography, ethical hacking,
+          and full-stack development.
+        </p>
+        <p className="text-[#aaa] leading-8 text-sm">
+          On TryHackMe I hold the rank{' '}
+          <span className="text-[#00d4ff] font-bold">[0xA] WIZARD</span>, placing me in the{' '}
+          <span className="text-[#ffcc00]">top 4%</span> worldwide with 21 badges and 98 rooms.
+        </p>
 
-          {/* Status + Location */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <div className="hacker-panel px-5 py-3 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#00ff41] animate-pulse" />
-              <span className="mono text-[#00ff41] text-xs">Open to opportunities</span>
-              <span className="text-[#333] text-xs">Remote • On-site</span>
-            </div>
-            <div className="hacker-panel px-5 py-3 text-xs text-[#aaa] mono">
-              🇺🇸 New Jersey, USA &nbsp;·&nbsp; Originally 🇨🇮 Côte d'Ivoire
-            </div>
+        {/* Status + location pills */}
+        <div className="flex flex-wrap justify-center gap-3 pt-2">
+          <div className="hacker-panel px-5 py-3 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#00ff41] animate-pulse" />
+            <span className="mono text-[#00ff41] text-xs">Open to opportunities</span>
           </div>
-        </motion.div>
+          <div className="hacker-panel px-5 py-3 mono text-[#aaa] text-xs">
+            🇺🇸 New Jersey &nbsp;·&nbsp; Originally 🇨🇮 Côte d'Ivoire
+          </div>
+        </div>
+      </motion.div>
 
-        {/* ── Stats ──────────────────────────────────────────── */}
-        <motion.div {...fadeUp(0.15)}>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {STATS.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 + i * 0.08 }}
-                className="hacker-panel p-5 text-center"
+      {/* ── Stats ──────────────────────────────────────────── */}
+      <motion.div {...f(0.15)} className="w-full max-w-2xl">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {STATS.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 + i * 0.08 }}
+              className="hacker-panel p-5 flex flex-col items-center gap-1"
+            >
+              <div
+                className="text-xl font-bold mono"
+                style={{ color: s.color, textShadow: `0 0 10px ${s.color}88` }}
               >
-                <div
-                  className="text-xl font-bold mono mb-1"
-                  style={{ color: s.color, textShadow: `0 0 10px ${s.color}88` }}
-                >
-                  {s.value}
-                </div>
-                <div className="text-[#444] text-xs">{s.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* ── Interests ──────────────────────────────────────── */}
-        <motion.div {...fadeUp(0.2)} className="max-w-2xl mx-auto w-full">
-          <div className="hacker-panel p-6">
-            <div className="text-xs text-[#444] mono mb-4">$ cat interests.txt</div>
-            <ul className="space-y-3">
-              {INTERESTS.map(item => (
-                <li key={item} className="text-[#aaa] text-xs flex items-center gap-3">
-                  <span className="text-[#00ff41]">›</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* ── Skills ─────────────────────────────────────────── */}
-        <motion.div {...fadeUp(0.25)}>
-          <div className="flex items-center gap-4 mb-8">
-            <Terminal className="w-4 h-4 text-[#333]" />
-            <span className="text-[#333] text-xs mono">$ cat /etc/skills</span>
-            <div className="flex-1 h-px bg-[#0f1923]" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6">
-            {SKILLS.map((skill, i) => (
-              <div key={i}>
-                <div className="flex justify-between text-xs mono mb-2">
-                  <span className="text-[#bbb]">{skill.name}</span>
-                  <span style={{ color: skill.color }}>{skill.pct}%</span>
-                </div>
-                <div className="skill-bar">
-                  <motion.div
-                    className="skill-bar-fill"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.pct}%` }}
-                    transition={{ duration: 1.2, delay: 0.3 + i * 0.07, ease: 'easeOut' }}
-                    style={{ background: `linear-gradient(90deg, ${skill.color}55, ${skill.color})` }}
-                  />
-                </div>
+                {s.value}
               </div>
+              <div className="text-[#444] text-xs text-center">{s.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ── Interests ──────────────────────────────────────── */}
+      <motion.div {...f(0.2)} className="w-full max-w-lg">
+        <div className="hacker-panel p-6">
+          <div className="mono text-xs text-[#444] mb-4 text-center">$ cat interests.txt</div>
+          <ul className="flex flex-col gap-3">
+            {INTERESTS.map(item => (
+              <li key={item} className="flex items-center justify-center gap-3 text-[#aaa] text-xs">
+                <span className="text-[#00ff41]">›</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* ── Skills ─────────────────────────────────────────── */}
+      <motion.div {...f(0.25)} className="w-full max-w-2xl flex flex-col gap-6">
+        <p className="mono text-[#333] text-xs text-center">$ cat /etc/skills</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-5">
+          {SKILLS.map((skill, i) => (
+            <div key={i}>
+              <div className="flex justify-between mono text-xs mb-2">
+                <span className="text-[#bbb]">{skill.name}</span>
+                <span style={{ color: skill.color }}>{skill.pct}%</span>
+              </div>
+              <div className="skill-bar">
+                <motion.div
+                  className="skill-bar-fill"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${skill.pct}%` }}
+                  transition={{ duration: 1.2, delay: 0.3 + i * 0.07, ease: 'easeOut' }}
+                  style={{ background: `linear-gradient(90deg, ${skill.color}55, ${skill.color})` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ── Tools ──────────────────────────────────────────── */}
+      <motion.div {...f(0.3)} className="w-full max-w-2xl flex flex-col items-center gap-4">
+        <p className="mono text-[#333] text-xs">$ ls /usr/share/tools/</p>
+        <div className="hacker-panel p-6 w-full">
+          <div className="flex flex-wrap justify-center gap-2">
+            {TOOLS.map(t => (
+              <span
+                key={t}
+                className="px-3 py-1 text-xs border border-[#1a2332] text-[#00d4ff]
+                           rounded-md hover:border-[#00d4ff55] transition-colors cursor-default mono"
+              >
+                {t}
+              </span>
             ))}
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        {/* ── Tools + Certs ──────────────────────────────────── */}
-        <motion.div {...fadeUp(0.3)} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-          {/* Tools */}
-          <div className="hacker-panel p-6">
-            <div className="text-xs text-[#444] mono mb-5">$ ls /usr/share/tools/</div>
-            <div className="flex flex-wrap gap-2">
-              {TOOLS.map(t => (
-                <span
-                  key={t}
-                  className="px-3 py-1 text-xs border border-[#1a2332] text-[#00d4ff] rounded-md
-                             hover:border-[#00d4ff55] transition-colors cursor-default mono"
-                >
-                  {t}
-                </span>
-              ))}
+      {/* ── Certs ──────────────────────────────────────────── */}
+      <motion.div {...f(0.35)} className="w-full max-w-2xl flex flex-col items-center gap-4">
+        <p className="mono text-[#333] text-xs">$ cat certifications.txt</p>
+        <div className="hacker-panel p-6 w-full flex flex-col gap-4">
+          {CERTS.map((c, i) => (
+            <div key={i} className="flex items-center gap-4">
+              <span className="text-lg shrink-0">{c.icon}</span>
+              <span className="flex-1 text-[#bbb] text-xs">{c.name}</span>
+              <span
+                className="text-xs px-2 py-0.5 rounded mono shrink-0"
+                style={{ color: c.color, background: c.color + '18', border: `1px solid ${c.color}44` }}
+              >
+                {c.status}
+              </span>
             </div>
-          </div>
+          ))}
+        </div>
+      </motion.div>
 
-          {/* Certs */}
-          <div className="hacker-panel p-6">
-            <div className="text-xs text-[#444] mono mb-5">$ cat certifications.txt</div>
-            <div className="space-y-4">
-              {CERTS.map((c, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span className="text-base shrink-0">{c.icon}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[#bbb] text-xs truncate">{c.name}</div>
-                  </div>
-                  <span
-                    className="text-xs px-2 py-0.5 rounded mono shrink-0"
-                    style={{ color: c.color, background: c.color + '18', border: `1px solid ${c.color}44` }}
-                  >
-                    {c.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-      </div>
-    </section>
+    </div>
   );
 }

@@ -108,14 +108,14 @@ export function ChallengesSection() {
   const allSolved = solved.size === CHALLENGES.length;
 
   return (
-    <section className="relative z-10 max-w-5xl mx-auto px-6 py-16">
+    <section className="relative z-10 flex flex-col items-center w-full px-6 py-20">
 
       {/* ── Header ─────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-10 text-center"
+        className="text-center mb-10 w-full max-w-2xl"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
           Hacking <span className="text-[#00ff41]">Challenges</span>
@@ -137,7 +137,7 @@ export function ChallengesSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-8 hacker-panel px-4 py-3 flex items-center gap-4"
+        className="mb-8 hacker-panel px-4 py-3 flex items-center gap-4 w-full max-w-2xl"
       >
         <Lock className="w-4 h-4 text-[#666] shrink-0" />
         <div className="flex-1 skill-bar">
@@ -158,7 +158,7 @@ export function ChallengesSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="mb-8 hacker-panel p-6 text-center border border-[#00ff41]"
+            className="mb-8 hacker-panel p-6 text-center border border-[#00ff41] w-full max-w-2xl"
           >
             <div className="text-3xl mb-2">🏆</div>
             <div className="text-[#00ff41] text-xl font-bold glow-green">ALL CHALLENGES SOLVED!</div>
@@ -168,7 +168,7 @@ export function ChallengesSection() {
       </AnimatePresence>
 
       {/* ── Challenge grid ─────────────────────────────────── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
         {CHALLENGES.map((c, i) => (
           <motion.div
             key={c.id}
