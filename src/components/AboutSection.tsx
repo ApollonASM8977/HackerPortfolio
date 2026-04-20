@@ -1,6 +1,109 @@
 // © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { GlitchText } from './GlitchText';
+
+/* ── Animated counter hook ───────────────────────────── */
+function useAnimatedCounter(target: number, duration = 1400) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3);
+          setCount(Math.round(target * ease));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [target, duration]);
+
+  return { count, ref };
+}
+
+/* ── Hash identifier ─────────────────────────────────── */
+function identifyHash(h: string): { type: string; bits: number | null; color: string } {
+  const s = h.trim();
+  if (!s) return { type: '', bits: null, color: '#444' };
+  if (/^\$2[aby]\$/.test(s)) return { type: 'bcrypt', bits: null, color: '#a855f7' };
+  if (/^\$1\$/.test(s))      return { type: 'MD5-crypt', bits: null, color: '#ffcc00' };
+  if (/^\$6\$/.test(s))      return { type: 'SHA-512-crypt', bits: null, color: '#ff0040' };
+  if (/^\$5\$/.test(s))      return { type: 'SHA-256-crypt', bits: null, color: '#ffcc00' };
+  const hex = /^[0-9a-fA-F]+$/.test(s);
+  if (hex) {
+    const map: Record<number, [string, number, string]> = {
+      32:  ['MD5',     128, '#ffcc00'],
+      40:  ['SHA-1',   160, '#ff6b6b'],
+      56:  ['SHA-224', 224, '#00d4ff'],
+      64:  ['SHA-256', 256, '#00ff41'],
+      96:  ['SHA-384', 384, '#00d4ff'],
+      128: ['SHA-512', 512, '#a855f7'],
+    };
+    const m = map[s.length];
+    if (m) return { type: m[0], bits: m[1], color: m[2] };
+  }
+  if (/^[A-Za-z0-9+/=]+$/.test(s)) {
+    const b64map: Record<number, [string, number, string]> = {
+      24: ['MD5 (Base64)',     128, '#ffcc00'],
+      28: ['SHA-1 (Base64)',   160, '#ff6b6b'],
+      44: ['SHA-256 (Base64)', 256, '#00ff41'],
+      88: ['SHA-512 (Base64)', 512, '#a855f7'],
+    };
+    const m = b64map[s.length];
+    if (m) return { type: m[0], bits: m[1], color: m[2] };
+    return { type: 'Possible Base64 / unknown', bits: null, color: '#444' };
+  }
+  return { type: `Unknown (${s.length} chars)`, bits: null, color: '#444' };
+}
+
+function HashIdentifier() {
+  const [input, setInput] = useState('');
+  const result = identifyHash(input);
+
+  return (
+    <div className="hacker-panel p-5 w-full flex flex-col gap-3">
+      <div className="mono text-[#333] text-xs">$ hash-identifier — paste any hash</div>
+      <input
+        value={input}
+        onChange={e => setInput(e.target.value)}
+        placeholder="5f4dcc3b5aa765d61d8327deb882cf99"
+        className="bg-transparent border border-[#1a2332] rounded px-3 py-2 mono text-xs
+                   text-[#e2e8f0] outline-none focus:border-[#00ff4155] transition-colors placeholder:text-[#333]"
+      />
+      {input && (
+        <motion.div initial={{ opacity:0, y:4 }} animate={{ opacity:1, y:0 }}
+          className="flex items-center gap-3">
+          <span className="mono font-bold text-sm" style={{ color: result.color }}>{result.type}</span>
+          {result.bits && <span className="mono text-[#444] text-xs">({result.bits}-bit)</span>}
+        </motion.div>
+      )}
+      <div className="flex flex-wrap gap-1.5">
+        {[
+          ['MD5 sample',    '5f4dcc3b5aa765d61d8327deb882cf99'],
+          ['SHA-256 sample','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'],
+          ['bcrypt sample', '$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW'],
+        ].map(([label, val]) => (
+          <button key={label} onClick={() => setInput(val)}
+            className="mono text-[10px] px-2 py-0.5 rounded border border-[#1a2332] text-[#333]
+                       hover:text-[#00ff41] hover:border-[#00ff4144] transition-colors">
+            {label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /* ───────────────────── DATA ────────────────────────── */
 const QUOTES = [
@@ -201,6 +304,26 @@ function Timeline() {
   );
 }
 
+/* ── Animated stat card ──────────────────────────────── */
+function AnimatedStatCard({ stat, delay }: { stat: typeof STATS[0]; delay: number }) {
+  // Parse numeric value (e.g. "98", "21", "Top 4%")
+  const numeric = parseInt(stat.value.replace(/\D/g, ''));
+  const isNumeric = !isNaN(numeric) && String(numeric).length > 0 && /^\d/.test(stat.value.replace(/\D/, ''));
+  const { count, ref } = useAnimatedCounter(isNumeric ? numeric : 0);
+  const display = isNumeric ? stat.value.replace(String(numeric), String(count)) : stat.value;
+
+  return (
+    <motion.div ref={ref} initial={{ opacity:0, scale:0.9 }} animate={{ opacity:1, scale:1 }}
+      transition={{ delay }} className="hacker-panel p-5 flex flex-col items-center gap-1">
+      <div className="text-xl font-bold mono"
+        style={{ color: stat.color, textShadow:`0 0 10px ${stat.color}88` }}>
+        {display}
+      </div>
+      <div className="text-[#444] text-xs text-center">{stat.label}</div>
+    </motion.div>
+  );
+}
+
 /* ───────────────────── MAIN ────────────────────────── */
 export function AboutSection() {
   return (
@@ -209,7 +332,7 @@ export function AboutSection() {
       {/* Title + CV */}
       <motion.div {...f(0)} className="text-center flex flex-col items-center gap-4">
         <h2 className="text-4xl font-bold text-white mb-1">
-          About <span className="text-[#00ff41]">Me</span>
+          About <GlitchText color="#00ff41">Me</GlitchText>
         </h2>
         <p className="text-[#555] text-sm leading-7">
           Security researcher, full-stack developer & CTF player — New Jersey, USA
@@ -250,20 +373,10 @@ export function AboutSection() {
         <QuoteRotator />
       </motion.div>
 
-      {/* Stats */}
+      {/* Stats — animated counters */}
       <motion.div {...f(0.15)} className="w-full max-w-2xl">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {STATS.map((s, i) => (
-            <motion.div key={i} initial={{ opacity:0, scale:0.9 }} animate={{ opacity:1, scale:1 }}
-              transition={{ delay: 0.2 + i * 0.08 }}
-              className="hacker-panel p-5 flex flex-col items-center gap-1">
-              <div className="text-xl font-bold mono"
-                style={{ color: s.color, textShadow: `0 0 10px ${s.color}88` }}>
-                {s.value}
-              </div>
-              <div className="text-[#444] text-xs text-center">{s.label}</div>
-            </motion.div>
-          ))}
+          {STATS.map((s, i) => <AnimatedStatCard key={i} stat={s} delay={0.2 + i * 0.08} />)}
         </div>
       </motion.div>
 
@@ -312,6 +425,12 @@ export function AboutSection() {
             ))}
           </ul>
         </div>
+      </motion.div>
+
+      {/* Hash Identifier mini-tool */}
+      <motion.div {...f(0.28)} className="w-full max-w-2xl flex flex-col gap-3">
+        <p className="mono text-[#333] text-xs text-center">$ hash-identifier — live tool</p>
+        <HashIdentifier />
       </motion.div>
 
       {/* Tools */}

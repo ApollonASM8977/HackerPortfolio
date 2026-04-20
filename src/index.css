@@ -108,6 +108,95 @@ body {
 .page-enter-scale    { animation: scaleIn        0.35s ease forwards; }
 .page-exit-scale     { animation: scaleOut       0.2s  ease forwards; }
 
+/* ── Glitch text effect ────────────────────────────── */
+.glitch-wrap {
+  position: relative;
+  display: inline-block;
+}
+.glitch-wrap::before,
+.glitch-wrap::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.glitch-wrap::before {
+  color: #00d4ff;
+  animation: glitch-top 6s infinite linear;
+  clip-path: polygon(0 0, 100% 0, 100% 38%, 0 38%);
+}
+.glitch-wrap::after {
+  color: #ff0040;
+  animation: glitch-bot 6s 0.2s infinite linear;
+  clip-path: polygon(0 62%, 100% 62%, 100% 100%, 0 100%);
+}
+@keyframes glitch-top {
+  0%,86%,93%,100% { transform:translate(0);   opacity:0; }
+  87% { transform:translate(-3px, 1px);  opacity:0.85; }
+  88% { transform:translate( 3px,-1px);  opacity:0; }
+  89% { transform:translate(-2px, 2px);  opacity:0.85; }
+  90% { transform:translate( 2px,-2px);  opacity:0; }
+}
+@keyframes glitch-bot {
+  0%,86%,93%,100% { transform:translate(0);   opacity:0; }
+  87% { transform:translate( 3px, 1px);  opacity:0.85; }
+  88% { transform:translate(-3px,-1px);  opacity:0; }
+  89% { transform:translate( 2px,-2px);  opacity:0.85; }
+  90% { transform:translate(-2px, 2px);  opacity:0; }
+}
+
+/* ── Neon animated border (conic-gradient rotate) ──── */
+@property --border-angle {
+  syntax: '<angle>'; inherits: true; initial-value: 0deg;
+}
+@keyframes border-spin { to { --border-angle: 360deg; } }
+.neon-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#070b10, #070b10) padding-box,
+    conic-gradient(from var(--border-angle), #00ff4100, #00ff41, #00d4ff, #00ff41, #00ff4100) border-box;
+  animation: border-spin 4s linear infinite;
+}
+
+/* ── Hex grid background ───────────────────────────── */
+.hex-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V18L28 2l28 16v32z' fill='none' stroke='%2300ff41' stroke-width='0.4' opacity='0.18'/%3E%3Cpath d='M28 100L0 84V52l28-16 28 16v32z' fill='none' stroke='%2300ff41' stroke-width='0.4' opacity='0.18'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+}
+
+/* ── Decrypt / scramble text anim ─────────────────── */
+@keyframes decrypt-flicker {
+  0%,100% { opacity:1; }
+  50% { opacity:0.6; }
+}
+.decrypt-done { animation: decrypt-flicker 0.15s ease; }
+
+/* ── 3-D card tilt ─────────────────────────────────── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  will-change: transform;
+}
+.tilt-card:hover .tilt-shine {
+  opacity: 1;
+}
+.tilt-shine {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%);
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* ── Pulsing neon ring (status badge) ─────────────── */
+@keyframes neon-pulse {
+  0%,100% { box-shadow: 0 0 4px #00ff41, 0 0 8px #00ff4155; }
+  50%      { box-shadow: 0 0 10px #00ff41, 0 0 22px #00ff4166; }
+}
+.neon-pulse-ring { animation: neon-pulse 2s ease infinite; }
+
 /* ── Skill bar ─────────────────────────────────────── */
 .skill-bar { height: 5px; background: #1a2332; border-radius: 3px; overflow: hidden; }
 .skill-fill     { height: 100%; border-radius: 3px; transition: width 1.4s ease; }

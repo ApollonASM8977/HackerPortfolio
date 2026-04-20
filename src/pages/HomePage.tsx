@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Swords, FolderOpen, Mail, ArrowRight } from 'lucide-react';
 import { LiveTerminal } from '../components/LiveTerminal';
+import { GlitchText }  from '../components/GlitchText';
 import type { Page } from '../App';
 
 const ROLES = [
@@ -68,7 +69,7 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
           AM
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-1">
-          Aboubacar <span className="text-[#00ff41]">Sidick</span> Meite
+          Aboubacar <GlitchText color="#00ff41">Sidick</GlitchText> Meite
         </h1>
         <p className="mono text-[#444] text-xs mb-3 tracking-widest">@ApollonIUGB77</p>
         <div className="h-6 flex justify-center items-center mb-4">
@@ -76,12 +77,24 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
             {displayed}<span className="blink text-[#00ff41]">█</span>
           </span>
         </div>
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-2 mb-3">
           {[['🎓 M.S. Cybersecurity','#00ff41'],['🧙 WIZARD Rank','#00d4ff'],['🏆 Top 4%','#ffcc00'],['🛡️ (ISC)² CC','#a855f7']].map(([l,c]) => (
             <span key={l} className="px-3 py-1 text-xs rounded-full mono"
               style={{ color: c, border:`1px solid ${c}44`, background:`${c}11` }}>{l}</span>
           ))}
         </div>
+
+        {/* Currently learning live badge */}
+        <motion.div initial={{ opacity:0, scale:0.95 }} animate={{ opacity:1, scale:1 }}
+          transition={{ delay:0.4 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neon-pulse-ring"
+          style={{ border:'1px solid #00ff4133', background:'#00ff4108' }}>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ff0040] animate-pulse" />
+          <span className="mono text-[10px] text-[#555]">LIVE &nbsp;·&nbsp; </span>
+          <span className="mono text-[10px] text-[#00d4ff]">CompTIA Security+</span>
+          <span className="mono text-[10px] text-[#333]"> &nbsp;·&nbsp; </span>
+          <span className="mono text-[10px] text-[#00ff41]">HTB Season 6</span>
+        </motion.div>
       </motion.div>
 
       {/* ── Live terminal ────────────────────────────────── */}
