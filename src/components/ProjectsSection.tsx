@@ -153,7 +153,7 @@ function GitHubStats() {
 
 export function ProjectsSection() {
   return (
-    <div className="flex flex-col items-center w-full px-6 py-20 gap-12">
+    <div className="flex flex-col items-center w-full px-6 pt-16 pb-32 gap-12">
       <motion.div initial={{ opacity:0, y:24 }} animate={{ opacity:1, y:0 }}
         transition={{ duration:0.5 }} className="text-center">
         <h2 className="text-4xl font-bold text-white mb-4">

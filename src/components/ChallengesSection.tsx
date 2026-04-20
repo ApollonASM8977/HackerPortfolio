@@ -182,7 +182,7 @@ export function ChallengesSection() {
   const allSolved = solved.size === CHALLENGES.length;
 
   return (
-    <section className="relative z-10 flex flex-col items-center w-full px-6 py-20">
+    <section className="relative z-10 flex flex-col items-center w-full px-6 pt-16 pb-32">
 
       {/* ── Header ─────────────────────────────────────────── */}
       <motion.div

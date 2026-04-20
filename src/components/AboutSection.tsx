@@ -156,7 +156,7 @@ const CERTS = [
   { name: '(ISC)² Certified in Cybersecurity (CC)', icon: '🛡️', status: 'Obtained',         color: '#00ff41' },
   { name: 'EC-Council — CSCU',                      icon: '🔐', status: 'Obtained',         color: '#00ff41' },
   { name: 'Fortinet — NSE 2 Network Security',      icon: '🔒', status: 'Obtained',         color: '#00ff41' },
-  { name: 'TryHackMe — Intro to Cybersecurity',     icon: '🧠', status: 'Aug 2024',         color: '#00d4ff' },
+  { name: 'TryHackMe — Intro to Cybersecurity',     icon: '🧠', status: '2023',            color: '#00d4ff' },
   { name: 'CompTIA Security+ / Network+',           icon: '📡', status: 'In progress 2026', color: '#ffcc00' },
 ];
 
@@ -169,12 +169,13 @@ const INTERESTS = [
 ];
 
 const TIMELINE = [
-  { year: '2021', title: 'B.S. Computer Science', place: 'University of Côte d\'Ivoire 🇨🇮', color: '#00ff41' },
-  { year: '2023', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ 🇺🇸', color: '#00d4ff' },
-  { year: '2024', title: '(ISC)² CC Certification', place: 'Certified in Cybersecurity', color: '#a855f7' },
-  { year: '2024', title: 'TryHackMe WIZARD [0xA]', place: 'Top 4% worldwide — 21 badges', color: '#ffcc00' },
-  { year: '2025', title: '98+ Rooms completed', place: 'TryHackMe | 13 CTF challenges built', color: '#ff6b6b' },
-  { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + Security+ / Network+', color: '#00ff41' },
+  { year: '2019', title: 'B.S. Computer Science — Started', place: 'Université de Côte d\'Ivoire 🇨🇮', color: '#00ff41' },
+  { year: '2022', title: 'TryHackMe — First room', place: 'Started ethical hacking journey', color: '#00d4ff' },
+  { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide — 21 badges earned', color: '#ffcc00' },
+  { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ 🇺🇸', color: '#a855f7' },
+  { year: '2024', title: '(ISC)² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
+  { year: '2025', title: '98+ Rooms · 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
+  { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
 ];
 
 /* ───────────────────── HELPERS ─────────────────────── */
@@ -327,7 +328,7 @@ function AnimatedStatCard({ stat, delay }: { stat: typeof STATS[0]; delay: numbe
 /* ───────────────────── MAIN ────────────────────────── */
 export function AboutSection() {
   return (
-    <div className="flex flex-col items-center w-full px-6 py-20 gap-20">
+    <div className="flex flex-col items-center w-full px-6 pt-16 pb-32 gap-20">
 
       {/* Title + CV */}
       <motion.div {...f(0)} className="text-center flex flex-col items-center gap-4">

@@ -54,7 +54,7 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
   }, [displayed, deleting, roleIdx]);
 
   return (
-    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-10 gap-7">
+    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-10 pb-28 gap-7">
 
       {/* ── Identity ─────────────────────────────────────── */}
       <motion.div

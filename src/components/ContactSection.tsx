@@ -48,7 +48,7 @@ export function ContactSection() {
                     focus:border-[#00ff4155] transition-colors`;
 
   return (
-    <div className="flex flex-col items-center w-full px-6 py-20 gap-16">
+    <div className="flex flex-col items-center w-full px-6 pt-16 pb-32 gap-16">
 
       {/* ── Title */}
       <motion.div initial={{ opacity:0, y:24 }} animate={{ opacity:1, y:0 }}
