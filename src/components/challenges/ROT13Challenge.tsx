@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -121,10 +121,10 @@ export function ROT13Challenge({ onSolve }: Props) {
         className="font-mono text-xs px-3 py-2 rounded"
         style={{ background: '#0d1117', border: '1px solid #1a2332', color: '#555' }}
       >
-        💡 Hint: {level.hint}
+        ðŸ’¡ Hint: {level.hint}
         {level.level3hint && (
           <div className="mt-1" style={{ color: '#00ff4188' }}>
-            🚩 {level.level3hint}
+            ðŸš© {level.level3hint}
           </div>
         )}
       </div>
@@ -206,7 +206,7 @@ export function ROT13Challenge({ onSolve }: Props) {
             style={{ color: '#00ff41' }}
           >
             <CheckCircle size={14} />
-            ✓ Correct! FLAG: {level.flag}
+            âœ“ Correct! FLAG: {level.flag}
           </motion.div>
         )}
         {status === 'wrong' && (
@@ -219,7 +219,7 @@ export function ROT13Challenge({ onSolve }: Props) {
             style={{ color: '#ff4444' }}
           >
             <XCircle size={14} />
-            ✗ Incorrect. Try again.
+            âœ— Incorrect. Try again.
           </motion.div>
         )}
       </AnimatePresence>
@@ -229,7 +229,7 @@ export function ROT13Challenge({ onSolve }: Props) {
         <div className="flex flex-col gap-1 mt-1">
           {solvedFlags.map((_f, i) => (
             <div key={i} className="font-mono text-xs" style={{ color: '#00ff4166' }}>
-              ✓ Level {i + 1} solved
+              âœ“ Level {i + 1} solved
             </div>
           ))}
         </div>
@@ -237,3 +237,4 @@ export function ROT13Challenge({ onSolve }: Props) {
     </div>
   );
 }
+

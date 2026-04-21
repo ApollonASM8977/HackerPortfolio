@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 
 // Pre-computed MD5 hashes (educational only)
@@ -71,7 +71,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       const word = wl[i];
       const hash = HASH_MAP[word];
       if (hash === current.hash) {
-        setResult(`✓ CRACKED: "${word}"`);
+        setResult(`âœ“ CRACKED: "${word}"`);
         clearInterval(interval);
         setCracking(false);
         const newSolved = [...solved];
@@ -82,7 +82,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       }
       i++;
       if (i >= wl.length) {
-        setResult('✗ Not in wordlist — try manual input');
+        setResult('âœ— Not in wordlist â€” try manual input');
         clearInterval(interval);
         setCracking(false);
       }
@@ -92,13 +92,13 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
   const checkManual = () => {
     const hash = HASH_MAP[manualInput.toLowerCase()];
     if (hash === current.hash) {
-      setManualResult(`✓ CRACKED: "${manualInput}"`);
+      setManualResult(`âœ“ CRACKED: "${manualInput}"`);
       const newSolved = [...solved];
       newSolved[level] = true;
       setSolved(newSolved);
       if (newSolved.every(Boolean)) setTimeout(onSolve, 500);
     } else {
-      setManualResult('✗ Wrong — that hash doesn\'t match');
+      setManualResult('âœ— Wrong â€” that hash doesn\'t match');
     }
   };
 
@@ -115,7 +115,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
                            'border-[#1a2332] text-[#666]'
             }`}
           >
-            {solved[i] ? '✓ ' : ''}Hash {i + 1}
+            {solved[i] ? 'âœ“ ' : ''}Hash {i + 1}
           </button>
         ))}
       </div>
@@ -128,7 +128,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
 
       {/* Wordlist attack */}
       <div>
-        <div className="text-[#666] text-xs mb-2">DICTIONARY ATTACK — wordlist ({current.wordlist.length} entries):</div>
+        <div className="text-[#666] text-xs mb-2">DICTIONARY ATTACK â€” wordlist ({current.wordlist.length} entries):</div>
         <div className="flex flex-wrap gap-1 mb-3">
           {current.wordlist.map((w, _idx) => (
             <span key={w} className="text-xs px-2 py-0.5 bg-[#0a0a0a] border border-[#1a2332] text-[#aaa] rounded">{w}</span>
@@ -144,7 +144,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
             'border-[#ffcc00] text-[#ffcc00] hover:bg-[#ffcc0011]'
           }`}
         >
-          {cracking ? '⚡ Cracking...' : solved[level] ? '✓ Solved' : '⚡ Run Wordlist Attack'}
+          {cracking ? 'âš¡ Cracking...' : solved[level] ? 'âœ“ Solved' : 'âš¡ Run Wordlist Attack'}
         </button>
 
         {cracking && (
@@ -157,7 +157,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
         )}
 
         {result && (
-          <div className={`mt-2 text-sm font-bold ${result.startsWith('✓') ? 'text-[#00ff41] glow-green' : 'text-[#ff6b6b]'}`}>
+          <div className={`mt-2 text-sm font-bold ${result.startsWith('âœ“') ? 'text-[#00ff41] glow-green' : 'text-[#ff6b6b]'}`}>
             {result}
           </div>
         )}
@@ -182,7 +182,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
           </button>
         </div>
         {manualResult && (
-          <div className={`mt-1 text-xs font-bold ${manualResult.startsWith('✓') ? 'text-[#00ff41]' : 'text-[#ff6b6b]'}`}>
+          <div className={`mt-1 text-xs font-bold ${manualResult.startsWith('âœ“') ? 'text-[#00ff41]' : 'text-[#ff6b6b]'}`}>
             {manualResult}
           </div>
         )}
@@ -190,9 +190,10 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
 
       {solved.every(Boolean) && (
         <div className="text-center text-[#00ff41] font-bold glow-green py-2">
-          🔓 ALL HASHES CRACKED! You're a password auditor!
+          ðŸ”“ ALL HASHES CRACKED! You're a password auditor!
         </div>
       )}
     </div>
   );
 }
+

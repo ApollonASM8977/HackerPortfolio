@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 import { Copy, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,7 +19,7 @@ const LEVELS = [
   {
     encoded: 'U0VDezRkdjRuY2VkQjRzZX0=',
     answer: 'SEC{4dv4ncedB4se}',
-    label: 'Advanced encoding — decode this flag',
+    label: 'Advanced encoding â€” decode this flag',
     successMsg: 'MASTER DECODER! All levels complete.',
   },
 ];
@@ -103,7 +103,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? '✓ ' : ''}L{i + 1}
+            {levelSolved[i] ? 'âœ“ ' : ''}L{i + 1}
           </button>
         ))}
         <span className="ml-auto text-xs text-[#555] self-center">
@@ -139,7 +139,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
         <span className="text-[#ffcc00]">HINT:</span>{' '}
         Browser console:{' '}
         <span className="text-[#00d4ff]">atob('{current.encoded}')</span>
-        {' '}— or use any online Base64 decoder
+        {' '}â€” or use any online Base64 decoder
       </div>
 
       {/* Input */}
@@ -172,7 +172,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            ✓ Correct! {current.successMsg}
+            âœ“ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (
@@ -183,7 +183,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#ff4444] text-xs mt-2"
           >
-            ✗ Incorrect. Try again. (Check case sensitivity)
+            âœ— Incorrect. Try again. (Check case sensitivity)
           </motion.div>
         )}
       </AnimatePresence>
@@ -195,9 +195,10 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          ALL LEVELS DECODED — Base64 Master!
+          ALL LEVELS DECODED â€” Base64 Master!
         </motion.div>
       )}
     </div>
   );
 }
+

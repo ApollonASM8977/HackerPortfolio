@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -82,7 +82,7 @@ export function JWTChallenge({ onSolve }: Props) {
       </div>
 
       <AnimatePresence mode="wait">
-        {/* ── LEVEL 1 ── */}
+        {/* â”€â”€ LEVEL 1 â”€â”€ */}
         {currentLevel === 0 && (
           <motion.div
             key="l1"
@@ -195,7 +195,7 @@ export function JWTChallenge({ onSolve }: Props) {
                   style={{ color: '#00ff41' }}
                 >
                   <CheckCircle size={14} />
-                  ✓ Correct! FLAG: {JWT_L1_ANSWER}
+                  âœ“ Correct! FLAG: {JWT_L1_ANSWER}
                 </motion.div>
               )}
               {l1Status === 'wrong' && (
@@ -208,14 +208,14 @@ export function JWTChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  ✗ Incorrect. Try again.
+                  âœ— Incorrect. Try again.
                 </motion.div>
               )}
             </AnimatePresence>
           </motion.div>
         )}
 
-        {/* ── LEVEL 2 ── */}
+        {/* â”€â”€ LEVEL 2 â”€â”€ */}
         {currentLevel === 1 && (
           <motion.div
             key="l2"
@@ -233,11 +233,11 @@ export function JWTChallenge({ onSolve }: Props) {
               className="font-mono text-xs px-3 py-2 rounded leading-relaxed"
               style={{ background: '#0d1117', border: '1px solid #1a2332', color: '#888' }}
             >
-              Two JWTs — one uses a strong algorithm, the other has a critical flaw.
+              Two JWTs â€” one uses a strong algorithm, the other has a critical flaw.
               Identify which algorithm allows <span style={{ color: '#ff6b6b' }}>bypassing signature verification</span>.
             </div>
 
-            {/* JWT A — HS256 */}
+            {/* JWT A â€” HS256 */}
             <div>
               <div className="font-mono text-xs mb-1" style={{ color: '#555' }}>JWT A (decoded header):</div>
               <div className="bg-[#020408] border border-[#1a2332] rounded-lg p-3 font-mono text-xs text-[#00cfff] overflow-x-auto">
@@ -245,7 +245,7 @@ export function JWTChallenge({ onSolve }: Props) {
               </div>
             </div>
 
-            {/* JWT B — none */}
+            {/* JWT B â€” none */}
             <div>
               <div className="font-mono text-xs mb-1" style={{ color: '#555' }}>JWT B (decoded header):</div>
               <div className="bg-[#020408] border border-[#ff444433] rounded-lg p-3 font-mono text-xs text-[#ff6b6b] overflow-x-auto">
@@ -303,10 +303,10 @@ export function JWTChallenge({ onSolve }: Props) {
                 >
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} />
-                    ✓ Correct! FLAG: {JWT_L2_FLAG}
+                    âœ“ Correct! FLAG: {JWT_L2_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
-                    The &quot;none&quot; algorithm disables signature verification — any payload is accepted!
+                    The &quot;none&quot; algorithm disables signature verification â€” any payload is accepted!
                   </div>
                 </motion.div>
               )}
@@ -320,7 +320,7 @@ export function JWTChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  ✗ Incorrect. Think about which algorithm removes the security guarantee.
+                  âœ— Incorrect. Think about which algorithm removes the security guarantee.
                 </motion.div>
               )}
             </AnimatePresence>
@@ -330,3 +330,4 @@ export function JWTChallenge({ onSolve }: Props) {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -32,7 +32,7 @@ export function Navbar() {
       <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="font-mono text-sm font-bold text-[#00ff41] glow-green glitch">
-          ApollonIUGB77<span className="animate-blink">_</span>
+          ApollonASM8977<span className="animate-blink">_</span>
         </a>
 
         {/* Desktop links */}
@@ -77,3 +77,4 @@ export function Navbar() {
     </motion.nav>
   );
 }
+

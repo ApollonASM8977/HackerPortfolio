@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -61,11 +61,11 @@ const CHALLENGES = [
   {
     id: 'vigenere',
     icon: <Shield className="w-5 h-5" />,
-    title: 'Vigenère Cipher',
+    title: 'VigenÃ¨re Cipher',
     category: 'CRYPTO',
     difficulty: 'Medium',
     diffColor: '#ffcc00',
-    description: 'Crack Vigenère-encrypted messages. Level 1 gives you the key — level 2, find it yourself.',
+    description: 'Crack VigenÃ¨re-encrypted messages. Level 1 gives you the key â€” level 2, find it yourself.',
     component: VigenereChallenge,
   },
   {
@@ -95,7 +95,7 @@ const CHALLENGES = [
     category: 'CRYPTO',
     difficulty: 'Easy',
     diffColor: '#00ff41',
-    description: 'Decode ROT13-encoded messages — the classic rotation cipher where every letter shifts by 13.',
+    description: 'Decode ROT13-encoded messages â€” the classic rotation cipher where every letter shifts by 13.',
     component: ROT13Challenge,
   },
   {
@@ -135,7 +135,7 @@ const CHALLENGES = [
     category: 'STEGO',
     difficulty: 'Medium',
     diffColor: '#00ff41',
-    description: 'Hidden in plain sight — acrostic poem, matrix diagonals, and character position extraction.',
+    description: 'Hidden in plain sight â€” acrostic poem, matrix diagonals, and character position extraction.',
     component: SteganographyChallenge,
   },
   {
@@ -145,7 +145,7 @@ const CHALLENGES = [
     category: 'REVERSE',
     difficulty: 'Hard',
     diffColor: '#a855f7',
-    description: 'Deobfuscate JavaScript CharCode arrays, eval(atob(…)), and Python chr() exec chains.',
+    description: 'Deobfuscate JavaScript CharCode arrays, eval(atob(â€¦)), and Python chr() exec chains.',
     component: ObfuscationChallenge,
   },
 ];
@@ -171,7 +171,7 @@ export function ChallengesSection() {
     setSolved(prev => new Set([...prev, id]));
     setShowSuccess(id);
     setTimeout(() => setShowSuccess(null), 3500);
-    // 🎉 Confetti burst
+    // ðŸŽ‰ Confetti burst
     confetti({ particleCount: 90, spread: 70, origin: { y: 0.55 },
       colors: ['#00ff41', '#00d4ff', '#ffcc00', '#a855f7'] });
     setTimeout(() =>
@@ -184,7 +184,7 @@ export function ChallengesSection() {
   return (
     <section className="relative z-10 flex flex-col items-center w-full px-6 pt-16 pb-32">
 
-      {/* ── Header ─────────────────────────────────────────── */}
+      {/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export function ChallengesSection() {
         </div>
       </motion.div>
 
-      {/* ── Progress bar ───────────────────────────────────── */}
+      {/* â”€â”€ Progress bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -226,7 +226,7 @@ export function ChallengesSection() {
         </span>
       </motion.div>
 
-      {/* ── All solved ─────────────────────────────────────── */}
+      {/* â”€â”€ All solved â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <AnimatePresence>
         {allSolved && (
           <motion.div
@@ -234,14 +234,14 @@ export function ChallengesSection() {
             animate={{ opacity: 1, scale: 1 }}
             className="mb-8 hacker-panel p-6 text-center border border-[#00ff41] w-full max-w-2xl"
           >
-            <div className="text-3xl mb-2">🏆</div>
+            <div className="text-3xl mb-2">ðŸ†</div>
             <div className="text-[#00ff41] text-xl font-bold glow-green">ALL CHALLENGES SOLVED!</div>
             <div className="text-[#666] text-sm mt-1">You've proven your skills. Welcome to the team.</div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ── Challenge grid ─────────────────────────────────── */}
+      {/* â”€â”€ Challenge grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
         {CHALLENGES.map((c, i) => (
           <motion.div
@@ -281,19 +281,19 @@ export function ChallengesSection() {
                           {c.difficulty}
                         </span>
                         {solved.has(c.id) && (
-                          <span className="text-[#00ff41] text-xs">✓ SOLVED</span>
+                          <span className="text-[#00ff41] text-xs">âœ“ SOLVED</span>
                         )}
                       </div>
                     </div>
                   </div>
                   <span className="text-[#333] text-sm">
-                    {active === c.id ? '▲' : '▼'}
+                    {active === c.id ? 'â–²' : 'â–¼'}
                   </span>
                 </div>
                 <p className="text-[#4a5568] text-xs leading-5">{c.description}</p>
               </div>{/* end clickable header */}
 
-              {/* Expanded — clicks inside do NOT bubble to the toggle */}
+              {/* Expanded â€” clicks inside do NOT bubble to the toggle */}
               <AnimatePresence>
                 {active === c.id && (
                   <motion.div
@@ -321,7 +321,7 @@ export function ChallengesSection() {
                   exit={{ opacity: 0 }}
                   className="mt-2 text-center text-xs text-[#00ff41] glow-green font-mono font-bold"
                 >
-                  🎉 Challenge Solved! +100 pts
+                  ðŸŽ‰ Challenge Solved! +100 pts
                 </motion.div>
               )}
             </AnimatePresence>
@@ -331,3 +331,4 @@ export function ChallengesSection() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { ChevronLeft } from 'lucide-react';
 import { ContactSection } from '../components/ContactSection';
 import type { Page } from '../App';
@@ -11,7 +11,7 @@ export function ContactPage({ navigate }: { navigate: (p: Page) => void }) {
         <button className="back-btn" onClick={() => navigate('home')}>
           <ChevronLeft className="w-4 h-4" />home
         </button>
-        <span className="text-[#1e2d42] text-xs">·</span>
+        <span className="text-[#1e2d42] text-xs">Â·</span>
         <span className="mono text-[#333] text-xs">contact.sh</span>
         <div className="ml-auto">
           <span className="mono text-[#ffcc00] text-xs">Available</span>
@@ -21,3 +21,4 @@ export function ContactPage({ navigate }: { navigate: (p: Page) => void }) {
     </div>
   );
 }
+

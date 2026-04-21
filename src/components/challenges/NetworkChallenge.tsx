@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 import { Terminal, Wifi } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,12 +19,12 @@ const LEVELS: Level[] = [
     title: 'HTTP Packet Capture Analysis',
     icon: 'terminal',
     log: [
-      '[2025-01-15 03:42:11] GET  /api/users HTTP/1.1          → 200 OK',
-      '[2025-01-15 03:42:12] POST /login HTTP/1.1               → 401 UNAUTHORIZED',
-      '[2025-01-15 03:42:13] GET  /admin/flag.txt HTTP/1.1      → 200 OK',
-      '  └─ Response body: FLAG{p4ck3t_sn1ff3r}',
-      '[2025-01-15 03:42:14] GET  /logout HTTP/1.1              → 200 OK',
-      '[2025-01-15 03:42:15] GET  /api/health HTTP/1.1          → 200 OK',
+      '[2025-01-15 03:42:11] GET  /api/users HTTP/1.1          â†’ 200 OK',
+      '[2025-01-15 03:42:12] POST /login HTTP/1.1               â†’ 401 UNAUTHORIZED',
+      '[2025-01-15 03:42:13] GET  /admin/flag.txt HTTP/1.1      â†’ 200 OK',
+      '  â””â”€ Response body: FLAG{p4ck3t_sn1ff3r}',
+      '[2025-01-15 03:42:14] GET  /logout HTTP/1.1              â†’ 200 OK',
+      '[2025-01-15 03:42:15] GET  /api/health HTTP/1.1          â†’ 200 OK',
     ],
     question: 'Analyze the captured HTTP traffic above. What flag was found in the response body?',
     answer: 'FLAG{p4ck3t_sn1ff3r}',
@@ -54,7 +54,7 @@ const LEVELS: Level[] = [
     answer: '4444',
     placeholder: 'Port number...',
     hint: 'One port shows no service banner and is flagged as SUSPICIOUS. It\'s a well-known default reverse shell port.',
-    successMsg: 'Backdoor identified! Port 4444 — classic Metasploit meterpreter shell.',
+    successMsg: 'Backdoor identified! Port 4444 â€” classic Metasploit meterpreter shell.',
   },
 ];
 
@@ -125,7 +125,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? '✓ ' : ''}
+            {levelSolved[i] ? 'âœ“ ' : ''}
             {lv.icon === 'terminal'
               ? <Terminal className="w-3 h-3" />
               : <Wifi className="w-3 h-3" />}
@@ -151,7 +151,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
           <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
           <span className="ml-2 text-[#555] text-xs">
-            {current.icon === 'terminal' ? 'capture.pcap — Wireshark' : 'nmap_scan.txt'}
+            {current.icon === 'terminal' ? 'capture.pcap â€” Wireshark' : 'nmap_scan.txt'}
           </span>
         </div>
 
@@ -160,8 +160,8 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
           {current.log.map((line, i) => {
             // Colour coding for the HTTP log
             const isFlag = line.includes('FLAG{');
-            const is200 = line.includes('→ 200');
-            const is401 = line.includes('→ 401');
+            const is200 = line.includes('â†’ 200');
+            const is401 = line.includes('â†’ 401');
             const isSuspicious = line.includes('SUSPICIOUS');
             const isPort4444 = line.startsWith('4444');
             const isEmpty = line === '';
@@ -242,7 +242,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            ✓ Correct! {current.successMsg}
+            âœ“ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (
@@ -253,7 +253,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#ff4444] text-xs mt-2"
           >
-            ✗ Incorrect. Read the log carefully.
+            âœ— Incorrect. Read the log carefully.
           </motion.div>
         )}
       </AnimatePresence>
@@ -265,9 +265,10 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          NETWORK ANALYST — Packet sniffer & port scanner mastered!
+          NETWORK ANALYST â€” Packet sniffer & port scanner mastered!
         </motion.div>
       )}
     </div>
   );
 }
+

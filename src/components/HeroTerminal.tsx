@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -7,20 +7,20 @@ const ROLES = [
   'M.S. Cybersecurity @ Montclair State University',
   'Security Researcher & CTF Player',
   'Full-Stack Developer',
-  'TryHackMe WIZARD — Top 4% Worldwide',
+  'TryHackMe WIZARD â€” Top 4% Worldwide',
 ];
 
 const TERMINAL_LINES = [
   { text: '$ whoami', delay: 400,  color: '#ffcc00' },
-  { text: 'aboubacar — security researcher | full-stack dev | ctf player', delay: 700, color: '#ccc' },
+  { text: 'aboubacar â€” security researcher | full-stack dev | ctf player', delay: 700, color: '#ccc' },
   { text: '', delay: 900, color: '' },
   { text: '$ nmap -sV --script vuln challenges/', delay: 1100, color: '#ffcc00' },
   { text: 'Starting Nmap scan... Found 4 challenges open', delay: 1500, color: '#00d4ff' },
   { text: 'PORT   SERVICE     STATE', delay: 1700, color: '#666' },
-  { text: '21/tcp linux-terminal  OPEN  ← try me', delay: 1900, color: '#00ff41' },
-  { text: '22/tcp caesar-cipher   OPEN  ← encrypted', delay: 2050, color: '#00ff41' },
-  { text: '80/tcp hash-cracker    OPEN  ← MD5 hashes', delay: 2200, color: '#ffcc00' },
-  { text: '443/tcp sql-injection  OPEN  ← vulnerable', delay: 2350, color: '#ff6b6b' },
+  { text: '21/tcp linux-terminal  OPEN  â† try me', delay: 1900, color: '#00ff41' },
+  { text: '22/tcp caesar-cipher   OPEN  â† encrypted', delay: 2050, color: '#00ff41' },
+  { text: '80/tcp hash-cracker    OPEN  â† MD5 hashes', delay: 2200, color: '#ffcc00' },
+  { text: '443/tcp sql-injection  OPEN  â† vulnerable', delay: 2350, color: '#ff6b6b' },
   { text: '', delay: 2500, color: '' },
   { text: '$ echo "Can you beat all 4 challenges?"', delay: 2700, color: '#ffcc00' },
   { text: 'Can you beat all 4 challenges?', delay: 3000, color: '#ff0040' },
@@ -60,7 +60,7 @@ export function HeroTerminal() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-24 z-10">
 
-      {/* ── Name + role ───────────────────────────────────────── */}
+      {/* â”€â”€ Name + role â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -79,17 +79,17 @@ export function HeroTerminal() {
         {/* Typing role */}
         <div className="h-7 flex items-center justify-center">
           <span className="text-[#00d4ff] text-base md:text-lg font-mono">
-            {displayed}<span className="animate-blink text-[#00ff41]">█</span>
+            {displayed}<span className="animate-blink text-[#00ff41]">â–ˆ</span>
           </span>
         </div>
 
         {/* Badges */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
           {[
-            { label: '🎓 M.S. Cybersecurity', color: '#00ff41' },
-            { label: '🧙 TryHackMe WIZARD', color: '#00d4ff' },
-            { label: '🏆 Top 4% Worldwide', color: '#ffcc00' },
-            { label: '🔐 (ISC)² CC Certified', color: '#ff6b6b' },
+            { label: 'ðŸŽ“ M.S. Cybersecurity', color: '#00ff41' },
+            { label: 'ðŸ§™ TryHackMe WIZARD', color: '#00d4ff' },
+            { label: 'ðŸ† Top 4% Worldwide', color: '#ffcc00' },
+            { label: 'ðŸ” (ISC)Â² CC Certified', color: '#ff6b6b' },
           ].map(b => (
             <span
               key={b.label}
@@ -102,7 +102,7 @@ export function HeroTerminal() {
         </div>
       </motion.div>
 
-      {/* ── Terminal window ───────────────────────────────────── */}
+      {/* â”€â”€ Terminal window â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -128,7 +128,7 @@ export function HeroTerminal() {
         </div>
       </motion.div>
 
-      {/* ── Scroll hint ───────────────────────────────────────── */}
+      {/* â”€â”€ Scroll hint â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}
@@ -142,3 +142,4 @@ export function HeroTerminal() {
     </section>
   );
 }
+

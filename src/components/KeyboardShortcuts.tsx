@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -14,7 +14,7 @@ const SHORTCUTS = [
 
 const MISC = [
   { keys: ['?'],                      desc: 'Show this help' },
-  { keys: ['↑↑↓↓←→←→', 'B', 'A'],   desc: 'Konami code — ROOT ACCESS' },
+  { keys: ['â†‘â†‘â†“â†“â†â†’â†â†’', 'B', 'A'],   desc: 'Konami code â€” ROOT ACCESS' },
   { keys: ['ESC'],                    desc: 'Close overlay / modal' },
 ];
 
@@ -25,7 +25,7 @@ interface Props {
 }
 
 export function KeyboardShortcuts({ open, onClose, navigate }: Props) {
-  // global key listener — G+letter combos
+  // global key listener â€” G+letter combos
   useEffect(() => {
     let gPressed = false;
     let gTimer: ReturnType<typeof setTimeout>;
@@ -137,3 +137,4 @@ export function KeyboardShortcuts({ open, onClose, navigate }: Props) {
     </AnimatePresence>
   );
 }
+

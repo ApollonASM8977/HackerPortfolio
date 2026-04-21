@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -16,19 +16,19 @@ const GRID = [
 
 const LEVELS = [
   {
-    title: 'Level 1 — Acrostic',
+    title: 'Level 1 â€” Acrostic',
     flag: 'FLAG{4cr0st1c_sp34k}',
     check: (a: string) => a.toUpperCase() === 'FLAG' || a.toLowerCase() === 'flag{4cr0st1c_sp34k}',
     hint: 'Read only the FIRST letter of each line.',
   },
   {
-    title: 'Level 2 — Matrix Diagonal',
+    title: 'Level 2 â€” Matrix Diagonal',
     flag: 'CTF{d14g}',
     check: (a: string) => a.toLowerCase() === 'ctf{d14g}',
     hint: 'Read the diagonal from top-left to bottom-right.',
   },
   {
-    title: 'Level 3 — Position Pattern',
+    title: 'Level 3 â€” Position Pattern',
     flag: 'FLAG{st3g_m4st3r}',
     check: (a: string) => a.toLowerCase() === 'flag{st3g_m4st3r}',
     hint: 'Extract chars at positions 3, 9, 15, 20 (0-indexed) from the string below.',
@@ -77,7 +77,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
 
       <div className="text-[#00d4ff] text-xs mono">{current.title}</div>
 
-      {/* ── Level content ─── */}
+      {/* â”€â”€ Level content â”€â”€â”€ */}
       <AnimatePresence mode="wait">
         <motion.div key={level} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
 
@@ -98,7 +98,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
 
           {level === 1 && (
             <div className="flex flex-col gap-3">
-              <p className="text-[#555] text-xs">A flag is hidden in this 9×9 grid. Find the pattern.</p>
+              <p className="text-[#555] text-xs">A flag is hidden in this 9Ã—9 grid. Find the pattern.</p>
               <div className="bg-[#020408] border border-[#1a2332] rounded-lg p-4 mono text-xs overflow-x-auto">
                 {GRID.map((row, ri) => (
                   <div key={ri} className="flex gap-2 leading-7">
@@ -129,7 +129,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
                 </div>
                 <div className="text-[#ffcc00] mt-2">Extract positions: 3, 9, 15, 20</div>
                 <div className="text-[#555] mt-1">
-                  [{STEG_STRING[3]}] [{STEG_STRING[9]}] [{STEG_STRING[15]}] [{STEG_STRING[20]}] → ?
+                  [{STEG_STRING[3]}] [{STEG_STRING[9]}] [{STEG_STRING[15]}] [{STEG_STRING[20]}] â†’ ?
                 </div>
               </div>
               <p className="text-[#444] text-xs">The letters spell a word. Enter: <span className="text-[#666]">FLAG{'{st3g_m4st3r}'}</span></p>
@@ -144,7 +144,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
         onClick={() => setShowHint(h => !h)}
         className="text-[#444] hover:text-[#ffcc00] text-xs mono transition-colors text-left"
       >
-        {showHint ? '▾' : '▸'} Hint
+        {showHint ? 'â–¾' : 'â–¸'} Hint
       </button>
       {showHint && <p className="text-[#ffcc00] text-xs mono">{current.hint}</p>}
 
@@ -167,8 +167,9 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
         </button>
       </div>
 
-      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">✓ Correct! Flag found: {current.flag}</p>}
-      {status === 'err' && <p className="text-[#ff4444] text-xs mono">✗ Incorrect. Try again.</p>}
+      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">âœ“ Correct! Flag found: {current.flag}</p>}
+      {status === 'err' && <p className="text-[#ff4444] text-xs mono">âœ— Incorrect. Try again.</p>}
     </div>
   );
 }
+

@@ -1,9 +1,9 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { GlitchText } from './GlitchText';
 
-/* ── Animated counter hook ───────────────────────────── */
+/* â”€â”€ Animated counter hook â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function useAnimatedCounter(target: number, duration = 1400) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ function useAnimatedCounter(target: number, duration = 1400) {
   return { count, ref };
 }
 
-/* ── Hash identifier ─────────────────────────────────── */
+/* â”€â”€ Hash identifier â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function identifyHash(h: string): { type: string; bits: number | null; color: string } {
   const s = h.trim();
   if (!s) return { type: '', bits: null, color: '#444' };
@@ -73,7 +73,7 @@ function HashIdentifier() {
 
   return (
     <div className="hacker-panel p-5 w-full flex flex-col gap-3">
-      <div className="mono text-[#333] text-xs">$ hash-identifier — paste any hash</div>
+      <div className="mono text-[#333] text-xs">$ hash-identifier â€” paste any hash</div>
       <input
         value={input}
         onChange={e => setInput(e.target.value)}
@@ -105,7 +105,7 @@ function HashIdentifier() {
   );
 }
 
-/* ───────────────────── DATA ────────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const QUOTES = [
   { text: 'The quieter you become, the more you are able to hear.', author: 'Kali Linux' },
   { text: 'Security is not a product, but a process.', author: 'Bruce Schneier' },
@@ -113,7 +113,7 @@ const QUOTES = [
   { text: 'To catch a hacker, you must think like a hacker.', author: 'Unknown' },
   { text: 'Given enough eyeballs, all bugs are shallow.', author: "Linus's Law" },
   { text: 'There are only two types of companies: those that have been hacked, and those that will be.', author: 'Robert Mueller' },
-  { text: 'Privacy is not for the paranoid — it is for the prepared.', author: 'Unknown' },
+  { text: 'Privacy is not for the paranoid â€” it is for the prepared.', author: 'Unknown' },
   { text: 'In cybersecurity, offense informs defense.', author: 'Unknown' },
   { text: 'Hackers are the immune system of the information age.', author: 'Ralph Nader' },
   { text: 'The art of war is to subdue the enemy without fighting.', author: 'Sun Tzu' },
@@ -153,64 +153,64 @@ const TOOLS = [
 ];
 
 const CERTS = [
-  { name: '(ISC)² Certified in Cybersecurity (CC)',  icon: '🛡️', status: 'Obtained',          color: '#00ff41' },
-  { name: 'EC-Council — CSCU',                       icon: '🔐', status: 'Obtained',          color: '#00ff41' },
-  { name: 'Fortinet — NSE 2 Network Security',       icon: '🔒', status: 'Obtained',          color: '#00ff41' },
-  { name: 'TryHackMe — Intro to Cybersecurity Path', icon: '🧠', status: 'Aug 24 2024',       color: '#00d4ff' },
-  { name: 'TryHackMe — Pre Security Path',           icon: '🔑', status: 'Sep 8 2024',        color: '#00d4ff' },
-  { name: 'CompTIA Security+ / Network+',            icon: '📡', status: 'In progress 2026',  color: '#ffcc00' },
+  { name: '(ISC)Â² Certified in Cybersecurity (CC)',  icon: 'ðŸ›¡ï¸', status: 'Obtained',          color: '#00ff41' },
+  { name: 'EC-Council â€” CSCU',                       icon: 'ðŸ”', status: 'Obtained',          color: '#00ff41' },
+  { name: 'Fortinet â€” NSE 2 Network Security',       icon: 'ðŸ”’', status: 'Obtained',          color: '#00ff41' },
+  { name: 'TryHackMe â€” Intro to Cybersecurity Path', icon: 'ðŸ§ ', status: 'Aug 24 2024',       color: '#00d4ff' },
+  { name: 'TryHackMe â€” Pre Security Path',           icon: 'ðŸ”‘', status: 'Sep 8 2024',        color: '#00d4ff' },
+  { name: 'CompTIA Security+ / Network+',            icon: 'ðŸ“¡', status: 'In progress 2026',  color: '#ffcc00' },
 ];
 
 const INTERESTS = [
-  '🔐 Cryptography & Information Security',
-  '🧠 Ethical Hacking & CTF Challenges',
-  '📡 Network Security & Vulnerability Assessment',
-  '⚙️  Algorithms & Data Structures',
-  '💻 Full-Stack Web Development',
+  'ðŸ” Cryptography & Information Security',
+  'ðŸ§  Ethical Hacking & CTF Challenges',
+  'ðŸ“¡ Network Security & Vulnerability Assessment',
+  'âš™ï¸  Algorithms & Data Structures',
+  'ðŸ’» Full-Stack Web Development',
 ];
 
 const TIMELINE = [
-  { year: '2019', title: 'B.S. Computer Science — Started', place: 'Université de Côte d\'Ivoire 🇨🇮', color: '#00ff41' },
-  { year: '2023', title: 'TryHackMe — First room', place: 'Started ethical hacking journey · 589 events Y1', color: '#00d4ff' },
-  { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide — 21 badges earned', color: '#ffcc00' },
-  { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ 🇺🇸', color: '#a855f7' },
-  { year: '2024', title: '(ISC)² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
-  { year: '2025', title: '98+ Rooms · 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
-  { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
+  { year: '2019', title: 'B.S. Computer Science â€” Started', place: 'UniversitÃ© de CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®', color: '#00ff41' },
+  { year: '2023', title: 'TryHackMe â€” First room', place: 'Started ethical hacking journey Â· 589 events Y1', color: '#00d4ff' },
+  { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide â€” 21 badges earned', color: '#ffcc00' },
+  { year: '2024', title: 'M.S. Cybersecurity â€” Started', place: 'Montclair State University, NJ ðŸ‡ºðŸ‡¸', color: '#a855f7' },
+  { year: '2024', title: '(ISC)Â² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
+  { year: '2025', title: '98+ Rooms Â· 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
+  { year: '2026', title: 'M.S. Cybersecurity â€” Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
 ];
 
 const BADGES: { name: string; rarity: 'Legendary' | 'Epic' | 'Rare' | 'Uncommon' | 'Common' | 'Seasonal'; color: string; icon: string }[] = [
-  { name: '365-Day Streak',       rarity: 'Legendary', color: '#ffcc00', icon: '🔥' },
-  { name: '180-Day Streak',       rarity: 'Epic',      color: '#a855f7', icon: '🔥' },
-  { name: 'Mr. Robot',            rarity: 'Rare',      color: '#00d4ff', icon: '🤖' },
-  { name: 'Throwback',            rarity: 'Rare',      color: '#00d4ff', icon: '🪟' },
-  { name: 'cat',                  rarity: 'Rare',      color: '#00d4ff', icon: '🐱' },
-  { name: '90-Day Streak',        rarity: 'Uncommon',  color: '#00d4ff', icon: '🔥' },
-  { name: 'Blue',                 rarity: 'Uncommon',  color: '#00d4ff', icon: '💙' },
-  { name: 'Metasploitable',       rarity: 'Uncommon',  color: '#00ff41', icon: '💻' },
-  { name: 'World Wide Web',       rarity: 'Uncommon',  color: '#00ff41', icon: '🌐' },
-  { name: 'Pre Security',         rarity: 'Uncommon',  color: '#00d4ff', icon: '🛡️' },
-  { name: 'Intro to Cyber',       rarity: 'Uncommon',  color: '#00d4ff', icon: '🧠' },
-  { name: 'Web Fundamentals',     rarity: 'Uncommon',  color: '#00ff41', icon: '🕸️' },
-  { name: 'Hash Cracker',         rarity: 'Common',    color: '#aaa',    icon: '#️⃣' },
-  { name: '30-Day Streak',        rarity: 'Common',    color: '#aaa',    icon: '🔥' },
-  { name: '7-Day Streak',         rarity: 'Common',    color: '#aaa',    icon: '🔥' },
-  { name: 'Networking Nerd',      rarity: 'Common',    color: '#aaa',    icon: '📡' },
-  { name: 'Linux Fundamentals',   rarity: 'Common',    color: '#aaa',    icon: '🐧' },
-  { name: 'OG',                   rarity: 'Common',    color: '#aaa',    icon: '👾' },
-  { name: 'Advent of Cyber 2024', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
-  { name: 'Advent of Cyber 2023', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
-  { name: 'Advent of Cyber 2022', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
+  { name: '365-Day Streak',       rarity: 'Legendary', color: '#ffcc00', icon: 'ðŸ”¥' },
+  { name: '180-Day Streak',       rarity: 'Epic',      color: '#a855f7', icon: 'ðŸ”¥' },
+  { name: 'Mr. Robot',            rarity: 'Rare',      color: '#00d4ff', icon: 'ðŸ¤–' },
+  { name: 'Throwback',            rarity: 'Rare',      color: '#00d4ff', icon: 'ðŸªŸ' },
+  { name: 'cat',                  rarity: 'Rare',      color: '#00d4ff', icon: 'ðŸ±' },
+  { name: '90-Day Streak',        rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ”¥' },
+  { name: 'Blue',                 rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ’™' },
+  { name: 'Metasploitable',       rarity: 'Uncommon',  color: '#00ff41', icon: 'ðŸ’»' },
+  { name: 'World Wide Web',       rarity: 'Uncommon',  color: '#00ff41', icon: 'ðŸŒ' },
+  { name: 'Pre Security',         rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ›¡ï¸' },
+  { name: 'Intro to Cyber',       rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ§ ' },
+  { name: 'Web Fundamentals',     rarity: 'Uncommon',  color: '#00ff41', icon: 'ðŸ•¸ï¸' },
+  { name: 'Hash Cracker',         rarity: 'Common',    color: '#aaa',    icon: '#ï¸âƒ£' },
+  { name: '30-Day Streak',        rarity: 'Common',    color: '#aaa',    icon: 'ðŸ”¥' },
+  { name: '7-Day Streak',         rarity: 'Common',    color: '#aaa',    icon: 'ðŸ”¥' },
+  { name: 'Networking Nerd',      rarity: 'Common',    color: '#aaa',    icon: 'ðŸ“¡' },
+  { name: 'Linux Fundamentals',   rarity: 'Common',    color: '#aaa',    icon: 'ðŸ§' },
+  { name: 'OG',                   rarity: 'Common',    color: '#aaa',    icon: 'ðŸ‘¾' },
+  { name: 'Advent of Cyber 2024', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
+  { name: 'Advent of Cyber 2023', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
+  { name: 'Advent of Cyber 2022', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
 ];
 
-/* ───────────────────── HELPERS ─────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const f = (d = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5, delay: d },
 });
 
-/* ───────────────────── SUB-COMPONENTS ──────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ SUB-COMPONENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function QuoteRotator() {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -231,7 +231,7 @@ function QuoteRotator() {
             exit={{ opacity:0, y:-8 }} transition={{ duration:0.4 }}
             className="flex flex-col items-center gap-1">
             <p className="text-[#aaa] text-sm italic leading-6 max-w-lg">"{q.text}"</p>
-            <span className="text-[#00ff41] text-xs mono">— {q.author}</span>
+            <span className="text-[#00ff41] text-xs mono">â€” {q.author}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -304,9 +304,9 @@ function BadgesShowcase() {
   return (
     <div className="hacker-panel p-6 w-full flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <div className="mono text-[#333] text-xs">$ ls ~/.thm/badges/ &nbsp;·&nbsp; {BADGES.length} earned</div>
+        <div className="mono text-[#333] text-xs">$ ls ~/.thm/badges/ &nbsp;Â·&nbsp; {BADGES.length} earned</div>
         <a href="https://tryhackme.com/p/exterminator" target="_blank" rel="noopener noreferrer"
-          className="mono text-[10px] text-[#00d4ff] hover:underline">tryhackme.com/p/exterminator ↗</a>
+          className="mono text-[10px] text-[#00d4ff] hover:underline">tryhackme.com/p/exterminator â†—</a>
       </div>
       {/* Legend */}
       <div className="flex flex-wrap gap-2 text-[10px] mono">
@@ -324,7 +324,7 @@ function BadgesShowcase() {
           <motion.div key={i}
             initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.05 + i * 0.025 }}
-            title={`${b.name} — ${b.rarity}`}
+            title={`${b.name} â€” ${b.rarity}`}
             className="flex flex-col items-center gap-1 p-2 rounded-lg border cursor-default
                        hover:scale-105 transition-transform"
             style={{ background: b.color + '08', borderColor: b.color + '25' }}>
@@ -370,7 +370,7 @@ function Timeline() {
   );
 }
 
-/* ── Animated stat card ──────────────────────────────── */
+/* â”€â”€ Animated stat card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function AnimatedStatCard({ stat, delay }: { stat: typeof STATS[0]; delay: number }) {
   // Parse numeric value (e.g. "98", "21", "Top 4%")
   const numeric = parseInt(stat.value.replace(/\D/g, ''));
@@ -390,7 +390,7 @@ function AnimatedStatCard({ stat, delay }: { stat: typeof STATS[0]; delay: numbe
   );
 }
 
-/* ───────────────────── MAIN ────────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export function AboutSection() {
   return (
     <div className="flex flex-col items-center w-full px-6 pt-16 pb-32 gap-20">
@@ -401,12 +401,12 @@ export function AboutSection() {
           About <GlitchText color="#00ff41">Me</GlitchText>
         </h2>
         <p className="text-[#555] text-sm leading-7">
-          Security researcher, full-stack developer & CTF player — New Jersey, USA
+          Security researcher, full-stack developer & CTF player â€” New Jersey, USA
         </p>
         <a href="/resume.pdf" download
           className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#00ff4155]
                      rounded-lg mono text-xs text-[#00ff41] hover:bg-[#00ff4111] transition-all">
-          ↓ Download Resume (PDF)
+          â†“ Download Resume (PDF)
         </a>
       </motion.div>
 
@@ -429,7 +429,7 @@ export function AboutSection() {
             <span className="mono text-[#00ff41] text-xs">Open to opportunities</span>
           </div>
           <div className="hacker-panel px-5 py-3 mono text-[#aaa] text-xs">
-            🇺🇸 New Jersey &nbsp;·&nbsp; Originally 🇨🇮 Côte d'Ivoire
+            ðŸ‡ºðŸ‡¸ New Jersey &nbsp;Â·&nbsp; Originally ðŸ‡¨ðŸ‡® CÃ´te d'Ivoire
           </div>
         </div>
       </motion.div>
@@ -439,7 +439,7 @@ export function AboutSection() {
         <QuoteRotator />
       </motion.div>
 
-      {/* Stats — animated counters */}
+      {/* Stats â€” animated counters */}
       <motion.div {...f(0.15)} className="w-full max-w-2xl">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {STATS.map((s, i) => <AnimatedStatCard key={i} stat={s} delay={0.2 + i * 0.08} />)}
@@ -457,7 +457,7 @@ export function AboutSection() {
         <Timeline />
       </motion.div>
 
-      {/* Skills — bars + radar */}
+      {/* Skills â€” bars + radar */}
       <motion.div {...f(0.25)} className="w-full max-w-2xl flex flex-col gap-8">
         <p className="mono text-[#333] text-xs text-center">$ cat /etc/skills</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -491,7 +491,7 @@ export function AboutSection() {
           <ul className="flex flex-col gap-3">
             {INTERESTS.map(item => (
               <li key={item} className="flex items-center justify-center gap-3 text-[#aaa] text-xs">
-                <span className="text-[#00ff41]">›</span>
+                <span className="text-[#00ff41]">â€º</span>
                 {item}
               </li>
             ))}
@@ -501,7 +501,7 @@ export function AboutSection() {
 
       {/* Hash Identifier mini-tool */}
       <motion.div {...f(0.28)} className="w-full max-w-2xl flex flex-col gap-3">
-        <p className="mono text-[#333] text-xs text-center">$ hash-identifier — live tool</p>
+        <p className="mono text-[#333] text-xs text-center">$ hash-identifier â€” live tool</p>
         <HashIdentifier />
       </motion.div>
 
@@ -541,3 +541,4 @@ export function AboutSection() {
     </div>
   );
 }
+

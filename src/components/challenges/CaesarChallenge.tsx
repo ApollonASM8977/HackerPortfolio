@@ -1,11 +1,11 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 import { RotateCcw } from 'lucide-react';
 
 const LEVELS = [
   {
-    ciphertext: 'KHOOR ZRUOG — FUBSWRJUDSKB LV IXQ',
-    answer: 'HELLO WORLD — CRYPTOGRAPHY IS FUN',
+    ciphertext: 'KHOOR ZRUOG â€” FUBSWRJUDSKB LV IXQ',
+    answer: 'HELLO WORLD â€” CRYPTOGRAPHY IS FUN',
     hint: 'ROT-3 (Caesar\'s classic shift)',
     shift: 3,
   },
@@ -18,7 +18,7 @@ const LEVELS = [
   {
     ciphertext: 'YSK{n3p_v3a0k_z0r_xvgu_p3r_pvcure}',
     answer: 'FLAG{y0u_h4ck3d_th1s_w1th_c3s_c1pher}',
-    hint: 'Flag format: FLAG{...} — brute force the shift!',
+    hint: 'Flag format: FLAG{...} â€” brute force the shift!',
     shift: 10,
   },
 ];
@@ -68,7 +68,7 @@ export function CaesarChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#666]'
             }`}
           >
-            {solved[i] ? '✓ ' : ''}Level {i + 1}
+            {solved[i] ? 'âœ“ ' : ''}Level {i + 1}
           </button>
         ))}
       </div>
@@ -114,22 +114,23 @@ export function CaesarChallenge({ onSolve }: { onSolve: () => void }) {
           onClick={() => setShowHint(!showHint)}
           className="text-xs text-[#666] hover:text-[#ffcc00] border border-[#1a2332] px-3 py-1 rounded transition-all"
         >
-          {showHint ? 'Hide hint' : '💡 Show hint'}
+          {showHint ? 'Hide hint' : 'ðŸ’¡ Show hint'}
         </button>
-        {isCorrect && <span className="text-[#00ff41] text-xs font-bold animate-pulse">✓ CORRECT! Shift = {shift}</span>}
+        {isCorrect && <span className="text-[#00ff41] text-xs font-bold animate-pulse">âœ“ CORRECT! Shift = {shift}</span>}
       </div>
 
       {showHint && (
         <div className="text-xs text-[#ffcc00] bg-[#1a1500] border border-[#ffcc0033] rounded p-2">
-          💡 {current.hint}
+          ðŸ’¡ {current.hint}
         </div>
       )}
 
       {solved.every(Boolean) && (
         <div className="text-center text-[#00ff41] font-bold glow-green py-2">
-          🎉 ALL LEVELS SOLVED! Master cryptanalyst!
+          ðŸŽ‰ ALL LEVELS SOLVED! Master cryptanalyst!
         </div>
       )}
     </div>
   );
 }
+

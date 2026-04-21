@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, GitFork, Shield, Key, Terminal, Smartphone, Globe, Lock } from 'lucide-react';
@@ -6,26 +6,26 @@ import { GlitchText } from './GlitchText';
 
 const PROJECTS = [
   { icon: <Key className="w-5 h-5" />,        name: 'CipherLab',   color: '#a855f7',
-    desc: 'Complete cryptography toolkit — AES, RSA, DES, Caesar, Vigenère, Base64. React + FastAPI with step-by-step encryption demos.',
-    tags: ['Python','React','FastAPI','Cryptography'], github: 'https://github.com/ApollonIUGB77/CipherLab' },
+    desc: 'Complete cryptography toolkit â€” AES, RSA, DES, Caesar, VigenÃ¨re, Base64. React + FastAPI with step-by-step encryption demos.',
+    tags: ['Python','React','FastAPI','Cryptography'], github: 'https://github.com/ApollonASM8977/CipherLab' },
   { icon: <Shield className="w-5 h-5" />,     name: 'CryptoMath',  color: '#00d4ff',
-    desc: 'RSA, Diffie-Hellman, Miller-Rabin primality, Baby-step Giant-step discrete log — from scratch in pure Python.',
-    tags: ['Pure Python','Number Theory','RSA','Math'], github: 'https://github.com/ApollonIUGB77/CryptoMath' },
+    desc: 'RSA, Diffie-Hellman, Miller-Rabin primality, Baby-step Giant-step discrete log â€” from scratch in pure Python.',
+    tags: ['Pure Python','Number Theory','RSA','Math'], github: 'https://github.com/ApollonASM8977/CryptoMath' },
   { icon: <Terminal className="w-5 h-5" />,   name: 'AlgoToolkit', color: '#00ff41',
     desc: '8 sorting + 6 searching + 6 data structures + 5 graph algorithms. Each returns complexity analysis and benchmarks.',
-    tags: ['Python','Java','Algorithms','CLI'], github: 'https://github.com/ApollonIUGB77/AlgoToolkit' },
+    tags: ['Python','Java','Algorithms','CLI'], github: 'https://github.com/ApollonASM8977/AlgoToolkit' },
   { icon: <Lock className="w-5 h-5" />,       name: 'SecureShare', color: '#ff0040',
     desc: 'E2E encrypted file sharing over LAN. AES-256-CBC + RSA-2048 key exchange. PyQt6 GUI with bcrypt auth.',
-    tags: ['Python','PyQt6','AES-256','RSA-2048'], github: 'https://github.com/ApollonIUGB77/secure-file-sharing' },
+    tags: ['Python','PyQt6','AES-256','RSA-2048'], github: 'https://github.com/ApollonASM8977/secure-file-sharing' },
   { icon: <Smartphone className="w-5 h-5" />, name: 'CommuTaxi',   color: '#ffcc00',
-    desc: 'Flutter ride-booking app — Firebase Auth, Google Maps, real-time tracking, fare estimation, trip history.',
-    tags: ['Flutter','Firebase','Google Maps','Dart'], github: 'https://github.com/ApollonIUGB77/TaxiApp-Users' },
+    desc: 'Flutter ride-booking app â€” Firebase Auth, Google Maps, real-time tracking, fare estimation, trip history.',
+    tags: ['Flutter','Firebase','Google Maps','Dart'], github: 'https://github.com/ApollonASM8977/TaxiApp-Users' },
   { icon: <Globe className="w-5 h-5" />,      name: 'Atlas Money',  color: '#60a5fa',
-    desc: 'Mobile money web app — transfers, withdrawals, admin panel. Secured with prepared statements, bcrypt & CSRF.',
-    tags: ['PHP','MySQL','Security','Web'], github: 'https://github.com/ApollonIUGB77/bank.atlas.bk' },
+    desc: 'Mobile money web app â€” transfers, withdrawals, admin panel. Secured with prepared statements, bcrypt & CSRF.',
+    tags: ['PHP','MySQL','Security','Web'], github: 'https://github.com/ApollonASM8977/bank.atlas.bk' },
 ];
 
-/* ── 3-D tilt card ───────────────────────────────────── */
+/* â”€â”€ 3-D tilt card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function TiltCard({ p, i }: { p: typeof PROJECTS[0]; i: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -104,7 +104,7 @@ function TiltCard({ p, i }: { p: typeof PROJECTS[0]; i: number }) {
   );
 }
 
-/* ── GitHub live stats ───────────────────────────────── */
+/* â”€â”€ GitHub live stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 import { useEffect, useState } from 'react';
 
 function GitHubStats() {
@@ -116,8 +116,8 @@ function GitHubStats() {
     if (cached) { try { setStats(JSON.parse(cached)); return; } catch { /**/ } }
 
     Promise.all([
-      fetch('https://api.github.com/users/ApollonIUGB77'),
-      fetch('https://api.github.com/users/ApollonIUGB77/repos?per_page=100'),
+      fetch('https://api.github.com/users/ApollonASM8977'),
+      fetch('https://api.github.com/users/ApollonASM8977/repos?per_page=100'),
     ])
       .then(([u, r]) => Promise.all([u.json(), r.json()]))
       .then(([user, repos]) => {
@@ -146,7 +146,7 @@ function GitHubStats() {
           <div className="mono text-[#444] text-[10px]">{s.label}</div>
         </div>
       ))}
-      <div className="text-[#333] text-[10px] mono ml-2">live · github.com/ApollonIUGB77</div>
+      <div className="text-[#333] text-[10px] mono ml-2">live Â· github.com/ApollonASM8977</div>
     </motion.div>
   );
 }
@@ -160,7 +160,7 @@ export function ProjectsSection() {
           Featured <GlitchText color="#a855f7">Projects</GlitchText>
         </h2>
         <p className="text-[#555] text-sm leading-7">
-          Real projects — built, secured, and pushed to GitHub.
+          Real projects â€” built, secured, and pushed to GitHub.
         </p>
       </motion.div>
 
@@ -173,7 +173,7 @@ export function ProjectsSection() {
       </div>
 
       <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.7 }}>
-        <a href="https://github.com/ApollonIUGB77" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/ApollonASM8977" target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-3 border border-[#a855f755]
                      text-[#a855f7] rounded-lg mono text-sm hover:bg-[#a855f711] transition-all">
           <GitFork className="w-4 h-4" />
@@ -183,3 +183,4 @@ export function ProjectsSection() {
     </div>
   );
 }
+

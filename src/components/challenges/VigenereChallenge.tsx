@@ -1,8 +1,8 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Vigenère decryption: C - K mod 26 (uppercase only)
+// VigenÃ¨re decryption: C - K mod 26 (uppercase only)
 function vigenereDecrypt(ciphertext: string, key: string): string {
   const ct = ciphertext.toUpperCase().replace(/[^A-Z]/g, '');
   const k = key.toUpperCase().replace(/[^A-Z]/g, '');
@@ -32,9 +32,9 @@ const LEVELS: Level[] = [
     ciphertext: 'JYDOKJCQPRPCU',
     key: 'CYBER',
     answer: 'HACKTHEPLANET',
-    keyHint: 'Key is given above — use it!',
-    label: 'Level 1 — Known Key Decryption',
-    description: 'The key is provided. Use Vigenère decryption to reveal the plaintext.',
+    keyHint: 'Key is given above â€” use it!',
+    label: 'Level 1 â€” Known Key Decryption',
+    description: 'The key is provided. Use VigenÃ¨re decryption to reveal the plaintext.',
     successMsg: 'Decrypted! The matrix has you.',
   },
   {
@@ -42,7 +42,7 @@ const LEVELS: Level[] = [
     key: null,
     answer: 'ROOT',
     keyHint: 'The key is a 4-letter Linux security distro (think rolling-release hacker OS)',
-    label: 'Level 2 — Unknown Key',
+    label: 'Level 2 â€” Unknown Key',
     description: 'No key this time. Figure out the key from the hint, then decrypt.',
     successMsg: 'Root access granted! KALI was the key.',
   },
@@ -121,7 +121,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? '✓ ' : ''}Level {i + 1}
+            {levelSolved[i] ? 'âœ“ ' : ''}Level {i + 1}
           </button>
         ))}
         <span className="ml-auto text-xs text-[#555]">{solvedCount}/2 solved</span>
@@ -166,7 +166,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 const shift = k.charCodeAt(0) - 65;
                 return (
                   <span key={i} className="text-[#00d4ff]">
-                    {ch}−{k}({shift})={liveDecrypt[i]}{' '}
+                    {ch}âˆ’{k}({shift})={liveDecrypt[i]}{' '}
                   </span>
                 );
               })}
@@ -182,7 +182,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
         )}
       </div>
 
-      {/* Vigenère alphabet table toggle */}
+      {/* VigenÃ¨re alphabet table toggle */}
       <button
         onClick={() => setShowTable(t => !t)}
         className="text-xs text-[#555] hover:text-[#00d4ff] border border-[#1a2332] px-3 py-1 rounded transition-colors"
@@ -200,7 +200,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
           >
             <div className="bg-[#020408] border border-[#1a2332] rounded p-2">
               <div className="text-[#555] text-xs mb-1">
-                Formula: plaintext = (cipherchar − keychar + 26) mod 26
+                Formula: plaintext = (cipherchar âˆ’ keychar + 26) mod 26
               </div>
               <div className="flex flex-wrap gap-x-1 gap-y-0.5">
                 {ALPHABET.map((ch, i) => (
@@ -213,7 +213,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 ))}
               </div>
               <div className="text-[#555] text-xs mt-2">
-                Example (Level 1): J(9) − C(2) = 7 → H &nbsp;|&nbsp; Y(24) − Y(24) = 0 → A
+                Example (Level 1): J(9) âˆ’ C(2) = 7 â†’ H &nbsp;|&nbsp; Y(24) âˆ’ Y(24) = 0 â†’ A
               </div>
             </div>
           </motion.div>
@@ -250,7 +250,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            ✓ Correct! {current.successMsg}
+            âœ“ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (
@@ -261,7 +261,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#ff4444] text-xs mt-2"
           >
-            ✗ Incorrect. Check your key and decryption formula.
+            âœ— Incorrect. Check your key and decryption formula.
           </motion.div>
         )}
       </AnimatePresence>
@@ -273,9 +273,10 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          VIGENÈRE CIPHER BROKEN — Cryptanalyst status achieved!
+          VIGENÃˆRE CIPHER BROKEN â€” Cryptanalyst status achieved!
         </motion.div>
       )}
     </div>
   );
 }
+

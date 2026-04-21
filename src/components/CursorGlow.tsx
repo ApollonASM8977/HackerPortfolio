@@ -1,7 +1,7 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useEffect, useRef } from 'react';
 
-/** Subtle radial green glow that follows the cursor — pointer-events: none */
+/** Subtle radial green glow that follows the cursor â€” pointer-events: none */
 export function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,3 +31,4 @@ export function CursorGlow() {
     />
   );
 }
+

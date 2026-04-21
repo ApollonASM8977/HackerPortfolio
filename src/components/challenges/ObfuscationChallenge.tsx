@@ -1,21 +1,21 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LEVELS = [
   {
-    title: 'Level 1 — CharCode Array',
+    title: 'Level 1 â€” CharCode Array',
     lang: 'javascript',
     code: `[70,76,65,71,123,106,115,95,48,98,102,125]
   .map(c => String.fromCharCode(c))
   .join('')`,
     question: 'What string does this JavaScript produce?',
-    hint: 'Run it in your browser console (F12 → Console) or decode manually:\n70=F  76=L  65=A  71=G  123={  106=j  115=s  95=_  48=0  98=b  102=f  125=}',
+    hint: 'Run it in your browser console (F12 â†’ Console) or decode manually:\n70=F  76=L  65=A  71=G  123={  106=j  115=s  95=_  48=0  98=b  102=f  125=}',
     flag: 'FLAG{js_0bf}',
     check: (a: string) => a.trim() === 'FLAG{js_0bf}',
   },
   {
-    title: 'Level 2 — eval(atob(...))',
+    title: 'Level 2 â€” eval(atob(...))',
     lang: 'javascript',
     code: `eval(atob("YWxlcnQoIkNURntqc19ldmFsX2lzX2Rhbmdlcm91c30iKQ=="))`,
     question: 'What flag does this execute? Decode the Base64 argument.',
@@ -24,7 +24,7 @@ const LEVELS = [
     check: (a: string) => a.trim().toLowerCase() === 'ctf{js_eval_is_dangerous}',
   },
   {
-    title: 'Level 3 — Python chr() Array',
+    title: 'Level 3 â€” Python chr() Array',
     lang: 'python',
     code: `exec(''.join([chr(x) for x in [
   112,114,105,110,116,40,39,
@@ -100,7 +100,7 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
         onClick={() => setShowHint(h => !h)}
         className="text-[#444] hover:text-[#ffcc00] text-xs mono transition-colors text-left"
       >
-        {showHint ? '▾' : '▸'} Hint
+        {showHint ? 'â–¾' : 'â–¸'} Hint
       </button>
       {showHint && (
         <pre className="text-[#ffcc00] text-xs mono whitespace-pre-wrap">{cur.hint}</pre>
@@ -112,7 +112,7 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && verify()}
-          placeholder={`Enter the flag…`}
+          placeholder={`Enter the flagâ€¦`}
           className="bg-transparent border border-[#1a2332] rounded px-3 py-2 text-[#a855f7]
                      mono text-xs flex-1 outline-none focus:border-[#a855f755]"
         />
@@ -125,8 +125,9 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
         </button>
       </div>
 
-      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">✓ Correct! Flag: {cur.flag}</p>}
-      {status === 'err' && <p className="text-[#ff4444] text-xs mono">✗ Incorrect. Try again.</p>}
+      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">âœ“ Correct! Flag: {cur.flag}</p>}
+      {status === 'err' && <p className="text-[#ff4444] text-xs mono">âœ— Incorrect. Try again.</p>}
     </div>
   );
 }
+

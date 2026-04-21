@@ -1,14 +1,14 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const LINES = [
-  { text: 'BIOS v2.6 — POST check .......................... [OK]', color: '#444',    ms: 0   },
-  { text: '▸ apollon@kali kernel 6.5.0 loading ..............', color: '#00ff41', ms: 180  },
-  { text: '▸ Cryptography engine ............................ [OK]', color: '#00ff41', ms: 340  },
-  { text: '▸ Network interface eth0 ......................... [OK]', color: '#00ff41', ms: 490  },
-  { text: '▸ Security modules (IDS/IPS) ..................... [OK]', color: '#00ff41', ms: 620  },
-  { text: '▸ Firewall rules loaded .......................... [OK]', color: '#00ff41', ms: 750  },
+  { text: 'BIOS v2.6 â€” POST check .......................... [OK]', color: '#444',    ms: 0   },
+  { text: 'â–¸ apollon@kali kernel 6.5.0 loading ..............', color: '#00ff41', ms: 180  },
+  { text: 'â–¸ Cryptography engine ............................ [OK]', color: '#00ff41', ms: 340  },
+  { text: 'â–¸ Network interface eth0 ......................... [OK]', color: '#00ff41', ms: 490  },
+  { text: 'â–¸ Security modules (IDS/IPS) ..................... [OK]', color: '#00ff41', ms: 620  },
+  { text: 'â–¸ Firewall rules loaded .......................... [OK]', color: '#00ff41', ms: 750  },
   { text: '', color: '', ms: 860 },
   { text: 'Mounting portfolio filesystem ..........', color: '#00d4ff', ms: 900  },
 ];
@@ -52,7 +52,7 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
           <div key={i} style={{ color: l.color || '#00ff41' }}>{l.text || '\u00A0'}</div>
         ))}
         {lines.length > 0 && !done && (
-          <span className="blink text-[#00ff41]">█</span>
+          <span className="blink text-[#00ff41]">â–ˆ</span>
         )}
       </div>
 
@@ -71,7 +71,7 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
           />
         </div>
         <div className="mono text-[#222] text-[10px] mt-2 text-center tracking-widest">
-          {'[' + '█'.repeat(filled) + '░'.repeat(20 - filled) + ']'}
+          {'[' + 'â–ˆ'.repeat(filled) + 'â–‘'.repeat(20 - filled) + ']'}
         </div>
       </div>
 
@@ -85,3 +85,4 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
     </motion.div>
   );
 }
+

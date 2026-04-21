@@ -1,4 +1,4 @@
-// © 2026 Aboubacar Sidick Meite (ApollonIUGB77) — All Rights Reserved
+﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
 import './index.css';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -26,7 +26,7 @@ function getTransitionClasses(from: Page, to: Page) {
                return { exit: 'page-exit-right', enter: 'page-enter-left'  };
 }
 
-/* ── Konami overlay ──────────────────────────────────── */
+/* â”€â”€ Konami overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
                 'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
@@ -39,24 +39,24 @@ function KonamiOverlay({ onDone }: { onDone: () => void }) {
       <motion.div initial={{ scale:0.5, opacity:0 }} animate={{ scale:1, opacity:1 }}
         transition={{ type:'spring', stiffness:200, damping:15 }} className="text-center">
         <div className="mono text-[#ff0040] text-xs mb-3 tracking-widest animate-pulse">
-          ██████ SYSTEM BREACH DETECTED ██████
+          â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ SYSTEM BREACH DETECTED â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
         </div>
         <div className="mono font-bold text-[#00ff41] text-4xl sm:text-6xl glow-green mb-4">ROOT ACCESS</div>
         <div className="mono text-[#00ff41] text-xl glow-green mb-6">GRANTED</div>
         <pre className="mono text-[#00ff41] text-xs text-left inline-block opacity-70 leading-6">
 {`[*] Exploiting CVE-2026-KONAMI...
-[+] Privilege escalation: user → root
+[+] Privilege escalation: user â†’ root
 [+] uid=0(root) gid=0(root)
 [!] FLAG{k0n4m1_m4st3r_h4ck3r}`}
         </pre>
-        <div className="mt-6 mono text-[#444] text-xs">↑↑↓↓←→←→BA — classic 🎮</div>
+        <div className="mt-6 mono text-[#444] text-xs">â†‘â†‘â†“â†“â†â†’â†â†’BA â€” classic ðŸŽ®</div>
       </motion.div>
     </motion.div>
   );
 }
 
 export default function App() {
-  /* ── Show loading screen once per session */
+  /* â”€â”€ Show loading screen once per session */
   const [loading, setLoading] = useState(() => !sessionStorage.getItem('booted'));
 
   const [page, setPage]           = useState<Page>('home');
@@ -88,7 +88,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', h);
   }, []);
 
-  /* ? key → shortcuts modal */
+  /* ? key â†’ shortcuts modal */
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       if (e.key === '?' && (e.target as HTMLElement).tagName !== 'INPUT'
@@ -104,7 +104,7 @@ export default function App() {
 
   return (
     <>
-      {/* Loading screen — rendered outside main div to cover everything */}
+      {/* Loading screen â€” rendered outside main div to cover everything */}
       <AnimatePresence>{loading && <LoadingScreen onDone={handleBootDone} />}</AnimatePresence>
 
       <div className={`scanlines hex-grid relative min-h-screen bg-[#070b10] ${loading ? 'overflow-hidden h-screen' : ''}`}>
@@ -138,3 +138,4 @@ export default function App() {
     </>
   );
 }
+
