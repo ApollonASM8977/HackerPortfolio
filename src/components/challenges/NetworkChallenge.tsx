@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { Terminal, Wifi } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -54,7 +54,7 @@ const LEVELS: Level[] = [
     answer: '4444',
     placeholder: 'Port number...',
     hint: 'One port shows no service banner and is flagged as SUSPICIOUS. It\'s a well-known default reverse shell port.',
-    successMsg: 'Backdoor identified! Port 4444 â€” classic Metasploit meterpreter shell.',
+    successMsg: 'Backdoor identified! Port 4444 — classic Metasploit meterpreter shell.',
   },
 ];
 
@@ -151,7 +151,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
           <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
           <span className="ml-2 text-[#555] text-xs">
-            {current.icon === 'terminal' ? 'capture.pcap â€” Wireshark' : 'nmap_scan.txt'}
+            {current.icon === 'terminal' ? 'capture.pcap — Wireshark' : 'nmap_scan.txt'}
           </span>
         </div>
 
@@ -265,7 +265,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          NETWORK ANALYST â€” Packet sniffer & port scanner mastered!
+          NETWORK ANALYST — Packet sniffer & port scanner mastered!
         </motion.div>
       )}
     </div>

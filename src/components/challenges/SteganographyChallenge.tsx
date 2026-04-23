@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -16,19 +16,19 @@ const GRID = [
 
 const LEVELS = [
   {
-    title: 'Level 1 â€” Acrostic',
+    title: 'Level 1 — Acrostic',
     flag: 'FLAG{4cr0st1c_sp34k}',
     check: (a: string) => a.toUpperCase() === 'FLAG' || a.toLowerCase() === 'flag{4cr0st1c_sp34k}',
     hint: 'Read only the FIRST letter of each line.',
   },
   {
-    title: 'Level 2 â€” Matrix Diagonal',
+    title: 'Level 2 — Matrix Diagonal',
     flag: 'CTF{d14g}',
     check: (a: string) => a.toLowerCase() === 'ctf{d14g}',
     hint: 'Read the diagonal from top-left to bottom-right.',
   },
   {
-    title: 'Level 3 â€” Position Pattern',
+    title: 'Level 3 — Position Pattern',
     flag: 'FLAG{st3g_m4st3r}',
     check: (a: string) => a.toLowerCase() === 'flag{st3g_m4st3r}',
     hint: 'Extract chars at positions 3, 9, 15, 20 (0-indexed) from the string below.',

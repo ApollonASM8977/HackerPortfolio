@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -29,7 +29,7 @@ const LEVELS: Level[] = [
       '01000110 01001100 01000001 01000111 01111011 01100010 00110001 01101110 00110100 01110010 01111101',
     answer: 'FLAG{b1n4r}',
     label: 'Decode the full flag from binary',
-    hint: 'Convert each byte: 01000110=70=F, 01001100=76=L, 01000001=65=Aâ€¦',
+    hint: 'Convert each byte: 01000110=70=F, 01001100=76=L, 01000001=65=A…',
     successMsg: 'Flag captured! Binary fluency unlocked.',
   },
   {
@@ -37,7 +37,7 @@ const LEVELS: Level[] = [
     encoded: '53 45 43 7B 68 33 78 5F 6D 34 73 74 33 72 7D',
     answer: 'SEC{h3x_m4st3r}',
     label: '[HEX] Decode the hex bytes to ASCII',
-    hint: 'Hex to ASCII: 53=S, 45=E, 43=C, 7B={, 68=hâ€¦ use parseInt("53",16)=83=S',
+    hint: 'Hex to ASCII: 53=S, 45=E, 43=C, 7B={, 68=h… use parseInt("53",16)=83=S',
     successMsg: 'HEX master! All encoding types defeated.',
   },
 ];
@@ -218,7 +218,7 @@ export function BinaryChallenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          BINARY + HEX MASTER â€” All encoding layers decoded!
+          BINARY + HEX MASTER — All encoding layers decoded!
         </motion.div>
       )}
     </div>

@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Swords, FolderOpen, Mail, ArrowRight } from 'lucide-react';
@@ -10,12 +10,12 @@ const ROLES = [
   'M.S. Cybersecurity @ Montclair State',
   'Security Researcher & CTF Player',
   'Full-Stack Developer',
-  'TryHackMe WIZARD â€” Top 4%',
+  'TryHackMe WIZARD — Top 4%',
 ];
 
 const NAV_CARDS = [
   { page: 'about'      as Page, icon: <User className="w-5 h-5" />,       title: 'About Me',   desc: 'Skills, tools & certifications',     accent: '#00ff41', num: '01' },
-  { page: 'challenges' as Page, icon: <Swords className="w-5 h-5" />,     title: 'Challenges', desc: '13 CTF challenges â€” crypto, web, net', accent: '#00d4ff', num: '02' },
+  { page: 'challenges' as Page, icon: <Swords className="w-5 h-5" />,     title: 'Challenges', desc: '13 CTF challenges — crypto, web, net', accent: '#00d4ff', num: '02' },
   { page: 'projects'   as Page, icon: <FolderOpen className="w-5 h-5" />, title: 'Projects',   desc: 'Security tools & full-stack apps',    accent: '#a855f7', num: '03' },
   { page: 'contact'    as Page, icon: <Mail className="w-5 h-5" />,       title: 'Contact',    desc: 'LinkedIn, GitHub, TryHackMe',         accent: '#ffcc00', num: '04' },
 ];
@@ -90,9 +90,9 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neon-pulse-ring"
           style={{ border:'1px solid #00ff4133', background:'#00ff4108' }}>
           <span className="w-1.5 h-1.5 rounded-full bg-[#ff0040] animate-pulse" />
-          <span className="mono text-[10px] text-[#555]">LIVE &nbsp;Â·&nbsp; </span>
+          <span className="mono text-[10px] text-[#555]">LIVE &nbsp;·&nbsp; </span>
           <span className="mono text-[10px] text-[#00d4ff]">CompTIA Security+</span>
-          <span className="mono text-[10px] text-[#333]"> &nbsp;Â·&nbsp; </span>
+          <span className="mono text-[10px] text-[#333]"> &nbsp;·&nbsp; </span>
           <span className="mono text-[10px] text-[#00ff41]">HTB Season 6</span>
         </motion.div>
       </motion.div>
@@ -140,10 +140,10 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
         className="flex flex-col items-center gap-1">
-        <p className="mono text-[#1e1e1e] text-xs">Â© 2026 Aboubacar Sidick Meite</p>
+        <p className="mono text-[#1e1e1e] text-xs">© 2026 Aboubacar Sidick Meite</p>
         <p className="mono text-[#252525] text-[10px]">
           visitor <span className="text-[#2a3a2a]">#{String(visitorCount).padStart(4,'0')}</span>
-          &nbsp;Â·&nbsp;session active
+          &nbsp;·&nbsp;session active
         </p>
       </motion.div>
     </div>

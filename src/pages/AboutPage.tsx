@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { ChevronLeft } from 'lucide-react';
 import { AboutSection } from '../components/AboutSection';
 import type { Page } from '../App';
@@ -11,7 +11,7 @@ export function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
         <button className="back-btn" onClick={() => navigate('home')}>
           <ChevronLeft className="w-4 h-4" />home
         </button>
-        <span className="text-[#1e2d42] text-xs">Â·</span>
+        <span className="text-[#1e2d42] text-xs">·</span>
         <span className="mono text-[#333] text-xs">about_me.sh</span>
         <div className="ml-auto flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00ff41] animate-pulse" />

@@ -1,9 +1,9 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const LINES = [
-  { text: 'BIOS v2.6 â€” POST check .......................... [OK]', color: '#444',    ms: 0   },
+  { text: 'BIOS v2.6 — POST check .......................... [OK]', color: '#444',    ms: 0   },
   { text: 'â–¸ apollon@kali kernel 6.5.0 loading ..............', color: '#00ff41', ms: 180  },
   { text: 'â–¸ Cryptography engine ............................ [OK]', color: '#00ff41', ms: 340  },
   { text: 'â–¸ Network interface eth0 ......................... [OK]', color: '#00ff41', ms: 490  },

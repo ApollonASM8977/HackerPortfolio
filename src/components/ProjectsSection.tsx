@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, GitFork, Shield, Key, Terminal, Smartphone, Globe, Lock } from 'lucide-react';
@@ -6,10 +6,10 @@ import { GlitchText } from './GlitchText';
 
 const PROJECTS = [
   { icon: <Key className="w-5 h-5" />,        name: 'CipherLab',   color: '#a855f7',
-    desc: 'Complete cryptography toolkit â€” AES, RSA, DES, Caesar, VigenÃ¨re, Base64. React + FastAPI with step-by-step encryption demos.',
+    desc: 'Complete cryptography toolkit — AES, RSA, DES, Caesar, VigenÃ¨re, Base64. React + FastAPI with step-by-step encryption demos.',
     tags: ['Python','React','FastAPI','Cryptography'], github: 'https://github.com/ApollonASM8977/CipherLab' },
   { icon: <Shield className="w-5 h-5" />,     name: 'CryptoMath',  color: '#00d4ff',
-    desc: 'RSA, Diffie-Hellman, Miller-Rabin primality, Baby-step Giant-step discrete log â€” from scratch in pure Python.',
+    desc: 'RSA, Diffie-Hellman, Miller-Rabin primality, Baby-step Giant-step discrete log — from scratch in pure Python.',
     tags: ['Pure Python','Number Theory','RSA','Math'], github: 'https://github.com/ApollonASM8977/CryptoMath' },
   { icon: <Terminal className="w-5 h-5" />,   name: 'AlgoToolkit', color: '#00ff41',
     desc: '8 sorting + 6 searching + 6 data structures + 5 graph algorithms. Each returns complexity analysis and benchmarks.',
@@ -18,10 +18,10 @@ const PROJECTS = [
     desc: 'E2E encrypted file sharing over LAN. AES-256-CBC + RSA-2048 key exchange. PyQt6 GUI with bcrypt auth.',
     tags: ['Python','PyQt6','AES-256','RSA-2048'], github: 'https://github.com/ApollonASM8977/secure-file-sharing' },
   { icon: <Smartphone className="w-5 h-5" />, name: 'CommuTaxi',   color: '#ffcc00',
-    desc: 'Flutter ride-booking app â€” Firebase Auth, Google Maps, real-time tracking, fare estimation, trip history.',
+    desc: 'Flutter ride-booking app — Firebase Auth, Google Maps, real-time tracking, fare estimation, trip history.',
     tags: ['Flutter','Firebase','Google Maps','Dart'], github: 'https://github.com/ApollonASM8977/TaxiApp-Users' },
   { icon: <Globe className="w-5 h-5" />,      name: 'Atlas Money',  color: '#60a5fa',
-    desc: 'Mobile money web app â€” transfers, withdrawals, admin panel. Secured with prepared statements, bcrypt & CSRF.',
+    desc: 'Mobile money web app — transfers, withdrawals, admin panel. Secured with prepared statements, bcrypt & CSRF.',
     tags: ['PHP','MySQL','Security','Web'], github: 'https://github.com/ApollonASM8977/bank.atlas.bk' },
 ];
 
@@ -146,7 +146,7 @@ function GitHubStats() {
           <div className="mono text-[#444] text-[10px]">{s.label}</div>
         </div>
       ))}
-      <div className="text-[#333] text-[10px] mono ml-2">live Â· github.com/ApollonASM8977</div>
+      <div className="text-[#333] text-[10px] mono ml-2">live · github.com/ApollonASM8977</div>
     </motion.div>
   );
 }
@@ -160,7 +160,7 @@ export function ProjectsSection() {
           Featured <GlitchText color="#a855f7">Projects</GlitchText>
         </h2>
         <p className="text-[#555] text-sm leading-7">
-          Real projects â€” built, secured, and pushed to GitHub.
+          Real projects — built, secured, and pushed to GitHub.
         </p>
       </motion.div>
 

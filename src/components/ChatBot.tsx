@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MessageSquare, X, Send, Bot } from 'lucide-react';
@@ -29,8 +29,8 @@ function getBotResponse(
   if (/^(hello|hi\b|hey|yo\b|salut|bonjour|bonsoir|cc\b)/.test(i)) {
     const name = userName ? `, ${userName}` : '';
     return isFR
-      ? { text: `Salut${name}! ðŸ‘¾ Je suis ApolloBot â€” l'assistant du portfolio d'Aboubacar. Pose-moi des questions sur ses compÃ©tences, projets, certifications ou comment le contacter !` }
-      : { text: `Hey${name}! ðŸ‘¾ I'm ApolloBot â€” Aboubacar's portfolio assistant. Ask me about his skills, projects, certifications, or how to reach him!` };
+      ? { text: `Salut${name}! ðŸ‘¾ Je suis ApolloBot — l'assistant du portfolio d'Aboubacar. Pose-moi des questions sur ses compÃ©tences, projets, certifications ou comment le contacter !` }
+      : { text: `Hey${name}! ðŸ‘¾ I'm ApolloBot — Aboubacar's portfolio assistant. Ask me about his skills, projects, certifications, or how to reach him!` };
   }
 
   // â”€â”€ User introduces themselves
@@ -81,20 +81,20 @@ function getBotResponse(
   // â”€â”€ Skills
   if (/skill|technolog|compÃ©ten|outil|tools|stack/.test(i))
     return isFR
-      ? { text: 'CompÃ©tences principales :\nâ€¢ Linux/Bash â€” 90%\nâ€¢ Python â€” 85%\nâ€¢ Cryptographie â€” 82%\nâ€¢ React/TypeScript â€” 75%\nâ€¢ SÃ©curitÃ© rÃ©seau â€” 75%\nâ€¢ Pentest â€” 70%\n\nOutils : Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmapâ€¦' }
-      : { text: 'Top skills:\nâ€¢ Linux/Bash â€” 90%\nâ€¢ Python â€” 85%\nâ€¢ Cryptography â€” 82%\nâ€¢ React/TypeScript â€” 75%\nâ€¢ Network Security â€” 75%\nâ€¢ Pentesting â€” 70%\n\nTools: Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmapâ€¦' };
+      ? { text: 'CompÃ©tences principales :\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptographie — 82%\n• React/TypeScript — 75%\n• SÃ©curitÃ© rÃ©seau — 75%\n• Pentest — 70%\n\nOutils : Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' }
+      : { text: 'Top skills:\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptography — 82%\n• React/TypeScript — 75%\n• Network Security — 75%\n• Pentesting — 70%\n\nTools: Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' };
 
   // â”€â”€ Projects
   if (/project|build|github|projet|application/.test(i))
     return isFR
-      ? { text: 'Projets clÃ©s :\nðŸ” CipherLab â€” toolkit crypto complet (React + FastAPI)\nðŸ”¢ CryptoMath â€” RSA, DH from scratch en Python\nðŸ”’ SecureShare â€” partage de fichiers E2E AES-256 + RSA\nðŸš• CommuTaxi â€” app Flutter avec Firebase\nðŸ’° Atlas Money â€” app mobile money sÃ©curisÃ©e PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
-      : { text: 'Key projects:\nðŸ” CipherLab â€” full crypto toolkit (React + FastAPI)\nðŸ”¢ CryptoMath â€” RSA, DH from scratch in Python\nðŸ”’ SecureShare â€” AES-256 + RSA-2048 E2E file sharing\nðŸš• CommuTaxi â€” Flutter ride app with Firebase\nðŸ’° Atlas Money â€” secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
+      ? { text: 'Projets clÃ©s :\nðŸ” CipherLab — toolkit crypto complet (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch en Python\nðŸ”’ SecureShare — partage de fichiers E2E AES-256 + RSA\nðŸš• CommuTaxi — app Flutter avec Firebase\nðŸ’° Atlas Money — app mobile money sÃ©curisÃ©e PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
+      : { text: 'Key projects:\nðŸ” CipherLab — full crypto toolkit (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch in Python\nðŸ”’ SecureShare — AES-256 + RSA-2048 E2E file sharing\nðŸš• CommuTaxi — Flutter ride app with Firebase\nðŸ’° Atlas Money — secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
 
   // â”€â”€ Contact
   if (/contact|email|reach|hire|work|embauche|joindre|recrut/.test(i))
     return isFR
-      ? { text: 'Pour le contacter :\nâ€¢ LinkedIn : linkedin.com/in/aboubacar-sidick-meite-b5b309276\nâ€¢ GitHub : github.com/ApollonASM8977\nâ€¢ TryHackMe : tryhackme.com/p/exterminator\n\nOuvert aux stages, recherches et collaborations ! ðŸ“¬', navTo: 'contact' }
-      : { text: 'Best way to reach him:\nâ€¢ LinkedIn: linkedin.com/in/aboubacar-sidick-meite-b5b309276\nâ€¢ GitHub: github.com/ApollonASM8977\nâ€¢ TryHackMe: tryhackme.com/p/exterminator\n\nOpen to internships, research & collaborations! ðŸ“¬', navTo: 'contact' };
+      ? { text: 'Pour le contacter :\n• LinkedIn : linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub : github.com/ApollonASM8977\n• TryHackMe : tryhackme.com/p/exterminator\n\nOuvert aux stages, recherches et collaborations ! ðŸ“¬', navTo: 'contact' }
+      : { text: 'Best way to reach him:\n• LinkedIn: linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub: github.com/ApollonASM8977\n• TryHackMe: tryhackme.com/p/exterminator\n\nOpen to internships, research & collaborations! ðŸ“¬', navTo: 'contact' };
 
   // â”€â”€ TryHackMe / CTF
   if (/tryhackme|thm|rank|ctf|challenge|wizard|hacking/.test(i))
@@ -105,8 +105,8 @@ function getBotResponse(
   // â”€â”€ Certifications
   if (/cert|certif/.test(i))
     return isFR
-      ? { text: 'Certifications :\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe â€” Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' }
-      : { text: 'Certifications:\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe â€” Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' };
+      ? { text: 'Certifications :\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' }
+      : { text: 'Certifications:\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' };
 
   // â”€â”€ Education
   if (/school|university|education|degree|study|Ã©tude|universitÃ©|diplÃ´me|master/.test(i))
@@ -116,13 +116,13 @@ function getBotResponse(
 
   // â”€â”€ Languages
   if (/french|franÃ§ais|speak|langue|language|parle/.test(i))
-    return { text: 'Je parle franÃ§ais et anglais! ðŸ‡«ðŸ‡·ðŸ‡ºðŸ‡¸ French is my first language â€” originally from CÃ´te d\'Ivoire. Feel free to chat in either language!' };
+    return { text: 'Je parle franÃ§ais et anglais! ðŸ‡«ðŸ‡·ðŸ‡ºðŸ‡¸ French is my first language — originally from CÃ´te d\'Ivoire. Feel free to chat in either language!' };
 
   // â”€â”€ Location
   if (/location|where|country|ville|pays|habite/.test(i))
     return isFR
-      ? { text: 'BasÃ© Ã  Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ â€” disponible en remote, prÃ©sentiel ou peu importe la localisation.' }
-      : { text: 'Based in Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ â€” open to remote, on-site, or any location.' };
+      ? { text: 'BasÃ© Ã  Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — disponible en remote, prÃ©sentiel ou peu importe la localisation.' }
+      : { text: 'Based in Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — open to remote, on-site, or any location.' };
 
   // â”€â”€ Availability
   if (/available|opportunit|internship|open|disponib|stage/.test(i))
@@ -132,7 +132,7 @@ function getBotResponse(
 
   // â”€â”€ Easter egg
   if (/flag|hack me|secret|password|mot de passe/.test(i))
-    return { text: 'Nice try, hacker ðŸ˜ FLAG{n0_fr33_fl4gs_h3r3} â€” but head to the Challenges page to earn real flags! ðŸ' };
+    return { text: 'Nice try, hacker ðŸ˜ FLAG{n0_fr33_fl4gs_h3r3} — but head to the Challenges page to earn real flags! ðŸ' };
 
   // â”€â”€ Resume / CV
   if (/resume|cv|curriculum/.test(i))
@@ -143,8 +143,8 @@ function getBotResponse(
   // â”€â”€ Help
   if (/help|what can|command|aide|menu/.test(i))
     return isFR
-      ? { text: 'Je peux t\'informer sur :\nâ€¢ Bio et parcours\nâ€¢ CompÃ©tences et outils\nâ€¢ Projets\nâ€¢ Certifications\nâ€¢ Stats TryHackMe / CTF\nâ€¢ Comment contacter Aboubacar\n\nJe peux aussi naviguer ! Dis "montre-moi les projets" ðŸš€' }
-      : { text: 'I can tell you about:\nâ€¢ Bio & background\nâ€¢ Skills & tools\nâ€¢ Projects\nâ€¢ Certifications\nâ€¢ TryHackMe / CTF stats\nâ€¢ How to get in touch\n\nI can also navigate! Say "show me the projects" ðŸš€' };
+      ? { text: 'Je peux t\'informer sur :\n• Bio et parcours\n• CompÃ©tences et outils\n• Projets\n• Certifications\n• Stats TryHackMe / CTF\n• Comment contacter Aboubacar\n\nJe peux aussi naviguer ! Dis "montre-moi les projets" ðŸš€' }
+      : { text: 'I can tell you about:\n• Bio & background\n• Skills & tools\n• Projects\n• Certifications\n• TryHackMe / CTF stats\n• How to get in touch\n\nI can also navigate! Say "show me the projects" ðŸš€' };
 
   return isFR
     ? { text: 'Je n\'ai pas de rÃ©ponse spÃ©cifique Ã  Ã§a. Explore les sections du portfolio, ou contacte directement sur LinkedIn ! ðŸ”' }
@@ -169,7 +169,7 @@ export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
   useEffect(() => {
     setMessages([{
       role: 'bot',
-      text: `${getGreeting()}\n\nI'm ApolloBot ðŸ‘¾ â€” Aboubacar's portfolio assistant. Ask me anything or say "help".\n\nðŸ’¡ Je parle aussi franÃ§ais !`,
+      text: `${getGreeting()}\n\nI'm ApolloBot ðŸ‘¾ — Aboubacar's portfolio assistant. Ask me anything or say "help".\n\nðŸ’¡ Je parle aussi franÃ§ais !`,
       time: new Date(),
     }]);
   }, []);

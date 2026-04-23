@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -65,7 +65,7 @@ const CHALLENGES = [
     category: 'CRYPTO',
     difficulty: 'Medium',
     diffColor: '#ffcc00',
-    description: 'Crack VigenÃ¨re-encrypted messages. Level 1 gives you the key â€” level 2, find it yourself.',
+    description: 'Crack VigenÃ¨re-encrypted messages. Level 1 gives you the key — level 2, find it yourself.',
     component: VigenereChallenge,
   },
   {
@@ -95,7 +95,7 @@ const CHALLENGES = [
     category: 'CRYPTO',
     difficulty: 'Easy',
     diffColor: '#00ff41',
-    description: 'Decode ROT13-encoded messages â€” the classic rotation cipher where every letter shifts by 13.',
+    description: 'Decode ROT13-encoded messages — the classic rotation cipher where every letter shifts by 13.',
     component: ROT13Challenge,
   },
   {
@@ -135,7 +135,7 @@ const CHALLENGES = [
     category: 'STEGO',
     difficulty: 'Medium',
     diffColor: '#00ff41',
-    description: 'Hidden in plain sight â€” acrostic poem, matrix diagonals, and character position extraction.',
+    description: 'Hidden in plain sight — acrostic poem, matrix diagonals, and character position extraction.',
     component: SteganographyChallenge,
   },
   {
@@ -145,7 +145,7 @@ const CHALLENGES = [
     category: 'REVERSE',
     difficulty: 'Hard',
     diffColor: '#a855f7',
-    description: 'Deobfuscate JavaScript CharCode arrays, eval(atob(â€¦)), and Python chr() exec chains.',
+    description: 'Deobfuscate JavaScript CharCode arrays, eval(atob(…)), and Python chr() exec chains.',
     component: ObfuscationChallenge,
   },
 ];
@@ -293,7 +293,7 @@ export function ChallengesSection() {
                 <p className="text-[#4a5568] text-xs leading-5">{c.description}</p>
               </div>{/* end clickable header */}
 
-              {/* Expanded â€” clicks inside do NOT bubble to the toggle */}
+              {/* Expanded — clicks inside do NOT bubble to the toggle */}
               <AnimatePresence>
                 {active === c.id && (
                   <motion.div

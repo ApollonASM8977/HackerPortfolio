@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -7,12 +7,12 @@ const ROLES = [
   'M.S. Cybersecurity @ Montclair State University',
   'Security Researcher & CTF Player',
   'Full-Stack Developer',
-  'TryHackMe WIZARD â€” Top 4% Worldwide',
+  'TryHackMe WIZARD — Top 4% Worldwide',
 ];
 
 const TERMINAL_LINES = [
   { text: '$ whoami', delay: 400,  color: '#ffcc00' },
-  { text: 'aboubacar â€” security researcher | full-stack dev | ctf player', delay: 700, color: '#ccc' },
+  { text: 'aboubacar — security researcher | full-stack dev | ctf player', delay: 700, color: '#ccc' },
   { text: '', delay: 900, color: '' },
   { text: '$ nmap -sV --script vuln challenges/', delay: 1100, color: '#ffcc00' },
   { text: 'Starting Nmap scan... Found 4 challenges open', delay: 1500, color: '#00d4ff' },

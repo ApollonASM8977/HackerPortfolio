@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { Copy, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,7 +19,7 @@ const LEVELS = [
   {
     encoded: 'U0VDezRkdjRuY2VkQjRzZX0=',
     answer: 'SEC{4dv4ncedB4se}',
-    label: 'Advanced encoding â€” decode this flag',
+    label: 'Advanced encoding — decode this flag',
     successMsg: 'MASTER DECODER! All levels complete.',
   },
 ];
@@ -139,7 +139,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
         <span className="text-[#ffcc00]">HINT:</span>{' '}
         Browser console:{' '}
         <span className="text-[#00d4ff]">atob('{current.encoded}')</span>
-        {' '}â€” or use any online Base64 decoder
+        {' '}— or use any online Base64 decoder
       </div>
 
       {/* Input */}
@@ -195,7 +195,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          ALL LEVELS DECODED â€” Base64 Master!
+          ALL LEVELS DECODED — Base64 Master!
         </motion.div>
       )}
     </div>

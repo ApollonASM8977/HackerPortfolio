@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useRef, useState } from 'react';
 
 type Line = { text: string; color?: string };
@@ -6,7 +6,7 @@ type TermState = 'booting' | 'ready' | 'running';
 const PROMPT = 'apollon@kali:~$ ';
 
 const BOOT: (Line & { delay: number })[] = [
-  { text: 'BIOS v2.4.1 â€” POST check...', color: '#444', delay: 80 },
+  { text: 'BIOS v2.4.1 — POST check...', color: '#444', delay: 80 },
   { text: 'â–¸ CPU  Intel Core i7-12700H ......... [OK]', color: '#00ff41', delay: 240 },
   { text: 'â–¸ RAM  16 384 MB DDR5 ............... [OK]', color: '#00ff41', delay: 420 },
   { text: 'â–¸ NET  eth0 192.168.1.100 ........... [OK]', color: '#00ff41', delay: 600 },
@@ -26,8 +26,8 @@ function getOutput(raw: string): CmdResult {
   if (cmd === 'clear')      return { clear: true, lines: [] };
   if (cmd === 'whoami')     return { lines: [
     { text: 'apollon', color: '#00ff41' },
-    { text: 'Security Researcher Â· CTF Player Â· Full-Stack Dev', color: '#ccc' },
-    { text: 'TryHackMe [0xA] WIZARD â€” Top 4% worldwide', color: '#00d4ff' },
+    { text: 'Security Researcher · CTF Player · Full-Stack Dev', color: '#ccc' },
+    { text: 'TryHackMe [0xA] WIZARD — Top 4% worldwide', color: '#00d4ff' },
   ]};
   if (cmd === 'ls')         return { lines: [
     { text: 'drwxr-xr-x  projects/   certifications/   tools/   writeups/', color: '#00d4ff' },
@@ -42,9 +42,9 @@ function getOutput(raw: string): CmdResult {
     { text: '-rw-------  apollon  flag.txt', color: '#ff0040' },
   ]};
   if (cmd === 'cat README.md') return { lines: [
-    { text: '# Aboubacar Sidick Meite â€” @ApollonASM8977', color: '#00ff41' },
+    { text: '# Aboubacar Sidick Meite — @ApollonASM8977', color: '#00ff41' },
     { text: 'M.S. Cybersecurity @ Montclair State University', color: '#ccc' },
-    { text: 'Skills: Python Â· Linux Â· React Â· Cryptography Â· Pentesting', color: '#aaa' },
+    { text: 'Skills: Python · Linux · React · Cryptography · Pentesting', color: '#aaa' },
     { text: 'Contact: linkedin.com/in/aboubacar-sidick-meite-b5b309276', color: '#00d4ff' },
   ]};
   if (cmd === 'cat flag.txt')  return { lines: [{ text: 'FLAG{w3lc0m3_t0_my_p0rtf0l10}', color: '#ff0040' }]};
@@ -63,7 +63,7 @@ function getOutput(raw: string): CmdResult {
     { text: '      inet 127.0.0.1  netmask 255.0.0.0', color: '#666' },
   ]};
   if (cmd === 'sudo su')       return { lines: [
-    { text: '[sudo] password for apollon: â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢', color: '#666' },
+    { text: '[sudo] password for apollon: ••••••••', color: '#666' },
     { text: 'root@kali:~# You were already root. Nice try.', color: '#ff0040' },
   ]};
   if (cmd === 'wireshark')     return { lines: [
@@ -121,8 +121,8 @@ function getOutput(raw: string): CmdResult {
       { text: '', color: '' },
       { text: 'Nmap done: 1 host up, scanned in 12.34 seconds', color: '#00d4ff' },
       ...(vuln ? [
-        { text: '[CRITICAL] Tomcat 9.0.30 â€” Deserialization RCE (CVE-2020-9484)', color: '#ff0040' },
-        { text: '[WARNING]  Apache 2.4.41 â€” Path traversal possible', color: '#ffcc00' },
+        { text: '[CRITICAL] Tomcat 9.0.30 — Deserialization RCE (CVE-2020-9484)', color: '#ff0040' },
+        { text: '[WARNING]  Apache 2.4.41 — Path traversal possible', color: '#ffcc00' },
       ] : []),
     ]};
   }
@@ -250,13 +250,13 @@ export function LiveTerminal() {
         <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
         <span className="ml-2 text-[#444] text-xs mono">root@apollon:~/portfolio</span>
         {state === 'running' && (
-          <span className="ml-auto text-[#444] text-xs mono animate-pulse">runningâ€¦</span>
+          <span className="ml-auto text-[#444] text-xs mono animate-pulse">running…</span>
         )}
         <button
           onClick={e => { e.stopPropagation(); setSoundOn(s => !s); }}
           className="ml-auto text-[10px] mono px-1.5 py-0.5 rounded transition-colors"
           style={{ color: soundOn ? '#00ff41' : '#333', border: `1px solid ${soundOn ? '#00ff4144' : '#1a2332'}` }}
-          title={soundOn ? 'Sound ON â€” click to mute' : 'Sound OFF â€” click to enable'}
+          title={soundOn ? 'Sound ON — click to mute' : 'Sound OFF — click to enable'}
         >
           {soundOn ? 'ðŸ”Š' : 'ðŸ”‡'}
         </button>

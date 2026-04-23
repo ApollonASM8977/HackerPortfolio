@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { GlitchText } from './GlitchText';
@@ -73,7 +73,7 @@ function HashIdentifier() {
 
   return (
     <div className="hacker-panel p-5 w-full flex flex-col gap-3">
-      <div className="mono text-[#333] text-xs">$ hash-identifier â€” paste any hash</div>
+      <div className="mono text-[#333] text-xs">$ hash-identifier — paste any hash</div>
       <input
         value={input}
         onChange={e => setInput(e.target.value)}
@@ -113,7 +113,7 @@ const QUOTES = [
   { text: 'To catch a hacker, you must think like a hacker.', author: 'Unknown' },
   { text: 'Given enough eyeballs, all bugs are shallow.', author: "Linus's Law" },
   { text: 'There are only two types of companies: those that have been hacked, and those that will be.', author: 'Robert Mueller' },
-  { text: 'Privacy is not for the paranoid â€” it is for the prepared.', author: 'Unknown' },
+  { text: 'Privacy is not for the paranoid — it is for the prepared.', author: 'Unknown' },
   { text: 'In cybersecurity, offense informs defense.', author: 'Unknown' },
   { text: 'Hackers are the immune system of the information age.', author: 'Ralph Nader' },
   { text: 'The art of war is to subdue the enemy without fighting.', author: 'Sun Tzu' },
@@ -154,10 +154,10 @@ const TOOLS = [
 
 const CERTS = [
   { name: '(ISC)Â² Certified in Cybersecurity (CC)',  icon: 'ðŸ›¡ï¸', status: 'Obtained',          color: '#00ff41' },
-  { name: 'EC-Council â€” CSCU',                       icon: 'ðŸ”', status: 'Obtained',          color: '#00ff41' },
-  { name: 'Fortinet â€” NSE 2 Network Security',       icon: 'ðŸ”’', status: 'Obtained',          color: '#00ff41' },
-  { name: 'TryHackMe â€” Intro to Cybersecurity Path', icon: 'ðŸ§ ', status: 'Aug 24 2024',       color: '#00d4ff' },
-  { name: 'TryHackMe â€” Pre Security Path',           icon: 'ðŸ”‘', status: 'Sep 8 2024',        color: '#00d4ff' },
+  { name: 'EC-Council — CSCU',                       icon: 'ðŸ”', status: 'Obtained',          color: '#00ff41' },
+  { name: 'Fortinet — NSE 2 Network Security',       icon: 'ðŸ”’', status: 'Obtained',          color: '#00ff41' },
+  { name: 'TryHackMe — Intro to Cybersecurity Path', icon: 'ðŸ§ ', status: 'Aug 24 2024',       color: '#00d4ff' },
+  { name: 'TryHackMe — Pre Security Path',           icon: 'ðŸ”‘', status: 'Sep 8 2024',        color: '#00d4ff' },
   { name: 'CompTIA Security+ / Network+',            icon: 'ðŸ“¡', status: 'In progress 2026',  color: '#ffcc00' },
 ];
 
@@ -170,13 +170,13 @@ const INTERESTS = [
 ];
 
 const TIMELINE = [
-  { year: '2019', title: 'B.S. Computer Science â€” Started', place: 'UniversitÃ© de CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®', color: '#00ff41' },
-  { year: '2023', title: 'TryHackMe â€” First room', place: 'Started ethical hacking journey Â· 589 events Y1', color: '#00d4ff' },
-  { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide â€” 21 badges earned', color: '#ffcc00' },
-  { year: '2024', title: 'M.S. Cybersecurity â€” Started', place: 'Montclair State University, NJ ðŸ‡ºðŸ‡¸', color: '#a855f7' },
+  { year: '2019', title: 'B.S. Computer Science — Started', place: 'UniversitÃ© de CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®', color: '#00ff41' },
+  { year: '2023', title: 'TryHackMe — First room', place: 'Started ethical hacking journey · 589 events Y1', color: '#00d4ff' },
+  { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide — 21 badges earned', color: '#ffcc00' },
+  { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ ðŸ‡ºðŸ‡¸', color: '#a855f7' },
   { year: '2024', title: '(ISC)Â² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
-  { year: '2025', title: '98+ Rooms Â· 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
-  { year: '2026', title: 'M.S. Cybersecurity â€” Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
+  { year: '2025', title: '98+ Rooms · 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
+  { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
 ];
 
 const BADGES: { name: string; rarity: 'Legendary' | 'Epic' | 'Rare' | 'Uncommon' | 'Common' | 'Seasonal'; color: string; icon: string }[] = [
@@ -231,7 +231,7 @@ function QuoteRotator() {
             exit={{ opacity:0, y:-8 }} transition={{ duration:0.4 }}
             className="flex flex-col items-center gap-1">
             <p className="text-[#aaa] text-sm italic leading-6 max-w-lg">"{q.text}"</p>
-            <span className="text-[#00ff41] text-xs mono">â€” {q.author}</span>
+            <span className="text-[#00ff41] text-xs mono">— {q.author}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -304,7 +304,7 @@ function BadgesShowcase() {
   return (
     <div className="hacker-panel p-6 w-full flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <div className="mono text-[#333] text-xs">$ ls ~/.thm/badges/ &nbsp;Â·&nbsp; {BADGES.length} earned</div>
+        <div className="mono text-[#333] text-xs">$ ls ~/.thm/badges/ &nbsp;·&nbsp; {BADGES.length} earned</div>
         <a href="https://tryhackme.com/p/exterminator" target="_blank" rel="noopener noreferrer"
           className="mono text-[10px] text-[#00d4ff] hover:underline">tryhackme.com/p/exterminator â†—</a>
       </div>
@@ -324,7 +324,7 @@ function BadgesShowcase() {
           <motion.div key={i}
             initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.05 + i * 0.025 }}
-            title={`${b.name} â€” ${b.rarity}`}
+            title={`${b.name} — ${b.rarity}`}
             className="flex flex-col items-center gap-1 p-2 rounded-lg border cursor-default
                        hover:scale-105 transition-transform"
             style={{ background: b.color + '08', borderColor: b.color + '25' }}>
@@ -401,7 +401,7 @@ export function AboutSection() {
           About <GlitchText color="#00ff41">Me</GlitchText>
         </h2>
         <p className="text-[#555] text-sm leading-7">
-          Security researcher, full-stack developer & CTF player â€” New Jersey, USA
+          Security researcher, full-stack developer & CTF player — New Jersey, USA
         </p>
         <a href="/resume.pdf" download
           className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#00ff4155]
@@ -429,7 +429,7 @@ export function AboutSection() {
             <span className="mono text-[#00ff41] text-xs">Open to opportunities</span>
           </div>
           <div className="hacker-panel px-5 py-3 mono text-[#aaa] text-xs">
-            ðŸ‡ºðŸ‡¸ New Jersey &nbsp;Â·&nbsp; Originally ðŸ‡¨ðŸ‡® CÃ´te d'Ivoire
+            ðŸ‡ºðŸ‡¸ New Jersey &nbsp;·&nbsp; Originally ðŸ‡¨ðŸ‡® CÃ´te d'Ivoire
           </div>
         </div>
       </motion.div>
@@ -439,7 +439,7 @@ export function AboutSection() {
         <QuoteRotator />
       </motion.div>
 
-      {/* Stats â€” animated counters */}
+      {/* Stats — animated counters */}
       <motion.div {...f(0.15)} className="w-full max-w-2xl">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {STATS.map((s, i) => <AnimatedStatCard key={i} stat={s} delay={0.2 + i * 0.08} />)}
@@ -457,7 +457,7 @@ export function AboutSection() {
         <Timeline />
       </motion.div>
 
-      {/* Skills â€” bars + radar */}
+      {/* Skills — bars + radar */}
       <motion.div {...f(0.25)} className="w-full max-w-2xl flex flex-col gap-8">
         <p className="mono text-[#333] text-xs text-center">$ cat /etc/skills</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -501,7 +501,7 @@ export function AboutSection() {
 
       {/* Hash Identifier mini-tool */}
       <motion.div {...f(0.28)} className="w-full max-w-2xl flex flex-col gap-3">
-        <p className="mono text-[#333] text-xs text-center">$ hash-identifier â€” live tool</p>
+        <p className="mono text-[#333] text-xs text-center">$ hash-identifier — live tool</p>
         <HashIdentifier />
       </motion.div>
 

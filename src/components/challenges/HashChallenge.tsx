@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 
 // Pre-computed MD5 hashes (educational only)
@@ -82,7 +82,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       }
       i++;
       if (i >= wl.length) {
-        setResult('âœ— Not in wordlist â€” try manual input');
+        setResult('âœ— Not in wordlist — try manual input');
         clearInterval(interval);
         setCracking(false);
       }
@@ -98,7 +98,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       setSolved(newSolved);
       if (newSolved.every(Boolean)) setTimeout(onSolve, 500);
     } else {
-      setManualResult('âœ— Wrong â€” that hash doesn\'t match');
+      setManualResult('âœ— Wrong — that hash doesn\'t match');
     }
   };
 
@@ -128,7 +128,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
 
       {/* Wordlist attack */}
       <div>
-        <div className="text-[#666] text-xs mb-2">DICTIONARY ATTACK â€” wordlist ({current.wordlist.length} entries):</div>
+        <div className="text-[#666] text-xs mb-2">DICTIONARY ATTACK — wordlist ({current.wordlist.length} entries):</div>
         <div className="flex flex-wrap gap-1 mb-3">
           {current.wordlist.map((w, _idx) => (
             <span key={w} className="text-xs px-2 py-0.5 bg-[#0a0a0a] border border-[#1a2332] text-[#aaa] rounded">{w}</span>

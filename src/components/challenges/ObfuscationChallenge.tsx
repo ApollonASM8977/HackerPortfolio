@@ -1,10 +1,10 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LEVELS = [
   {
-    title: 'Level 1 â€” CharCode Array',
+    title: 'Level 1 — CharCode Array',
     lang: 'javascript',
     code: `[70,76,65,71,123,106,115,95,48,98,102,125]
   .map(c => String.fromCharCode(c))
@@ -15,7 +15,7 @@ const LEVELS = [
     check: (a: string) => a.trim() === 'FLAG{js_0bf}',
   },
   {
-    title: 'Level 2 â€” eval(atob(...))',
+    title: 'Level 2 — eval(atob(...))',
     lang: 'javascript',
     code: `eval(atob("YWxlcnQoIkNURntqc19ldmFsX2lzX2Rhbmdlcm91c30iKQ=="))`,
     question: 'What flag does this execute? Decode the Base64 argument.',
@@ -24,7 +24,7 @@ const LEVELS = [
     check: (a: string) => a.trim().toLowerCase() === 'ctf{js_eval_is_dangerous}',
   },
   {
-    title: 'Level 3 â€” Python chr() Array',
+    title: 'Level 3 — Python chr() Array',
     lang: 'python',
     code: `exec(''.join([chr(x) for x in [
   112,114,105,110,116,40,39,
@@ -112,7 +112,7 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && verify()}
-          placeholder={`Enter the flagâ€¦`}
+          placeholder={`Enter the flag…`}
           className="bg-transparent border border-[#1a2332] rounded px-3 py-2 text-[#a855f7]
                      mono text-xs flex-1 outline-none focus:border-[#a855f755]"
         />

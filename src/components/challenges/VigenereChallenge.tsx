@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -32,8 +32,8 @@ const LEVELS: Level[] = [
     ciphertext: 'JYDOKJCQPRPCU',
     key: 'CYBER',
     answer: 'HACKTHEPLANET',
-    keyHint: 'Key is given above â€” use it!',
-    label: 'Level 1 â€” Known Key Decryption',
+    keyHint: 'Key is given above — use it!',
+    label: 'Level 1 — Known Key Decryption',
     description: 'The key is provided. Use VigenÃ¨re decryption to reveal the plaintext.',
     successMsg: 'Decrypted! The matrix has you.',
   },
@@ -42,7 +42,7 @@ const LEVELS: Level[] = [
     key: null,
     answer: 'ROOT',
     keyHint: 'The key is a 4-letter Linux security distro (think rolling-release hacker OS)',
-    label: 'Level 2 â€” Unknown Key',
+    label: 'Level 2 — Unknown Key',
     description: 'No key this time. Figure out the key from the hint, then decrypt.',
     successMsg: 'Root access granted! KALI was the key.',
   },
@@ -273,7 +273,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          VIGENÃˆRE CIPHER BROKEN â€” Cryptanalyst status achieved!
+          VIGENÃˆRE CIPHER BROKEN — Cryptanalyst status achieved!
         </motion.div>
       )}
     </div>

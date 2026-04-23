@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -233,11 +233,11 @@ export function JWTChallenge({ onSolve }: Props) {
               className="font-mono text-xs px-3 py-2 rounded leading-relaxed"
               style={{ background: '#0d1117', border: '1px solid #1a2332', color: '#888' }}
             >
-              Two JWTs â€” one uses a strong algorithm, the other has a critical flaw.
+              Two JWTs — one uses a strong algorithm, the other has a critical flaw.
               Identify which algorithm allows <span style={{ color: '#ff6b6b' }}>bypassing signature verification</span>.
             </div>
 
-            {/* JWT A â€” HS256 */}
+            {/* JWT A — HS256 */}
             <div>
               <div className="font-mono text-xs mb-1" style={{ color: '#555' }}>JWT A (decoded header):</div>
               <div className="bg-[#020408] border border-[#1a2332] rounded-lg p-3 font-mono text-xs text-[#00cfff] overflow-x-auto">
@@ -245,7 +245,7 @@ export function JWTChallenge({ onSolve }: Props) {
               </div>
             </div>
 
-            {/* JWT B â€” none */}
+            {/* JWT B — none */}
             <div>
               <div className="font-mono text-xs mb-1" style={{ color: '#555' }}>JWT B (decoded header):</div>
               <div className="bg-[#020408] border border-[#ff444433] rounded-lg p-3 font-mono text-xs text-[#ff6b6b] overflow-x-auto">
@@ -306,7 +306,7 @@ export function JWTChallenge({ onSolve }: Props) {
                     âœ“ Correct! FLAG: {JWT_L2_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
-                    The &quot;none&quot; algorithm disables signature verification â€” any payload is accepted!
+                    The &quot;none&quot; algorithm disables signature verification — any payload is accepted!
                   </div>
                 </motion.div>
               )}

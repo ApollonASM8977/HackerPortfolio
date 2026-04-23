@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ChevronDown, ChevronUp, Filter } from 'lucide-react';
@@ -31,7 +31,7 @@ const WRITEUPS: Writeup[] = [
       'find / -perm -4000 2>/dev/null â†’ /usr/local/bin/nmap (SUID)',
       'nmap --interactive â†’ !sh â†’ root â†’ Flag 3',
     ],
-    flag: 'FLAG{3 keys: robots.txt Â· md5 crack Â· nmap SUID}',
+    flag: 'FLAG{3 keys: robots.txt · md5 crack · nmap SUID}',
     link: 'https://tryhackme.com/room/mrrobot',
   },
   {
@@ -117,7 +117,7 @@ const WRITEUPS: Writeup[] = [
     tools: ['Python3 (pycryptodome)', 'openssl', 'RsaCtfTool'],
     steps: [
       'XOR encryption: key XOR plaintext â†’ ciphertext, reversible',
-      'RSA maths: n=pÃ—q, Ï†(n)=(p-1)(q-1), eÂ·dâ‰¡1 mod Ï†(n)',
+      'RSA maths: n=pÃ—q, Ï†(n)=(p-1)(q-1), e·dâ‰¡1 mod Ï†(n)',
       'Factor weak n with small primes using sympy.factorint()',
       'Compute d = modular_inverse(e, phi) with Python gmpy2',
       'Decrypt: m = pow(c, d, n) â†’ long_to_bytes(m)',
@@ -129,7 +129,7 @@ const WRITEUPS: Writeup[] = [
   },
   {
     platform: 'TryHackMe', platformColor: '#00d4ff',
-    room: 'OWASP Top 10 â€” 2021', category: 'Web', difficulty: 'Easy', diffColor: '#00d4ff',
+    room: 'OWASP Top 10 — 2021', category: 'Web', difficulty: 'Easy', diffColor: '#00d4ff',
     date: '2023',
     summary: 'Hands-on OWASP Top 10 challenges: IDOR via API, broken auth with MD5 hashes, SQL injection login bypass, XSS cookie theft, and SSRF against AWS metadata endpoint.',
     tools: ['Burp Suite', 'curl', 'SQLmap', 'Python3'],
@@ -229,7 +229,7 @@ const WRITEUPS: Writeup[] = [
     platform: 'TryHackMe', platformColor: '#00d4ff',
     room: 'Anthem', category: 'Windows', difficulty: 'Easy', diffColor: '#00ff41',
     date: '2023',
-    summary: 'OSINT on a Windows CMS (Umbraco) â€” discover admin email via poem OSINT, crack RDP credentials, then uncover a hidden administrator password in a protected folder.',
+    summary: 'OSINT on a Windows CMS (Umbraco) — discover admin email via poem OSINT, crack RDP credentials, then uncover a hidden administrator password in a protected folder.',
     tools: ['Nmap', 'Gobuster', 'rdesktop / xfreerdp', 'Google'],
     steps: [
       'Nmap â†’ port 80 (HTTP) and 3389 (RDP) open',
@@ -250,7 +250,7 @@ const WRITEUPS: Writeup[] = [
     platform: 'TryHackMe', platformColor: '#00d4ff',
     room: 'W1seGuy', category: 'Crypto', difficulty: 'Easy', diffColor: '#00ff41',
     date: '2024',
-    summary: 'Break a custom XOR-based stream cipher by leveraging known plaintext â€” the flag prefix "THM{" â€” to recover the repeating key, then decrypt the full flag.',
+    summary: 'Break a custom XOR-based stream cipher by leveraging known plaintext — the flag prefix "THM{" — to recover the repeating key, then decrypt the full flag.',
     tools: ['Python3', 'CyberChef', 'nc'],
     steps: [
       'nc <ip> 1337 â†’ server returns hex-encoded XOR-encrypted ciphertext',
@@ -285,7 +285,7 @@ export function WriteupsSection() {
           CTF <span className="text-[#00d4ff]">Writeups</span>
         </h2>
         <p className="text-[#444] text-xs mono mb-5">
-          $ ls ~/writeups/ &nbsp;Â·&nbsp; {WRITEUPS.length} rooms documented
+          $ ls ~/writeups/ &nbsp;·&nbsp; {WRITEUPS.length} rooms documented
         </p>
 
         {/* Category filter */}
@@ -397,7 +397,7 @@ export function WriteupsSection() {
       {/* Note */}
       <motion.p initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.5 }}
         className="mono text-[#252525] text-xs text-center">
-        * flags are illustrative â€” real room flags change per instance
+        * flags are illustrative — real room flags change per instance
       </motion.p>
     </section>
   );

@@ -1,11 +1,11 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { RotateCcw } from 'lucide-react';
 
 const LEVELS = [
   {
-    ciphertext: 'KHOOR ZRUOG â€” FUBSWRJUDSKB LV IXQ',
-    answer: 'HELLO WORLD â€” CRYPTOGRAPHY IS FUN',
+    ciphertext: 'KHOOR ZRUOG — FUBSWRJUDSKB LV IXQ',
+    answer: 'HELLO WORLD — CRYPTOGRAPHY IS FUN',
     hint: 'ROT-3 (Caesar\'s classic shift)',
     shift: 3,
   },
@@ -18,7 +18,7 @@ const LEVELS = [
   {
     ciphertext: 'YSK{n3p_v3a0k_z0r_xvgu_p3r_pvcure}',
     answer: 'FLAG{y0u_h4ck3d_th1s_w1th_c3s_c1pher}',
-    hint: 'Flag format: FLAG{...} â€” brute force the shift!',
+    hint: 'Flag format: FLAG{...} — brute force the shift!',
     shift: 10,
   },
 ];

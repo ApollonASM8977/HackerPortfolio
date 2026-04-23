@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 
 type Step = 'login' | 'dumping' | 'done';
@@ -25,7 +25,7 @@ function simulateLogin(username: string, password: string): { success: boolean; 
     return {
       success: true,
       query,
-      message: 'Access granted â€” SQL injection successful!',
+      message: 'Access granted — SQL injection successful!',
       data: 'admin | hash:5f4dcc3b5aa765d61d8327deb882cf99 | role:ADMIN',
     };
   }
@@ -80,7 +80,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
     <div className="space-y-4 font-mono text-sm">
       {/* Explanation */}
       <div className="text-xs text-[#666] border border-[#1a2332] rounded p-3">
-        <span className="text-[#ff0040]">âš  VULNERABLE LOGIN FORM</span> â€” The query is:{' '}
+        <span className="text-[#ff0040]">âš  VULNERABLE LOGIN FORM</span> — The query is:{' '}
         <span className="text-[#ffcc00]">SELECT * FROM users WHERE username='{`{input}`}' AND password='{`{input}`}'</span>
         <br />Goal: bypass authentication using SQL injection, then dump the database.
       </div>
@@ -139,7 +139,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
       {/* Step 2: Dump DB */}
       {step === 'dumping' && (
         <div className="border-t border-[#1a2332] pt-4 space-y-3">
-          <div className="text-[#00d4ff] text-xs font-bold">Step 2 â€” Dump the database using UNION injection:</div>
+          <div className="text-[#00d4ff] text-xs font-bold">Step 2 — Dump the database using UNION injection:</div>
           <div className="text-[#666] text-xs">Try: <span className="text-[#ffcc00]">{"' UNION SELECT table_name FROM information_schema.tables --"}</span></div>
           <div className="flex gap-2">
             <input
@@ -172,8 +172,8 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
       </button>
       {showHint && (
         <div className="text-xs text-[#ffcc00] bg-[#1a1500] border border-[#ffcc0033] rounded p-2 space-y-1">
-          <div>Step 1 â€” Bypass login: try <span className="text-white">username = <span className="text-[#ff6b6b]">admin' OR '1'='1</span></span></div>
-          <div>Step 2 â€” Dump DB: use UNION + information_schema</div>
+          <div>Step 1 — Bypass login: try <span className="text-white">username = <span className="text-[#ff6b6b]">admin' OR '1'='1</span></span></div>
+          <div>Step 2 — Dump DB: use UNION + information_schema</div>
         </div>
       )}
 

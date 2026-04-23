@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import './index.css';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -49,7 +49,7 @@ function KonamiOverlay({ onDone }: { onDone: () => void }) {
 [+] uid=0(root) gid=0(root)
 [!] FLAG{k0n4m1_m4st3r_h4ck3r}`}
         </pre>
-        <div className="mt-6 mono text-[#444] text-xs">â†‘â†‘â†“â†“â†â†’â†â†’BA â€” classic ðŸŽ®</div>
+        <div className="mt-6 mono text-[#444] text-xs">â†‘â†‘â†“â†“â†â†’â†â†’BA — classic ðŸŽ®</div>
       </motion.div>
     </motion.div>
   );
@@ -104,7 +104,7 @@ export default function App() {
 
   return (
     <>
-      {/* Loading screen â€” rendered outside main div to cover everything */}
+      {/* Loading screen — rendered outside main div to cover everything */}
       <AnimatePresence>{loading && <LoadingScreen onDone={handleBootDone} />}</AnimatePresence>
 
       <div className={`scanlines hex-grid relative min-h-screen bg-[#070b10] ${loading ? 'overflow-hidden h-screen' : ''}`}>

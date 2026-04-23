@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -315,7 +315,7 @@ export function XSSChallenge({ onSolve }: Props) {
                     âœ“ Correct! FLAG: {L2_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
-                    DOM-based XSS: input from location.hash is written to innerHTML â€” never touches the server!
+                    DOM-based XSS: input from location.hash is written to innerHTML — never touches the server!
                   </div>
                 </motion.div>
               )}
@@ -329,7 +329,7 @@ export function XSSChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  âœ— Incorrect. Try again. (hint: where does the data come from â€” server or client?)
+                  âœ— Incorrect. Try again. (hint: where does the data come from — server or client?)
                 </motion.div>
               )}
             </AnimatePresence>
@@ -355,7 +355,7 @@ export function XSSChallenge({ onSolve }: Props) {
               style={{ background: '#0d1117', border: '1px solid #1a2332', color: '#888' }}
             >
               A naive XSS filter strips{' '}
-              <span style={{ color: '#ff6b6b' }}>&lt;script&gt;</span> tags â€” but the page is still
+              <span style={{ color: '#ff6b6b' }}>&lt;script&gt;</span> tags — but the page is still
               vulnerable. What HTML tag can execute JavaScript without{' '}
               <span style={{ color: '#ff6b6b' }}>&lt;script&gt;</span>?
             </div>

@@ -1,4 +1,4 @@
-﻿// Â© 2026 Aboubacar Sidick Meite (ApollonASM8977) â€” All Rights Reserved
+﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState, useRef, useEffect } from 'react';
 
 interface HistoryEntry { cmd: string; output: string; color?: string; }
@@ -8,7 +8,7 @@ const FS: Record<string, string> = {
   '/home/user/readme.txt':     'Welcome to ApollonASM8977\'s system.\nLook around, you might find something interesting...',
   '/home/user/flag.txt':       'FLAG{y0u_kn0w_y0ur_l1nux_c0mmands}',
   '/home/user/secret/.hidden': 'Good job finding me! Now find the flag in /root/',
-  '/root/flag.txt':            'ACCESS DENIED â€” try: sudo cat /root/flag.txt',
+  '/root/flag.txt':            'ACCESS DENIED — try: sudo cat /root/flag.txt',
   '/etc/passwd':               'root:x:0:0:root:/root:/bin/bash\nuser:x:1000:1000:ApollonASM8977:/home/user:/bin/bash',
   '/etc/hosts':                '127.0.0.1 localhost\n10.10.10.100 tryhackme.com\n192.168.1.1 gateway',
   '/home/user/notes.txt':      'Hints:\n1. Check hidden files with ls -la\n2. The flag is in a .txt file\n3. Try "find / -name flag.txt 2>/dev/null"',
