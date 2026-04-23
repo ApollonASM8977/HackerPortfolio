@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -184,7 +184,7 @@ export function ChallengesSection() {
   return (
     <section className="relative z-10 flex flex-col items-center w-full px-6 pt-16 pb-32">
 
-      {/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Header ─────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export function ChallengesSection() {
         </div>
       </motion.div>
 
-      {/* â”€â”€ Progress bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Progress bar ───────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -226,7 +226,7 @@ export function ChallengesSection() {
         </span>
       </motion.div>
 
-      {/* â”€â”€ All solved â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── All solved ─────────────────────────────────────── */}
       <AnimatePresence>
         {allSolved && (
           <motion.div
@@ -241,7 +241,7 @@ export function ChallengesSection() {
         )}
       </AnimatePresence>
 
-      {/* â”€â”€ Challenge grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Challenge grid ─────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
         {CHALLENGES.map((c, i) => (
           <motion.div

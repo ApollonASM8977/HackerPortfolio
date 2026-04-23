@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MessageSquare, X, Send, Bot } from 'lucide-react';
@@ -6,7 +6,7 @@ import type { Page } from '../App';
 
 type Msg = { role: 'user' | 'bot'; text: string; time: Date };
 
-/* â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Helpers ─────────────────────────────────────────── */
 function getGreeting() {
   const h = new Date().getHours();
   if (h < 6)  return "Still up? It's the middle of the night ðŸ¦‰";
@@ -15,7 +15,7 @@ function getGreeting() {
   return "Good evening! The best hacks happen at night ðŸŒ™";
 }
 
-/* â”€â”€ Knowledge base (EN + FR) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Knowledge base (EN + FR) ────────────────────────── */
 function getBotResponse(
   input: string,
   userName: string | null,
@@ -25,7 +25,7 @@ function getBotResponse(
   const i = input.toLowerCase().trim();
   const isFR = /[Ã Ã©Ã¨ÃªÃ«Ã®Ã¯Ã´Ã¹Ã»Ã¼]|bonjour|salut|merci|oui|non|comment|qui|quoi|quel|projet|compÃ©ten|certif|contact|parle|disponib|oÃ¹\b|tu\b/.test(i);
 
-  // â”€â”€ Greetings
+  // ── Greetings
   if (/^(hello|hi\b|hey|yo\b|salut|bonjour|bonsoir|cc\b)/.test(i)) {
     const name = userName ? `, ${userName}` : '';
     return isFR
@@ -33,7 +33,7 @@ function getBotResponse(
       : { text: `Hey${name}! ðŸ‘¾ I'm ApolloBot — Aboubacar's portfolio assistant. Ask me about his skills, projects, certifications, or how to reach him!` };
   }
 
-  // â”€â”€ User introduces themselves
+  // ── User introduces themselves
   const nameMatch = i.match(/(?:i(?:'m| am)|je(?:\s+m'appelle|\s+suis)|my name is)\s+([a-z]+)/i);
   if (nameMatch) {
     const name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1);
@@ -42,7 +42,7 @@ function getBotResponse(
       : { text: `Nice to meet you, ${name}! ðŸ¤ How can I help you?`, newName: name };
   }
 
-  // â”€â”€ Navigation commands
+  // ── Navigation commands
   if (/\b(show|take|go to|open|voir|voir|aller|ouvrir)\b.*(about|profil|Ã  propos)/i.test(i)) {
     navigate?.('about');
     return isFR
@@ -72,75 +72,75 @@ function getBotResponse(
     return { text: 'ðŸ  Going home!' };
   }
 
-  // â”€â”€ Who / About
+  // ── Who / About
   if (/who|about|apollon|aboubacar|yourself|qui est|c'est qui|prÃ©sente/.test(i))
     return isFR
       ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est un Ã©tudiant en M.S. Cybersecurity Ã  Montclair State University, New Jersey. Chercheur en sÃ©curitÃ©, joueur CTF et dÃ©veloppeur full-stack spÃ©cialisÃ© en cryptographie et hacking Ã©thique. ðŸ‡¨ðŸ‡®â†’ðŸ‡ºðŸ‡¸' }
       : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a cybersecurity grad student at Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. ðŸ‡¨ðŸ‡®â†’ðŸ‡ºðŸ‡¸' };
 
-  // â”€â”€ Skills
+  // ── Skills
   if (/skill|technolog|compÃ©ten|outil|tools|stack/.test(i))
     return isFR
       ? { text: 'CompÃ©tences principales :\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptographie — 82%\n• React/TypeScript — 75%\n• SÃ©curitÃ© rÃ©seau — 75%\n• Pentest — 70%\n\nOutils : Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' }
       : { text: 'Top skills:\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptography — 82%\n• React/TypeScript — 75%\n• Network Security — 75%\n• Pentesting — 70%\n\nTools: Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' };
 
-  // â”€â”€ Projects
+  // ── Projects
   if (/project|build|github|projet|application/.test(i))
     return isFR
       ? { text: 'Projets clÃ©s :\nðŸ” CipherLab — toolkit crypto complet (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch en Python\nðŸ”’ SecureShare — partage de fichiers E2E AES-256 + RSA\nðŸš• CommuTaxi — app Flutter avec Firebase\nðŸ’° Atlas Money — app mobile money sÃ©curisÃ©e PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
       : { text: 'Key projects:\nðŸ” CipherLab — full crypto toolkit (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch in Python\nðŸ”’ SecureShare — AES-256 + RSA-2048 E2E file sharing\nðŸš• CommuTaxi — Flutter ride app with Firebase\nðŸ’° Atlas Money — secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
 
-  // â”€â”€ Contact
+  // ── Contact
   if (/contact|email|reach|hire|work|embauche|joindre|recrut/.test(i))
     return isFR
       ? { text: 'Pour le contacter :\n• LinkedIn : linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub : github.com/ApollonASM8977\n• TryHackMe : tryhackme.com/p/exterminator\n\nOuvert aux stages, recherches et collaborations ! ðŸ“¬', navTo: 'contact' }
       : { text: 'Best way to reach him:\n• LinkedIn: linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub: github.com/ApollonASM8977\n• TryHackMe: tryhackme.com/p/exterminator\n\nOpen to internships, research & collaborations! ðŸ“¬', navTo: 'contact' };
 
-  // â”€â”€ TryHackMe / CTF
+  // ── TryHackMe / CTF
   if (/tryhackme|thm|rank|ctf|challenge|wizard|hacking/.test(i))
     return isFR
       ? { text: 'Stats TryHackMe :\nðŸ§™ Rang : [0xA] WIZARD\nðŸ† Top 4% mondial\nðŸŽ–ï¸ 21 badges gagnÃ©s\nâœ… 98 salles complÃ©tÃ©es\n\nEssaie aussi les 13 challenges CTF interactifs du portfolio !' }
       : { text: 'TryHackMe stats:\nðŸ§™ Rank: [0xA] WIZARD\nðŸ† Top 4% worldwide\nðŸŽ–ï¸ 21 badges earned\nâœ… 98 rooms completed\n\nAlso try the 13 interactive CTF challenges on this portfolio!' };
 
-  // â”€â”€ Certifications
+  // ── Certifications
   if (/cert|certif/.test(i))
     return isFR
       ? { text: 'Certifications :\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' }
       : { text: 'Certifications:\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' };
 
-  // â”€â”€ Education
+  // ── Education
   if (/school|university|education|degree|study|Ã©tude|universitÃ©|diplÃ´me|master/.test(i))
     return isFR
       ? { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOrigine : CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®\nFormation technique solide en cryptographie, sÃ©curitÃ© rÃ©seau et dÃ©veloppement.' }
       : { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOriginally from CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®' };
 
-  // â”€â”€ Languages
+  // ── Languages
   if (/french|franÃ§ais|speak|langue|language|parle/.test(i))
     return { text: 'Je parle franÃ§ais et anglais! ðŸ‡«ðŸ‡·ðŸ‡ºðŸ‡¸ French is my first language — originally from CÃ´te d\'Ivoire. Feel free to chat in either language!' };
 
-  // â”€â”€ Location
+  // ── Location
   if (/location|where|country|ville|pays|habite/.test(i))
     return isFR
       ? { text: 'BasÃ© Ã  Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — disponible en remote, prÃ©sentiel ou peu importe la localisation.' }
       : { text: 'Based in Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — open to remote, on-site, or any location.' };
 
-  // â”€â”€ Availability
+  // ── Availability
   if (/available|opportunit|internship|open|disponib|stage/.test(i))
     return isFR
       ? { text: 'Oui ! Actuellement ouvert aux stages, opportunitÃ©s de recherche et collaborations en cybersÃ©curitÃ© ou dÃ©veloppement full-stack. Contacte sur LinkedIn !' }
       : { text: 'Yes! Currently open to internships, research opportunities, and collaborations in cybersecurity or full-stack development. Reach out on LinkedIn!' };
 
-  // â”€â”€ Easter egg
+  // ── Easter egg
   if (/flag|hack me|secret|password|mot de passe/.test(i))
     return { text: 'Nice try, hacker ðŸ˜ FLAG{n0_fr33_fl4gs_h3r3} — but head to the Challenges page to earn real flags! ðŸ' };
 
-  // â”€â”€ Resume / CV
+  // ── Resume / CV
   if (/resume|cv|curriculum/.test(i))
     return isFR
       ? { text: 'Mon CV est disponible en tÃ©lÃ©chargement sur la page About ! ðŸ“„\nOu contacte directement sur LinkedIn pour le recevoir.' }
       : { text: 'My resume is available for download on the About page! ðŸ“„\nOr reach out directly on LinkedIn.' };
 
-  // â”€â”€ Help
+  // ── Help
   if (/help|what can|command|aide|menu/.test(i))
     return isFR
       ? { text: 'Je peux t\'informer sur :\n• Bio et parcours\n• CompÃ©tences et outils\n• Projets\n• Certifications\n• Stats TryHackMe / CTF\n• Comment contacter Aboubacar\n\nJe peux aussi naviguer ! Dis "montre-moi les projets" ðŸš€' }

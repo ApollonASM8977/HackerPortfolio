@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -82,7 +82,7 @@ export function JWTChallenge({ onSolve }: Props) {
       </div>
 
       <AnimatePresence mode="wait">
-        {/* â”€â”€ LEVEL 1 â”€â”€ */}
+        {/* ── LEVEL 1 ── */}
         {currentLevel === 0 && (
           <motion.div
             key="l1"
@@ -215,7 +215,7 @@ export function JWTChallenge({ onSolve }: Props) {
           </motion.div>
         )}
 
-        {/* â”€â”€ LEVEL 2 â”€â”€ */}
+        {/* ── LEVEL 2 ── */}
         {currentLevel === 1 && (
           <motion.div
             key="l2"

@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import './index.css';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -26,7 +26,7 @@ function getTransitionClasses(from: Page, to: Page) {
                return { exit: 'page-exit-right', enter: 'page-enter-left'  };
 }
 
-/* â”€â”€ Konami overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Konami overlay ──────────────────────────────────── */
 const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
                 'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
@@ -49,14 +49,14 @@ function KonamiOverlay({ onDone }: { onDone: () => void }) {
 [+] uid=0(root) gid=0(root)
 [!] FLAG{k0n4m1_m4st3r_h4ck3r}`}
         </pre>
-        <div className="mt-6 mono text-[#444] text-xs">â†‘â†‘â†“â†“â†â†’â†â†’BA — classic ðŸŽ®</div>
+        <div className="mt-6 mono text-[#444] text-xs">→→↑↑←â†’←â†’BA — classic ðŸŽ®</div>
       </motion.div>
     </motion.div>
   );
 }
 
 export default function App() {
-  /* â”€â”€ Show loading screen once per session */
+  /* ── Show loading screen once per session */
   const [loading, setLoading] = useState(() => !sessionStorage.getItem('booted'));
 
   const [page, setPage]           = useState<Page>('home');

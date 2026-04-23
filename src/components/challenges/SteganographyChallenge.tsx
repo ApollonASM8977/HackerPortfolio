@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -77,7 +77,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
 
       <div className="text-[#00d4ff] text-xs mono">{current.title}</div>
 
-      {/* â”€â”€ Level content â”€â”€â”€ */}
+      {/* ── Level content ─── */}
       <AnimatePresence mode="wait">
         <motion.div key={level} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
 

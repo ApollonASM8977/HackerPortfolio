@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState, useRef, useEffect } from 'react';
 
 interface HistoryEntry { cmd: string; output: string; color?: string; }

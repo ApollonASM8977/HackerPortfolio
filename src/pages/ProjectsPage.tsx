@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { ChevronLeft } from 'lucide-react';
 import { ProjectsSection } from '../components/ProjectsSection';
 import type { Page } from '../App';

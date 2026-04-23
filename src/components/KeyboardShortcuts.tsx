@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -14,7 +14,7 @@ const SHORTCUTS = [
 
 const MISC = [
   { keys: ['?'],                      desc: 'Show this help' },
-  { keys: ['â†‘â†‘â†“â†“â†â†’â†â†’', 'B', 'A'],   desc: 'Konami code — ROOT ACCESS' },
+  { keys: ['→→↑↑←â†’←â†’', 'B', 'A'],   desc: 'Konami code — ROOT ACCESS' },
   { keys: ['ESC'],                    desc: 'Close overlay / modal' },
 ];
 

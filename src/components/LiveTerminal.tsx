@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useRef, useState } from 'react';
 
 type Line = { text: string; color?: string };
@@ -92,7 +92,7 @@ function getOutput(raw: string): CmdResult {
     { text: '  sudo su   history   clear   exit', color: '#ccc' },
   ]};
 
-  /* â”€â”€ animated â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── animated ─────────────────────────────────────── */
   if (base === 'ping') return { animated: true, lineDelay: 340, lines: [
     { text: `PING ${cmd.split(' ')[1] ?? '8.8.8.8'} 56(84) bytes of data.`, color: '#ccc' },
     { text: '64 bytes: icmp_seq=1 ttl=118 time=11.3 ms', color: '#00ff41' },

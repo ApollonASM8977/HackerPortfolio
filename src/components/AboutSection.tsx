@@ -1,9 +1,9 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { GlitchText } from './GlitchText';
 
-/* â”€â”€ Animated counter hook â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Animated counter hook ───────────────────────────── */
 function useAnimatedCounter(target: number, duration = 1400) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ function useAnimatedCounter(target: number, duration = 1400) {
   return { count, ref };
 }
 
-/* â”€â”€ Hash identifier â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Hash identifier ─────────────────────────────────── */
 function identifyHash(h: string): { type: string; bits: number | null; color: string } {
   const s = h.trim();
   if (!s) return { type: '', bits: null, color: '#444' };
@@ -105,7 +105,7 @@ function HashIdentifier() {
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ───────────────────── DATA ────────────────────────── */
 const QUOTES = [
   { text: 'The quieter you become, the more you are able to hear.', author: 'Kali Linux' },
   { text: 'Security is not a product, but a process.', author: 'Bruce Schneier' },
@@ -203,14 +203,14 @@ const BADGES: { name: string; rarity: 'Legendary' | 'Epic' | 'Rare' | 'Uncommon'
   { name: 'Advent of Cyber 2022', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
 ];
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ───────────────────── HELPERS ─────────────────────── */
 const f = (d = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5, delay: d },
 });
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ SUB-COMPONENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ───────────────────── SUB-COMPONENTS ──────────────── */
 function QuoteRotator() {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -370,7 +370,7 @@ function Timeline() {
   );
 }
 
-/* â”€â”€ Animated stat card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Animated stat card ──────────────────────────────── */
 function AnimatedStatCard({ stat, delay }: { stat: typeof STATS[0]; delay: number }) {
   // Parse numeric value (e.g. "98", "21", "Top 4%")
   const numeric = parseInt(stat.value.replace(/\D/g, ''));
@@ -390,7 +390,7 @@ function AnimatedStatCard({ stat, delay }: { stat: typeof STATS[0]; delay: numbe
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ───────────────────── MAIN ────────────────────────── */
 export function AboutSection() {
   return (
     <div className="flex flex-col items-center w-full px-6 pt-16 pb-32 gap-20">
@@ -406,7 +406,7 @@ export function AboutSection() {
         <a href="/resume.pdf" download
           className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#00ff4155]
                      rounded-lg mono text-xs text-[#00ff41] hover:bg-[#00ff4111] transition-all">
-          â†“ Download Resume (PDF)
+          ↑ Download Resume (PDF)
         </a>
       </motion.div>
 

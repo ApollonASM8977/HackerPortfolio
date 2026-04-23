@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -17,10 +17,10 @@ const TERMINAL_LINES = [
   { text: '$ nmap -sV --script vuln challenges/', delay: 1100, color: '#ffcc00' },
   { text: 'Starting Nmap scan... Found 4 challenges open', delay: 1500, color: '#00d4ff' },
   { text: 'PORT   SERVICE     STATE', delay: 1700, color: '#666' },
-  { text: '21/tcp linux-terminal  OPEN  â† try me', delay: 1900, color: '#00ff41' },
-  { text: '22/tcp caesar-cipher   OPEN  â† encrypted', delay: 2050, color: '#00ff41' },
-  { text: '80/tcp hash-cracker    OPEN  â† MD5 hashes', delay: 2200, color: '#ffcc00' },
-  { text: '443/tcp sql-injection  OPEN  â† vulnerable', delay: 2350, color: '#ff6b6b' },
+  { text: '21/tcp linux-terminal  OPEN  ← try me', delay: 1900, color: '#00ff41' },
+  { text: '22/tcp caesar-cipher   OPEN  ← encrypted', delay: 2050, color: '#00ff41' },
+  { text: '80/tcp hash-cracker    OPEN  ← MD5 hashes', delay: 2200, color: '#ffcc00' },
+  { text: '443/tcp sql-injection  OPEN  ← vulnerable', delay: 2350, color: '#ff6b6b' },
   { text: '', delay: 2500, color: '' },
   { text: '$ echo "Can you beat all 4 challenges?"', delay: 2700, color: '#ffcc00' },
   { text: 'Can you beat all 4 challenges?', delay: 3000, color: '#ff0040' },
@@ -60,7 +60,7 @@ export function HeroTerminal() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-24 z-10">
 
-      {/* â”€â”€ Name + role â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Name + role ───────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ export function HeroTerminal() {
         </div>
       </motion.div>
 
-      {/* â”€â”€ Terminal window â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Terminal window ───────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -128,7 +128,7 @@ export function HeroTerminal() {
         </div>
       </motion.div>
 
-      {/* â”€â”€ Scroll hint â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Scroll hint ───────────────────────────────────────── */}
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}

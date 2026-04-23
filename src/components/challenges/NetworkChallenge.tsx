@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { Terminal, Wifi } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,7 +22,7 @@ const LEVELS: Level[] = [
       '[2025-01-15 03:42:11] GET  /api/users HTTP/1.1          â†’ 200 OK',
       '[2025-01-15 03:42:12] POST /login HTTP/1.1               â†’ 401 UNAUTHORIZED',
       '[2025-01-15 03:42:13] GET  /admin/flag.txt HTTP/1.1      â†’ 200 OK',
-      '  â””â”€ Response body: FLAG{p4ck3t_sn1ff3r}',
+      '  â””─ Response body: FLAG{p4ck3t_sn1ff3r}',
       '[2025-01-15 03:42:14] GET  /logout HTTP/1.1              â†’ 200 OK',
       '[2025-01-15 03:42:15] GET  /api/health HTTP/1.1          â†’ 200 OK',
     ],

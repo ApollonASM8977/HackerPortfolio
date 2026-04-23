@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Swords, FolderOpen, Mail, ArrowRight } from 'lucide-react';
@@ -56,7 +56,7 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
   return (
     <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-10 pb-28 gap-7">
 
-      {/* â”€â”€ Identity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Identity ─────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: ready ? 1 : 0, y: ready ? 0 : -20 }}
@@ -97,7 +97,7 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         </motion.div>
       </motion.div>
 
-      {/* â”€â”€ Live terminal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Live terminal ────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: ready ? 1 : 0, scale: ready ? 1 : 0.97 }}
@@ -107,7 +107,7 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         <LiveTerminal />
       </motion.div>
 
-      {/* â”€â”€ Nav cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Nav cards ────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: ready ? 1 : 0, y: ready ? 0 : 20 }}

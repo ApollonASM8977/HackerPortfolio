@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GitFork, Link, Shield, Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
@@ -12,8 +12,8 @@ const LINKS = [
 
 type FormStatus = 'idle' | 'sending' | 'ok' | 'err';
 
-// â”€â”€ Contact form — posts to Formspree (sign up at formspree.io and replace the ID below)
-const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // â† replace with your Formspree form ID
+// ── Contact form — posts to Formspree (sign up at formspree.io and replace the ID below)
+const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // ← replace with your Formspree form ID
 
 export function ContactSection() {
   const [name, setName]       = useState('');
@@ -50,7 +50,7 @@ export function ContactSection() {
   return (
     <div className="flex flex-col items-center w-full px-6 pt-16 pb-32 gap-16">
 
-      {/* â”€â”€ Title */}
+      {/* ── Title */}
       <motion.div initial={{ opacity:0, y:24 }} animate={{ opacity:1, y:0 }}
         transition={{ duration:0.5 }} className="text-center">
         <h2 className="text-4xl font-bold text-white mb-4">
@@ -61,7 +61,7 @@ export function ContactSection() {
         </p>
       </motion.div>
 
-      {/* â”€â”€ Two-column layout */}
+      {/* ── Two-column layout */}
       <div className="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-8">
 
         {/* Left — Links */}
@@ -96,7 +96,7 @@ export function ContactSection() {
             initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.6 }}
             className="mt-2 flex items-center justify-center gap-2 py-3 border border-[#00ff4155]
                        rounded-lg mono text-xs text-[#00ff41] hover:bg-[#00ff4111] transition-all">
-            â†“ Download Resume (PDF)
+            ↑ Download Resume (PDF)
           </motion.a>
         </motion.div>
 

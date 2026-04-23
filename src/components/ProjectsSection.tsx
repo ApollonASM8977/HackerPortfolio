@@ -1,4 +1,4 @@
-﻿// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
+// © 2026 Aboubacar Sidick Meite (ApollonASM8977) — All Rights Reserved
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, GitFork, Shield, Key, Terminal, Smartphone, Globe, Lock } from 'lucide-react';
@@ -25,7 +25,7 @@ const PROJECTS = [
     tags: ['PHP','MySQL','Security','Web'], github: 'https://github.com/ApollonASM8977/bank.atlas.bk' },
 ];
 
-/* â”€â”€ 3-D tilt card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── 3-D tilt card ───────────────────────────────────── */
 function TiltCard({ p, i }: { p: typeof PROJECTS[0]; i: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -104,7 +104,7 @@ function TiltCard({ p, i }: { p: typeof PROJECTS[0]; i: number }) {
   );
 }
 
-/* â”€â”€ GitHub live stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── GitHub live stats ───────────────────────────────── */
 import { useEffect, useState } from 'react';
 
 function GitHubStats() {
