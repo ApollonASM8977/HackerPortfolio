@@ -14,7 +14,7 @@ const SHORTCUTS = [
 
 const MISC = [
   { keys: ['?'],                      desc: 'Show this help' },
-  { keys: ['→→↑↑←â†’←â†’', 'B', 'A'],   desc: 'Konami code — ROOT ACCESS' },
+  { keys: ['→→↑↑←↑←↑', 'B', 'A'],   desc: 'Konami code — ROOT ACCESS' },
   { keys: ['ESC'],                    desc: 'Close overlay / modal' },
 ];
 

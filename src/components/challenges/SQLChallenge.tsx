@@ -80,7 +80,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
     <div className="space-y-4 font-mono text-sm">
       {/* Explanation */}
       <div className="text-xs text-[#666] border border-[#1a2332] rounded p-3">
-        <span className="text-[#ff0040]">âš  VULNERABLE LOGIN FORM</span> — The query is:{' '}
+        <span className="text-[#ff0040]">⚠ VULNERABLE LOGIN FORM</span> — The query is:{' '}
         <span className="text-[#ffcc00]">SELECT * FROM users WHERE username='{`{input}`}' AND password='{`{input}`}'</span>
         <br />Goal: bypass authentication using SQL injection, then dump the database.
       </div>
@@ -130,7 +130,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
       {result && (
         <div className={`rounded p-3 border text-xs ${result.success ? 'border-[#00ff4133] bg-[#00ff4108]' : 'border-[#ff004033] bg-[#ff000008]'}`}>
           <div className={`font-bold ${result.success ? 'text-[#00ff41]' : 'text-[#ff0040]'}`}>
-            {result.success ? 'âœ“' : 'âœ—'} {result.message}
+            {result.success ? '✓' : 'âœ—'} {result.message}
           </div>
           {result.data && <div className="text-[#ccc] mt-1">{result.data}</div>}
         </div>

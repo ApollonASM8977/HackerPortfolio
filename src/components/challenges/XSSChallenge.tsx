@@ -190,7 +190,7 @@ export function XSSChallenge({ onSolve }: Props) {
                 >
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} />
-                    âœ“ Correct! FLAG: {L1_FLAG}
+                    ✓ Correct! FLAG: {L1_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
                     Snippet A directly inserts user input into HTML without sanitization.
@@ -312,7 +312,7 @@ export function XSSChallenge({ onSolve }: Props) {
                 >
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} />
-                    âœ“ Correct! FLAG: {L2_FLAG}
+                    ✓ Correct! FLAG: {L2_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
                     DOM-based XSS: input from location.hash is written to innerHTML — never touches the server!
@@ -436,7 +436,7 @@ export function XSSChallenge({ onSolve }: Props) {
                 >
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} />
-                    âœ“ Correct! FLAG: {L3_FLAG}
+                    ✓ Correct! FLAG: {L3_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
                     {`<img src=x onerror=alert(1)>`} and {`<svg onload=...>`} bypass script-only filters!

@@ -129,7 +129,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
                 </div>
                 <div className="text-[#ffcc00] mt-2">Extract positions: 3, 9, 15, 20</div>
                 <div className="text-[#555] mt-1">
-                  [{STEG_STRING[3]}] [{STEG_STRING[9]}] [{STEG_STRING[15]}] [{STEG_STRING[20]}] â†’ ?
+                  [{STEG_STRING[3]}] [{STEG_STRING[9]}] [{STEG_STRING[15]}] [{STEG_STRING[20]}] ↑ ?
                 </div>
               </div>
               <p className="text-[#444] text-xs">The letters spell a word. Enter: <span className="text-[#666]">FLAG{'{st3g_m4st3r}'}</span></p>
@@ -167,7 +167,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
         </button>
       </div>
 
-      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">âœ“ Correct! Flag found: {current.flag}</p>}
+      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">✓ Correct! Flag found: {current.flag}</p>}
       {status === 'err' && <p className="text-[#ff4444] text-xs mono">âœ— Incorrect. Try again.</p>}
     </div>
   );

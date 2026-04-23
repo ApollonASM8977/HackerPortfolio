@@ -10,7 +10,7 @@ const LEVELS = [
   .map(c => String.fromCharCode(c))
   .join('')`,
     question: 'What string does this JavaScript produce?',
-    hint: 'Run it in your browser console (F12 â†’ Console) or decode manually:\n70=F  76=L  65=A  71=G  123={  106=j  115=s  95=_  48=0  98=b  102=f  125=}',
+    hint: 'Run it in your browser console (F12 ↑ Console) or decode manually:\n70=F  76=L  65=A  71=G  123={  106=j  115=s  95=_  48=0  98=b  102=f  125=}',
     flag: 'FLAG{js_0bf}',
     check: (a: string) => a.trim() === 'FLAG{js_0bf}',
   },
@@ -125,7 +125,7 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
         </button>
       </div>
 
-      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">âœ“ Correct! Flag: {cur.flag}</p>}
+      {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">✓ Correct! Flag: {cur.flag}</p>}
       {status === 'err' && <p className="text-[#ff4444] text-xs mono">âœ— Incorrect. Try again.</p>}
     </div>
   );

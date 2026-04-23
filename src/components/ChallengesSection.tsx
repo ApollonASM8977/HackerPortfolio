@@ -61,11 +61,11 @@ const CHALLENGES = [
   {
     id: 'vigenere',
     icon: <Shield className="w-5 h-5" />,
-    title: 'VigenÃ¨re Cipher',
+    title: 'Vigenère Cipher',
     category: 'CRYPTO',
     difficulty: 'Medium',
     diffColor: '#ffcc00',
-    description: 'Crack VigenÃ¨re-encrypted messages. Level 1 gives you the key — level 2, find it yourself.',
+    description: 'Crack Vigenère-encrypted messages. Level 1 gives you the key — level 2, find it yourself.',
     component: VigenereChallenge,
   },
   {
@@ -281,7 +281,7 @@ export function ChallengesSection() {
                           {c.difficulty}
                         </span>
                         {solved.has(c.id) && (
-                          <span className="text-[#00ff41] text-xs">âœ“ SOLVED</span>
+                          <span className="text-[#00ff41] text-xs">✓ SOLVED</span>
                         )}
                       </div>
                     </div>

@@ -68,7 +68,7 @@ export function CaesarChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#666]'
             }`}
           >
-            {solved[i] ? 'âœ“ ' : ''}Level {i + 1}
+            {solved[i] ? '✓ ' : ''}Level {i + 1}
           </button>
         ))}
       </div>
@@ -116,7 +116,7 @@ export function CaesarChallenge({ onSolve }: { onSolve: () => void }) {
         >
           {showHint ? 'Hide hint' : 'ðŸ’¡ Show hint'}
         </button>
-        {isCorrect && <span className="text-[#00ff41] text-xs font-bold animate-pulse">âœ“ CORRECT! Shift = {shift}</span>}
+        {isCorrect && <span className="text-[#00ff41] text-xs font-bold animate-pulse">✓ CORRECT! Shift = {shift}</span>}
       </div>
 
       {showHint && (

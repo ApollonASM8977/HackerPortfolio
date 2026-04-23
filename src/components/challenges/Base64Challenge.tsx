@@ -103,7 +103,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? 'âœ“ ' : ''}L{i + 1}
+            {levelSolved[i] ? '✓ ' : ''}L{i + 1}
           </button>
         ))}
         <span className="ml-auto text-xs text-[#555] self-center">
@@ -172,7 +172,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            âœ“ Correct! {current.successMsg}
+            ✓ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (

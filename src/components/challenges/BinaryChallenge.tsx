@@ -111,7 +111,7 @@ export function BinaryChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? 'âœ“ ' : ''}
+            {levelSolved[i] ? '✓ ' : ''}
             {lv.type === 'hex' ? 'HEX' : `BIN ${i + 1}`}
           </button>
         ))}
@@ -195,7 +195,7 @@ export function BinaryChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            âœ“ Correct! {current.successMsg}
+            ✓ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (

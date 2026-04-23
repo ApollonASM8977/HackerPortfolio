@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// VigenÃ¨re decryption: C - K mod 26 (uppercase only)
+// Vigenère decryption: C - K mod 26 (uppercase only)
 function vigenereDecrypt(ciphertext: string, key: string): string {
   const ct = ciphertext.toUpperCase().replace(/[^A-Z]/g, '');
   const k = key.toUpperCase().replace(/[^A-Z]/g, '');
@@ -34,7 +34,7 @@ const LEVELS: Level[] = [
     answer: 'HACKTHEPLANET',
     keyHint: 'Key is given above — use it!',
     label: 'Level 1 — Known Key Decryption',
-    description: 'The key is provided. Use VigenÃ¨re decryption to reveal the plaintext.',
+    description: 'The key is provided. Use Vigenère decryption to reveal the plaintext.',
     successMsg: 'Decrypted! The matrix has you.',
   },
   {
@@ -121,7 +121,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? 'âœ“ ' : ''}Level {i + 1}
+            {levelSolved[i] ? '✓ ' : ''}Level {i + 1}
           </button>
         ))}
         <span className="ml-auto text-xs text-[#555]">{solvedCount}/2 solved</span>
@@ -182,7 +182,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
         )}
       </div>
 
-      {/* VigenÃ¨re alphabet table toggle */}
+      {/* Vigenère alphabet table toggle */}
       <button
         onClick={() => setShowTable(t => !t)}
         className="text-xs text-[#555] hover:text-[#00d4ff] border border-[#1a2332] px-3 py-1 rounded transition-colors"
@@ -213,7 +213,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 ))}
               </div>
               <div className="text-[#555] text-xs mt-2">
-                Example (Level 1): J(9) âˆ’ C(2) = 7 â†’ H &nbsp;|&nbsp; Y(24) âˆ’ Y(24) = 0 â†’ A
+                Example (Level 1): J(9) âˆ’ C(2) = 7 ↑ H &nbsp;|&nbsp; Y(24) âˆ’ Y(24) = 0 ↑ A
               </div>
             </div>
           </motion.div>
@@ -250,7 +250,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            âœ“ Correct! {current.successMsg}
+            ✓ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (

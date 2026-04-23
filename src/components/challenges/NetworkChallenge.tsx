@@ -19,12 +19,12 @@ const LEVELS: Level[] = [
     title: 'HTTP Packet Capture Analysis',
     icon: 'terminal',
     log: [
-      '[2025-01-15 03:42:11] GET  /api/users HTTP/1.1          â†’ 200 OK',
-      '[2025-01-15 03:42:12] POST /login HTTP/1.1               â†’ 401 UNAUTHORIZED',
-      '[2025-01-15 03:42:13] GET  /admin/flag.txt HTTP/1.1      â†’ 200 OK',
-      '  â””─ Response body: FLAG{p4ck3t_sn1ff3r}',
-      '[2025-01-15 03:42:14] GET  /logout HTTP/1.1              â†’ 200 OK',
-      '[2025-01-15 03:42:15] GET  /api/health HTTP/1.1          â†’ 200 OK',
+      '[2025-01-15 03:42:11] GET  /api/users HTTP/1.1          ↑ 200 OK',
+      '[2025-01-15 03:42:12] POST /login HTTP/1.1               ↑ 401 UNAUTHORIZED',
+      '[2025-01-15 03:42:13] GET  /admin/flag.txt HTTP/1.1      ↑ 200 OK',
+      '  └─ Response body: FLAG{p4ck3t_sn1ff3r}',
+      '[2025-01-15 03:42:14] GET  /logout HTTP/1.1              ↑ 200 OK',
+      '[2025-01-15 03:42:15] GET  /api/health HTTP/1.1          ↑ 200 OK',
     ],
     question: 'Analyze the captured HTTP traffic above. What flag was found in the response body?',
     answer: 'FLAG{p4ck3t_sn1ff3r}',
@@ -125,7 +125,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
                 : 'border-[#1a2332] text-[#555]'
             }`}
           >
-            {levelSolved[i] ? 'âœ“ ' : ''}
+            {levelSolved[i] ? '✓ ' : ''}
             {lv.icon === 'terminal'
               ? <Terminal className="w-3 h-3" />
               : <Wifi className="w-3 h-3" />}
@@ -160,8 +160,8 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
           {current.log.map((line, i) => {
             // Colour coding for the HTTP log
             const isFlag = line.includes('FLAG{');
-            const is200 = line.includes('â†’ 200');
-            const is401 = line.includes('â†’ 401');
+            const is200 = line.includes('↑ 200');
+            const is401 = line.includes('↑ 401');
             const isSuspicious = line.includes('SUSPICIOUS');
             const isPort4444 = line.startsWith('4444');
             const isEmpty = line === '';
@@ -242,7 +242,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#00ff41] text-xs mt-2"
           >
-            âœ“ Correct! {current.successMsg}
+            ✓ Correct! {current.successMsg}
           </motion.div>
         )}
         {feedback === 'wrong' && (

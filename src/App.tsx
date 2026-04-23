@@ -45,11 +45,11 @@ function KonamiOverlay({ onDone }: { onDone: () => void }) {
         <div className="mono text-[#00ff41] text-xl glow-green mb-6">GRANTED</div>
         <pre className="mono text-[#00ff41] text-xs text-left inline-block opacity-70 leading-6">
 {`[*] Exploiting CVE-2026-KONAMI...
-[+] Privilege escalation: user â†’ root
+[+] Privilege escalation: user ↑ root
 [+] uid=0(root) gid=0(root)
 [!] FLAG{k0n4m1_m4st3r_h4ck3r}`}
         </pre>
-        <div className="mt-6 mono text-[#444] text-xs">→→↑↑←â†’←â†’BA — classic ðŸŽ®</div>
+        <div className="mt-6 mono text-[#444] text-xs">→→↑↑←↑←↑BA — classic ðŸŽ®</div>
       </motion.div>
     </motion.div>
   );
@@ -88,7 +88,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', h);
   }, []);
 
-  /* ? key â†’ shortcuts modal */
+  /* ? key ↑ shortcuts modal */
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       if (e.key === '?' && (e.target as HTMLElement).tagName !== 'INPUT'

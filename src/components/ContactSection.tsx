@@ -151,7 +151,7 @@ export function ContactSection() {
 
             {FORMSPREE_ID === 'YOUR_FORMSPREE_ID' && (
               <p className="mono text-[#333] text-[10px]">
-                âš  Configure Formspree: replace FORMSPREE_ID in ContactSection.tsx
+                ⚠ Configure Formspree: replace FORMSPREE_ID in ContactSection.tsx
               </p>
             )}
           </form>

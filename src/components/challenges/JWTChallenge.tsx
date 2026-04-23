@@ -195,7 +195,7 @@ export function JWTChallenge({ onSolve }: Props) {
                   style={{ color: '#00ff41' }}
                 >
                   <CheckCircle size={14} />
-                  âœ“ Correct! FLAG: {JWT_L1_ANSWER}
+                  ✓ Correct! FLAG: {JWT_L1_ANSWER}
                 </motion.div>
               )}
               {l1Status === 'wrong' && (
@@ -303,7 +303,7 @@ export function JWTChallenge({ onSolve }: Props) {
                 >
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} />
-                    âœ“ Correct! FLAG: {JWT_L2_FLAG}
+                    ✓ Correct! FLAG: {JWT_L2_FLAG}
                   </div>
                   <div style={{ color: '#555' }}>
                     The &quot;none&quot; algorithm disables signature verification — any payload is accepted!

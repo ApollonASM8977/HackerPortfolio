@@ -71,7 +71,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       const word = wl[i];
       const hash = HASH_MAP[word];
       if (hash === current.hash) {
-        setResult(`âœ“ CRACKED: "${word}"`);
+        setResult(`✓ CRACKED: "${word}"`);
         clearInterval(interval);
         setCracking(false);
         const newSolved = [...solved];
@@ -92,7 +92,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
   const checkManual = () => {
     const hash = HASH_MAP[manualInput.toLowerCase()];
     if (hash === current.hash) {
-      setManualResult(`âœ“ CRACKED: "${manualInput}"`);
+      setManualResult(`✓ CRACKED: "${manualInput}"`);
       const newSolved = [...solved];
       newSolved[level] = true;
       setSolved(newSolved);
@@ -115,7 +115,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
                            'border-[#1a2332] text-[#666]'
             }`}
           >
-            {solved[i] ? 'âœ“ ' : ''}Hash {i + 1}
+            {solved[i] ? '✓ ' : ''}Hash {i + 1}
           </button>
         ))}
       </div>
@@ -144,7 +144,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
             'border-[#ffcc00] text-[#ffcc00] hover:bg-[#ffcc0011]'
           }`}
         >
-          {cracking ? 'âš¡ Cracking...' : solved[level] ? 'âœ“ Solved' : 'âš¡ Run Wordlist Attack'}
+          {cracking ? 'âš¡ Cracking...' : solved[level] ? '✓ Solved' : 'âš¡ Run Wordlist Attack'}
         </button>
 
         {cracking && (
@@ -157,7 +157,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
         )}
 
         {result && (
-          <div className={`mt-2 text-sm font-bold ${result.startsWith('âœ“') ? 'text-[#00ff41] glow-green' : 'text-[#ff6b6b]'}`}>
+          <div className={`mt-2 text-sm font-bold ${result.startsWith('✓') ? 'text-[#00ff41] glow-green' : 'text-[#ff6b6b]'}`}>
             {result}
           </div>
         )}
@@ -182,7 +182,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
           </button>
         </div>
         {manualResult && (
-          <div className={`mt-1 text-xs font-bold ${manualResult.startsWith('âœ“') ? 'text-[#00ff41]' : 'text-[#ff6b6b]'}`}>
+          <div className={`mt-1 text-xs font-bold ${manualResult.startsWith('✓') ? 'text-[#00ff41]' : 'text-[#ff6b6b]'}`}>
             {manualResult}
           </div>
         )}

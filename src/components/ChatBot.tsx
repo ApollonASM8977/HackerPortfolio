@@ -23,13 +23,13 @@ function getBotResponse(
 ): { text: string; newName?: string; navTo?: Page } {
 
   const i = input.toLowerCase().trim();
-  const isFR = /[Ã Ã©Ã¨ÃªÃ«Ã®Ã¯Ã´Ã¹Ã»Ã¼]|bonjour|salut|merci|oui|non|comment|qui|quoi|quel|projet|compÃ©ten|certif|contact|parle|disponib|oÃ¹\b|tu\b/.test(i);
+  const isFR = /[àéèêÃ«îïôùûÃ¼]|bonjour|salut|merci|oui|non|comment|qui|quoi|quel|projet|compéten|certif|contact|parle|disponib|où\b|tu\b/.test(i);
 
   // ── Greetings
   if (/^(hello|hi\b|hey|yo\b|salut|bonjour|bonsoir|cc\b)/.test(i)) {
     const name = userName ? `, ${userName}` : '';
     return isFR
-      ? { text: `Salut${name}! ðŸ‘¾ Je suis ApolloBot — l'assistant du portfolio d'Aboubacar. Pose-moi des questions sur ses compÃ©tences, projets, certifications ou comment le contacter !` }
+      ? { text: `Salut${name}! ðŸ‘¾ Je suis ApolloBot — l'assistant du portfolio d'Aboubacar. Pose-moi des questions sur ses compétences, projets, certifications ou comment le contacter !` }
       : { text: `Hey${name}! ðŸ‘¾ I'm ApolloBot — Aboubacar's portfolio assistant. Ask me about his skills, projects, certifications, or how to reach him!` };
   }
 
@@ -38,12 +38,12 @@ function getBotResponse(
   if (nameMatch) {
     const name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1);
     return isFR
-      ? { text: `EnchantÃ©, ${name}! ðŸ¤ Comment puis-je t'aider ?`, newName: name }
+      ? { text: `Enchanté, ${name}! ðŸ¤ Comment puis-je t'aider ?`, newName: name }
       : { text: `Nice to meet you, ${name}! ðŸ¤ How can I help you?`, newName: name };
   }
 
   // ── Navigation commands
-  if (/\b(show|take|go to|open|voir|voir|aller|ouvrir)\b.*(about|profil|Ã  propos)/i.test(i)) {
+  if (/\b(show|take|go to|open|voir|voir|aller|ouvrir)\b.*(about|profil|à propos)/i.test(i)) {
     navigate?.('about');
     return isFR
       ? { text: 'ðŸ“‚ Je t\'ouvre la page About maintenant !', navTo: 'about' }
@@ -73,22 +73,22 @@ function getBotResponse(
   }
 
   // ── Who / About
-  if (/who|about|apollon|aboubacar|yourself|qui est|c'est qui|prÃ©sente/.test(i))
+  if (/who|about|apollon|aboubacar|yourself|qui est|c'est qui|présente/.test(i))
     return isFR
-      ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est un Ã©tudiant en M.S. Cybersecurity Ã  Montclair State University, New Jersey. Chercheur en sÃ©curitÃ©, joueur CTF et dÃ©veloppeur full-stack spÃ©cialisÃ© en cryptographie et hacking Ã©thique. ðŸ‡¨ðŸ‡®â†’ðŸ‡ºðŸ‡¸' }
-      : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a cybersecurity grad student at Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. ðŸ‡¨ðŸ‡®â†’ðŸ‡ºðŸ‡¸' };
+      ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est un étudiant en M.S. Cybersecurity à Montclair State University, New Jersey. Chercheur en sécurité, joueur CTF et développeur full-stack spécialisé en cryptographie et hacking éthique. ðŸ‡¨ðŸ‡®↑ðŸ‡ºðŸ‡¸' }
+      : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a cybersecurity grad student at Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. ðŸ‡¨ðŸ‡®↑ðŸ‡ºðŸ‡¸' };
 
   // ── Skills
-  if (/skill|technolog|compÃ©ten|outil|tools|stack/.test(i))
+  if (/skill|technolog|compéten|outil|tools|stack/.test(i))
     return isFR
-      ? { text: 'CompÃ©tences principales :\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptographie — 82%\n• React/TypeScript — 75%\n• SÃ©curitÃ© rÃ©seau — 75%\n• Pentest — 70%\n\nOutils : Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' }
+      ? { text: 'Compétences principales :\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptographie — 82%\n• React/TypeScript — 75%\n• Sécurité réseau — 75%\n• Pentest — 70%\n\nOutils : Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' }
       : { text: 'Top skills:\n• Linux/Bash — 90%\n• Python — 85%\n• Cryptography — 82%\n• React/TypeScript — 75%\n• Network Security — 75%\n• Pentesting — 70%\n\nTools: Nmap, Metasploit, Burp Suite, Wireshark, Hashcat, SQLmap…' };
 
   // ── Projects
   if (/project|build|github|projet|application/.test(i))
     return isFR
-      ? { text: 'Projets clÃ©s :\nðŸ” CipherLab — toolkit crypto complet (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch en Python\nðŸ”’ SecureShare — partage de fichiers E2E AES-256 + RSA\nðŸš• CommuTaxi — app Flutter avec Firebase\nðŸ’° Atlas Money — app mobile money sÃ©curisÃ©e PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
-      : { text: 'Key projects:\nðŸ” CipherLab — full crypto toolkit (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch in Python\nðŸ”’ SecureShare — AES-256 + RSA-2048 E2E file sharing\nðŸš• CommuTaxi — Flutter ride app with Firebase\nðŸ’° Atlas Money — secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
+      ? { text: 'Projets clés :\nðŸ” CipherLab — toolkit crypto complet (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch en Python\n🔒 SecureShare — partage de fichiers E2E AES-256 + RSA\nðŸš• CommuTaxi — app Flutter avec Firebase\n💰 Atlas Money — app mobile money sécurisée PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
+      : { text: 'Key projects:\nðŸ” CipherLab — full crypto toolkit (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch in Python\n🔒 SecureShare — AES-256 + RSA-2048 E2E file sharing\nðŸš• CommuTaxi — Flutter ride app with Firebase\n💰 Atlas Money — secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
 
   // ── Contact
   if (/contact|email|reach|hire|work|embauche|joindre|recrut/.test(i))
@@ -99,7 +99,7 @@ function getBotResponse(
   // ── TryHackMe / CTF
   if (/tryhackme|thm|rank|ctf|challenge|wizard|hacking/.test(i))
     return isFR
-      ? { text: 'Stats TryHackMe :\nðŸ§™ Rang : [0xA] WIZARD\nðŸ† Top 4% mondial\nðŸŽ–ï¸ 21 badges gagnÃ©s\nâœ… 98 salles complÃ©tÃ©es\n\nEssaie aussi les 13 challenges CTF interactifs du portfolio !' }
+      ? { text: 'Stats TryHackMe :\nðŸ§™ Rang : [0xA] WIZARD\nðŸ† Top 4% mondial\nðŸŽ–ï¸ 21 badges gagnés\nâœ… 98 salles complétées\n\nEssaie aussi les 13 challenges CTF interactifs du portfolio !' }
       : { text: 'TryHackMe stats:\nðŸ§™ Rank: [0xA] WIZARD\nðŸ† Top 4% worldwide\nðŸŽ–ï¸ 21 badges earned\nâœ… 98 rooms completed\n\nAlso try the 13 interactive CTF challenges on this portfolio!' };
 
   // ── Certifications
@@ -109,25 +109,25 @@ function getBotResponse(
       : { text: 'Certifications:\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' };
 
   // ── Education
-  if (/school|university|education|degree|study|Ã©tude|universitÃ©|diplÃ´me|master/.test(i))
+  if (/school|university|education|degree|study|étude|université|diplôme|master/.test(i))
     return isFR
-      ? { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOrigine : CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®\nFormation technique solide en cryptographie, sÃ©curitÃ© rÃ©seau et dÃ©veloppement.' }
-      : { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOriginally from CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®' };
+      ? { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOrigine : Côte d\'Ivoire ðŸ‡¨ðŸ‡®\nFormation technique solide en cryptographie, sécurité réseau et développement.' }
+      : { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOriginally from Côte d\'Ivoire ðŸ‡¨ðŸ‡®' };
 
   // ── Languages
-  if (/french|franÃ§ais|speak|langue|language|parle/.test(i))
-    return { text: 'Je parle franÃ§ais et anglais! ðŸ‡«ðŸ‡·ðŸ‡ºðŸ‡¸ French is my first language — originally from CÃ´te d\'Ivoire. Feel free to chat in either language!' };
+  if (/french|français|speak|langue|language|parle/.test(i))
+    return { text: 'Je parle français et anglais! ðŸ‡«ðŸ‡·ðŸ‡ºðŸ‡¸ French is my first language — originally from Côte d\'Ivoire. Feel free to chat in either language!' };
 
   // ── Location
   if (/location|where|country|ville|pays|habite/.test(i))
     return isFR
-      ? { text: 'BasÃ© Ã  Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — disponible en remote, prÃ©sentiel ou peu importe la localisation.' }
+      ? { text: 'Basé à Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — disponible en remote, présentiel ou peu importe la localisation.' }
       : { text: 'Based in Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — open to remote, on-site, or any location.' };
 
   // ── Availability
   if (/available|opportunit|internship|open|disponib|stage/.test(i))
     return isFR
-      ? { text: 'Oui ! Actuellement ouvert aux stages, opportunitÃ©s de recherche et collaborations en cybersÃ©curitÃ© ou dÃ©veloppement full-stack. Contacte sur LinkedIn !' }
+      ? { text: 'Oui ! Actuellement ouvert aux stages, opportunités de recherche et collaborations en cybersécurité ou développement full-stack. Contacte sur LinkedIn !' }
       : { text: 'Yes! Currently open to internships, research opportunities, and collaborations in cybersecurity or full-stack development. Reach out on LinkedIn!' };
 
   // ── Easter egg
@@ -137,22 +137,22 @@ function getBotResponse(
   // ── Resume / CV
   if (/resume|cv|curriculum/.test(i))
     return isFR
-      ? { text: 'Mon CV est disponible en tÃ©lÃ©chargement sur la page About ! ðŸ“„\nOu contacte directement sur LinkedIn pour le recevoir.' }
+      ? { text: 'Mon CV est disponible en téléchargement sur la page About ! ðŸ“„\nOu contacte directement sur LinkedIn pour le recevoir.' }
       : { text: 'My resume is available for download on the About page! ðŸ“„\nOr reach out directly on LinkedIn.' };
 
   // ── Help
   if (/help|what can|command|aide|menu/.test(i))
     return isFR
-      ? { text: 'Je peux t\'informer sur :\n• Bio et parcours\n• CompÃ©tences et outils\n• Projets\n• Certifications\n• Stats TryHackMe / CTF\n• Comment contacter Aboubacar\n\nJe peux aussi naviguer ! Dis "montre-moi les projets" ðŸš€' }
-      : { text: 'I can tell you about:\n• Bio & background\n• Skills & tools\n• Projects\n• Certifications\n• TryHackMe / CTF stats\n• How to get in touch\n\nI can also navigate! Say "show me the projects" ðŸš€' };
+      ? { text: 'Je peux t\'informer sur :\n• Bio et parcours\n• Compétences et outils\n• Projets\n• Certifications\n• Stats TryHackMe / CTF\n• Comment contacter Aboubacar\n\nJe peux aussi naviguer ! Dis "montre-moi les projets" 🚀' }
+      : { text: 'I can tell you about:\n• Bio & background\n• Skills & tools\n• Projects\n• Certifications\n• TryHackMe / CTF stats\n• How to get in touch\n\nI can also navigate! Say "show me the projects" 🚀' };
 
   return isFR
-    ? { text: 'Je n\'ai pas de rÃ©ponse spÃ©cifique Ã  Ã§a. Explore les sections du portfolio, ou contacte directement sur LinkedIn ! ðŸ”' }
+    ? { text: 'Je n\'ai pas de réponse spécifique à ça. Explore les sections du portfolio, ou contacte directement sur LinkedIn ! ðŸ”' }
     : { text: "I don't have a specific answer for that. Check the portfolio sections, or reach out on LinkedIn for anything specific! ðŸ”" };
 }
 
 const QUICK_REPLIES_EN = ['Who are you?', 'Your skills?', 'Projects', 'CTF stats', 'Contact info'];
-const QUICK_REPLIES_FR = ['Qui es-tu ?', 'Tes compÃ©tences ?', 'Projets', 'Stats CTF', 'Contact'];
+const QUICK_REPLIES_FR = ['Qui es-tu ?', 'Tes compétences ?', 'Projets', 'Stats CTF', 'Contact'];
 
 export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
   const [open, setOpen]       = useState(false);
@@ -169,7 +169,7 @@ export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
   useEffect(() => {
     setMessages([{
       role: 'bot',
-      text: `${getGreeting()}\n\nI'm ApolloBot ðŸ‘¾ — Aboubacar's portfolio assistant. Ask me anything or say "help".\n\nðŸ’¡ Je parle aussi franÃ§ais !`,
+      text: `${getGreeting()}\n\nI'm ApolloBot ðŸ‘¾ — Aboubacar's portfolio assistant. Ask me anything or say "help".\n\nðŸ’¡ Je parle aussi français !`,
       time: new Date(),
     }]);
   }, []);
@@ -188,7 +188,7 @@ export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
     if (!trimmed) return;
 
     // Detect language from input
-    const isFR = /[Ã Ã©Ã¨ÃªÃ«Ã®Ã¯Ã´Ã¹Ã»Ã¼]|bonjour|salut|merci|oui|non|comment|qui\b|quoi\b|quel\b|projet|compÃ©ten|certif|contact|parle|disponib|oÃ¹\b|tu\b/.test(trimmed.toLowerCase());
+    const isFR = /[àéèêÃ«îïôùûÃ¼]|bonjour|salut|merci|oui|non|comment|qui\b|quoi\b|quel\b|projet|compéten|certif|contact|parle|disponib|où\b|tu\b/.test(trimmed.toLowerCase());
     if (isFR) setLang('fr');
 
     setMessages(prev => [...prev, { role: 'user', text: trimmed, time: new Date() }]);

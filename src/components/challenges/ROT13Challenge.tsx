@@ -206,7 +206,7 @@ export function ROT13Challenge({ onSolve }: Props) {
             style={{ color: '#00ff41' }}
           >
             <CheckCircle size={14} />
-            âœ“ Correct! FLAG: {level.flag}
+            ✓ Correct! FLAG: {level.flag}
           </motion.div>
         )}
         {status === 'wrong' && (
@@ -229,7 +229,7 @@ export function ROT13Challenge({ onSolve }: Props) {
         <div className="flex flex-col gap-1 mt-1">
           {solvedFlags.map((_f, i) => (
             <div key={i} className="font-mono text-xs" style={{ color: '#00ff4166' }}>
-              âœ“ Level {i + 1} solved
+              ✓ Level {i + 1} solved
             </div>
           ))}
         </div>

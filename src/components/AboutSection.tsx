@@ -155,7 +155,7 @@ const TOOLS = [
 const CERTS = [
   { name: '(ISC)Â² Certified in Cybersecurity (CC)',  icon: 'ðŸ›¡ï¸', status: 'Obtained',          color: '#00ff41' },
   { name: 'EC-Council — CSCU',                       icon: 'ðŸ”', status: 'Obtained',          color: '#00ff41' },
-  { name: 'Fortinet — NSE 2 Network Security',       icon: 'ðŸ”’', status: 'Obtained',          color: '#00ff41' },
+  { name: 'Fortinet — NSE 2 Network Security',       icon: '🔒', status: 'Obtained',          color: '#00ff41' },
   { name: 'TryHackMe — Intro to Cybersecurity Path', icon: 'ðŸ§ ', status: 'Aug 24 2024',       color: '#00d4ff' },
   { name: 'TryHackMe — Pre Security Path',           icon: 'ðŸ”‘', status: 'Sep 8 2024',        color: '#00d4ff' },
   { name: 'CompTIA Security+ / Network+',            icon: 'ðŸ“¡', status: 'In progress 2026',  color: '#ffcc00' },
@@ -170,7 +170,7 @@ const INTERESTS = [
 ];
 
 const TIMELINE = [
-  { year: '2019', title: 'B.S. Computer Science — Started', place: 'UniversitÃ© de CÃ´te d\'Ivoire ðŸ‡¨ðŸ‡®', color: '#00ff41' },
+  { year: '2019', title: 'B.S. Computer Science — Started', place: 'Université de Côte d\'Ivoire ðŸ‡¨ðŸ‡®', color: '#00ff41' },
   { year: '2023', title: 'TryHackMe — First room', place: 'Started ethical hacking journey · 589 events Y1', color: '#00d4ff' },
   { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide — 21 badges earned', color: '#ffcc00' },
   { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ ðŸ‡ºðŸ‡¸', color: '#a855f7' },
@@ -429,7 +429,7 @@ export function AboutSection() {
             <span className="mono text-[#00ff41] text-xs">Open to opportunities</span>
           </div>
           <div className="hacker-panel px-5 py-3 mono text-[#aaa] text-xs">
-            ðŸ‡ºðŸ‡¸ New Jersey &nbsp;·&nbsp; Originally ðŸ‡¨ðŸ‡® CÃ´te d'Ivoire
+            ðŸ‡ºðŸ‡¸ New Jersey &nbsp;·&nbsp; Originally ðŸ‡¨ðŸ‡® Côte d'Ivoire
           </div>
         </div>
       </motion.div>

@@ -6,7 +6,7 @@ import { GlitchText } from './GlitchText';
 
 const PROJECTS = [
   { icon: <Key className="w-5 h-5" />,        name: 'CipherLab',   color: '#a855f7',
-    desc: 'Complete cryptography toolkit — AES, RSA, DES, Caesar, VigenÃ¨re, Base64. React + FastAPI with step-by-step encryption demos.',
+    desc: 'Complete cryptography toolkit — AES, RSA, DES, Caesar, Vigenère, Base64. React + FastAPI with step-by-step encryption demos.',
     tags: ['Python','React','FastAPI','Cryptography'], github: 'https://github.com/ApollonASM8977/CipherLab' },
   { icon: <Shield className="w-5 h-5" />,     name: 'CryptoMath',  color: '#00d4ff',
     desc: 'RSA, Diffie-Hellman, Miller-Rabin primality, Baby-step Giant-step discrete log — from scratch in pure Python.',
