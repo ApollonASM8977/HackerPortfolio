@@ -98,7 +98,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
 
           {level === 1 && (
             <div className="flex flex-col gap-3">
-              <p className="text-[#555] text-xs">A flag is hidden in this 9Ã—9 grid. Find the pattern.</p>
+              <p className="text-[#555] text-xs">A flag is hidden in this 9×9 grid. Find the pattern.</p>
               <div className="bg-[#020408] border border-[#1a2332] rounded-lg p-4 mono text-xs overflow-x-auto">
                 {GRID.map((row, ri) => (
                   <div key={ri} className="flex gap-2 leading-7">
@@ -144,7 +144,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
         onClick={() => setShowHint(h => !h)}
         className="text-[#444] hover:text-[#ffcc00] text-xs mono transition-colors text-left"
       >
-        {showHint ? 'â–¾' : 'â–¸'} Hint
+        {showHint ? '▾' : '▸'} Hint
       </button>
       {showHint && <p className="text-[#ffcc00] text-xs mono">{current.hint}</p>}
 
@@ -168,7 +168,7 @@ export function SteganographyChallenge({ onSolve }: { onSolve: () => void }) {
       </div>
 
       {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">✓ Correct! Flag found: {current.flag}</p>}
-      {status === 'err' && <p className="text-[#ff4444] text-xs mono">âœ— Incorrect. Try again.</p>}
+      {status === 'err' && <p className="text-[#ff4444] text-xs mono">✗ Incorrect. Try again.</p>}
     </div>
   );
 }

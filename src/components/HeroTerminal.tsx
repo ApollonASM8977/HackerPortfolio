@@ -79,17 +79,17 @@ export function HeroTerminal() {
         {/* Typing role */}
         <div className="h-7 flex items-center justify-center">
           <span className="text-[#00d4ff] text-base md:text-lg font-mono">
-            {displayed}<span className="animate-blink text-[#00ff41]">â–ˆ</span>
+            {displayed}<span className="animate-blink text-[#00ff41]">█</span>
           </span>
         </div>
 
         {/* Badges */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
           {[
-            { label: 'ðŸŽ“ M.S. Cybersecurity', color: '#00ff41' },
-            { label: 'ðŸ§™ TryHackMe WIZARD', color: '#00d4ff' },
-            { label: 'ðŸ† Top 4% Worldwide', color: '#ffcc00' },
-            { label: 'ðŸ” (ISC)Â² CC Certified', color: '#ff6b6b' },
+            { label: '🎓 M.S. Cybersecurity', color: '#00ff41' },
+            { label: '🧙 TryHackMe WIZARD', color: '#00d4ff' },
+            { label: '🏆 Top 4% Worldwide', color: '#ffcc00' },
+            { label: '🔐 (ISC)² CC Certified', color: '#ff6b6b' },
           ].map(b => (
             <span
               key={b.label}

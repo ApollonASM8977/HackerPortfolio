@@ -208,7 +208,7 @@ export function JWTChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  âœ— Incorrect. Try again.
+                  ✗ Incorrect. Try again.
                 </motion.div>
               )}
             </AnimatePresence>
@@ -320,7 +320,7 @@ export function JWTChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  âœ— Incorrect. Think about which algorithm removes the security guarantee.
+                  ✗ Incorrect. Think about which algorithm removes the security guarantee.
                 </motion.div>
               )}
             </AnimatePresence>

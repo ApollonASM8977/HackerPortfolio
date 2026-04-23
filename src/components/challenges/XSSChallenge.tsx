@@ -207,7 +207,7 @@ export function XSSChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  âœ— Incorrect. Look at which snippet sanitizes input.
+                  ✗ Incorrect. Look at which snippet sanitizes input.
                 </motion.div>
               )}
             </AnimatePresence>
@@ -252,7 +252,7 @@ export function XSSChallenge({ onSolve }: Props) {
                 background: 'transparent',
               }}
             >
-              ðŸ’¡ {l2HintVisible ? 'Hint shown' : 'Show hint'}
+              💡 {l2HintVisible ? 'Hint shown' : 'Show hint'}
             </button>
 
             <AnimatePresence>
@@ -329,7 +329,7 @@ export function XSSChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  âœ— Incorrect. Try again. (hint: where does the data come from — server or client?)
+                  ✗ Incorrect. Try again. (hint: where does the data come from — server or client?)
                 </motion.div>
               )}
             </AnimatePresence>
@@ -376,7 +376,7 @@ export function XSSChallenge({ onSolve }: Props) {
                 background: 'transparent',
               }}
             >
-              ðŸ’¡ {l3HintVisible ? 'Hint shown' : 'Show hint'}
+              💡 {l3HintVisible ? 'Hint shown' : 'Show hint'}
             </button>
 
             <AnimatePresence>
@@ -454,7 +454,7 @@ export function XSSChallenge({ onSolve }: Props) {
                   style={{ color: '#ff4444' }}
                 >
                   <XCircle size={14} />
-                  âœ— Incorrect. Think about HTML tags with event handler attributes.
+                  ✗ Incorrect. Think about HTML tags with event handler attributes.
                 </motion.div>
               )}
             </AnimatePresence>

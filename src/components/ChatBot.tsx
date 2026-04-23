@@ -9,10 +9,10 @@ type Msg = { role: 'user' | 'bot'; text: string; time: Date };
 /* ── Helpers ─────────────────────────────────────────── */
 function getGreeting() {
   const h = new Date().getHours();
-  if (h < 6)  return "Still up? It's the middle of the night ðŸ¦‰";
-  if (h < 12) return "Good morning, hacker! â˜€ï¸";
-  if (h < 18) return "Good afternoon! Ready to hack? ðŸ’»";
-  return "Good evening! The best hacks happen at night ðŸŒ™";
+  if (h < 6)  return "Still up? It's the middle of the night 🦉";
+  if (h < 12) return "Good morning, hacker! ☀️";
+  if (h < 18) return "Good afternoon! Ready to hack? 💻";
+  return "Good evening! The best hacks happen at night 🌙";
 }
 
 /* ── Knowledge base (EN + FR) ────────────────────────── */
@@ -23,14 +23,14 @@ function getBotResponse(
 ): { text: string; newName?: string; navTo?: Page } {
 
   const i = input.toLowerCase().trim();
-  const isFR = /[àéèêÃ«îïôùûÃ¼]|bonjour|salut|merci|oui|non|comment|qui|quoi|quel|projet|compéten|certif|contact|parle|disponib|où\b|tu\b/.test(i);
+  const isFR = /[àéèêëîïôùûü]|bonjour|salut|merci|oui|non|comment|qui|quoi|quel|projet|compéten|certif|contact|parle|disponib|où\b|tu\b/.test(i);
 
   // ── Greetings
   if (/^(hello|hi\b|hey|yo\b|salut|bonjour|bonsoir|cc\b)/.test(i)) {
     const name = userName ? `, ${userName}` : '';
     return isFR
-      ? { text: `Salut${name}! ðŸ‘¾ Je suis ApolloBot — l'assistant du portfolio d'Aboubacar. Pose-moi des questions sur ses compétences, projets, certifications ou comment le contacter !` }
-      : { text: `Hey${name}! ðŸ‘¾ I'm ApolloBot — Aboubacar's portfolio assistant. Ask me about his skills, projects, certifications, or how to reach him!` };
+      ? { text: `Salut${name}! 👾 Je suis ApolloBot — l'assistant du portfolio d'Aboubacar. Pose-moi des questions sur ses compétences, projets, certifications ou comment le contacter !` }
+      : { text: `Hey${name}! 👾 I'm ApolloBot — Aboubacar's portfolio assistant. Ask me about his skills, projects, certifications, or how to reach him!` };
   }
 
   // ── User introduces themselves
@@ -38,45 +38,45 @@ function getBotResponse(
   if (nameMatch) {
     const name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1);
     return isFR
-      ? { text: `Enchanté, ${name}! ðŸ¤ Comment puis-je t'aider ?`, newName: name }
-      : { text: `Nice to meet you, ${name}! ðŸ¤ How can I help you?`, newName: name };
+      ? { text: `Enchanté, ${name}! 🤝 Comment puis-je t'aider ?`, newName: name }
+      : { text: `Nice to meet you, ${name}! 🤝 How can I help you?`, newName: name };
   }
 
   // ── Navigation commands
   if (/\b(show|take|go to|open|voir|voir|aller|ouvrir)\b.*(about|profil|à propos)/i.test(i)) {
     navigate?.('about');
     return isFR
-      ? { text: 'ðŸ“‚ Je t\'ouvre la page About maintenant !', navTo: 'about' }
-      : { text: 'ðŸ“‚ Opening the About page for you!', navTo: 'about' };
+      ? { text: '📂 Je t\'ouvre la page About maintenant !', navTo: 'about' }
+      : { text: '📂 Opening the About page for you!', navTo: 'about' };
   }
   if (/\b(show|take|go to|open|voir|aller|ouvrir)\b.*(project|projet)/i.test(i)) {
     navigate?.('projects');
     return isFR
-      ? { text: 'ðŸ“‚ Je t\'ouvre la page Projects maintenant !', navTo: 'projects' }
-      : { text: 'ðŸ“‚ Opening the Projects page for you!', navTo: 'projects' };
+      ? { text: '📂 Je t\'ouvre la page Projects maintenant !', navTo: 'projects' }
+      : { text: '📂 Opening the Projects page for you!', navTo: 'projects' };
   }
   if (/\b(show|take|go to|open|voir|aller|ouvrir)\b.*(challenge|ctf|hack)/i.test(i)) {
     navigate?.('challenges');
     return isFR
-      ? { text: 'âš”ï¸ Je t\'ouvre les Challenges CTF !', navTo: 'challenges' }
-      : { text: 'âš”ï¸ Taking you to the CTF Challenges!', navTo: 'challenges' };
+      ? { text: '⚔️ Je t\'ouvre les Challenges CTF !', navTo: 'challenges' }
+      : { text: '⚔️ Taking you to the CTF Challenges!', navTo: 'challenges' };
   }
   if (/\b(show|take|go to|open|voir|aller|ouvrir)\b.*(contact|reach|joindre)/i.test(i)) {
     navigate?.('contact');
     return isFR
-      ? { text: 'ðŸ“¬ Je t\'ouvre la page Contact !', navTo: 'contact' }
-      : { text: 'ðŸ“¬ Opening the Contact page!', navTo: 'contact' };
+      ? { text: '📬 Je t\'ouvre la page Contact !', navTo: 'contact' }
+      : { text: '📬 Opening the Contact page!', navTo: 'contact' };
   }
   if (/\b(home|accueil|retour|back)\b/.test(i) && /\b(show|go|take|open|voir|aller)\b/.test(i)) {
     navigate?.('home');
-    return { text: 'ðŸ  Going home!' };
+    return { text: '🏠 Going home!' };
   }
 
   // ── Who / About
   if (/who|about|apollon|aboubacar|yourself|qui est|c'est qui|présente/.test(i))
     return isFR
-      ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est un étudiant en M.S. Cybersecurity à Montclair State University, New Jersey. Chercheur en sécurité, joueur CTF et développeur full-stack spécialisé en cryptographie et hacking éthique. ðŸ‡¨ðŸ‡®↑ðŸ‡ºðŸ‡¸' }
-      : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a cybersecurity grad student at Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. ðŸ‡¨ðŸ‡®↑ðŸ‡ºðŸ‡¸' };
+      ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est un étudiant en M.S. Cybersecurity à Montclair State University, New Jersey. Chercheur en sécurité, joueur CTF et développeur full-stack spécialisé en cryptographie et hacking éthique. 🇨🇮↑🇺🇸' }
+      : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a cybersecurity grad student at Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. 🇨🇮↑🇺🇸' };
 
   // ── Skills
   if (/skill|technolog|compéten|outil|tools|stack/.test(i))
@@ -87,42 +87,42 @@ function getBotResponse(
   // ── Projects
   if (/project|build|github|projet|application/.test(i))
     return isFR
-      ? { text: 'Projets clés :\nðŸ” CipherLab — toolkit crypto complet (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch en Python\n🔒 SecureShare — partage de fichiers E2E AES-256 + RSA\nðŸš• CommuTaxi — app Flutter avec Firebase\n💰 Atlas Money — app mobile money sécurisée PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
-      : { text: 'Key projects:\nðŸ” CipherLab — full crypto toolkit (React + FastAPI)\nðŸ”¢ CryptoMath — RSA, DH from scratch in Python\n🔒 SecureShare — AES-256 + RSA-2048 E2E file sharing\nðŸš• CommuTaxi — Flutter ride app with Firebase\n💰 Atlas Money — secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
+      ? { text: 'Projets clés :\n🔐 CipherLab — toolkit crypto complet (React + FastAPI)\n🔢 CryptoMath — RSA, DH from scratch en Python\n🔒 SecureShare — partage de fichiers E2E AES-256 + RSA\n🚕 CommuTaxi — app Flutter avec Firebase\n💰 Atlas Money — app mobile money sécurisée PHP\n\nTout sur : github.com/ApollonASM8977', navTo: 'projects' }
+      : { text: 'Key projects:\n🔐 CipherLab — full crypto toolkit (React + FastAPI)\n🔢 CryptoMath — RSA, DH from scratch in Python\n🔒 SecureShare — AES-256 + RSA-2048 E2E file sharing\n🚕 CommuTaxi — Flutter ride app with Firebase\n💰 Atlas Money — secure PHP mobile money app\n\nAll at: github.com/ApollonASM8977', navTo: 'projects' };
 
   // ── Contact
   if (/contact|email|reach|hire|work|embauche|joindre|recrut/.test(i))
     return isFR
-      ? { text: 'Pour le contacter :\n• LinkedIn : linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub : github.com/ApollonASM8977\n• TryHackMe : tryhackme.com/p/exterminator\n\nOuvert aux stages, recherches et collaborations ! ðŸ“¬', navTo: 'contact' }
-      : { text: 'Best way to reach him:\n• LinkedIn: linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub: github.com/ApollonASM8977\n• TryHackMe: tryhackme.com/p/exterminator\n\nOpen to internships, research & collaborations! ðŸ“¬', navTo: 'contact' };
+      ? { text: 'Pour le contacter :\n• LinkedIn : linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub : github.com/ApollonASM8977\n• TryHackMe : tryhackme.com/p/exterminator\n\nOuvert aux stages, recherches et collaborations ! 📬', navTo: 'contact' }
+      : { text: 'Best way to reach him:\n• LinkedIn: linkedin.com/in/aboubacar-sidick-meite-b5b309276\n• GitHub: github.com/ApollonASM8977\n• TryHackMe: tryhackme.com/p/exterminator\n\nOpen to internships, research & collaborations! 📬', navTo: 'contact' };
 
   // ── TryHackMe / CTF
   if (/tryhackme|thm|rank|ctf|challenge|wizard|hacking/.test(i))
     return isFR
-      ? { text: 'Stats TryHackMe :\nðŸ§™ Rang : [0xA] WIZARD\nðŸ† Top 4% mondial\nðŸŽ–ï¸ 21 badges gagnés\nâœ… 98 salles complétées\n\nEssaie aussi les 13 challenges CTF interactifs du portfolio !' }
-      : { text: 'TryHackMe stats:\nðŸ§™ Rank: [0xA] WIZARD\nðŸ† Top 4% worldwide\nðŸŽ–ï¸ 21 badges earned\nâœ… 98 rooms completed\n\nAlso try the 13 interactive CTF challenges on this portfolio!' };
+      ? { text: 'Stats TryHackMe :\n🧙 Rang : [0xA] WIZARD\n🏆 Top 4% mondial\n🎖️ 21 badges gagnés\n✅ 98 salles complétées\n\nEssaie aussi les 13 challenges CTF interactifs du portfolio !' }
+      : { text: 'TryHackMe stats:\n🧙 Rank: [0xA] WIZARD\n🏆 Top 4% worldwide\n🎖️ 21 badges earned\n✅ 98 rooms completed\n\nAlso try the 13 interactive CTF challenges on this portfolio!' };
 
   // ── Certifications
   if (/cert|certif/.test(i))
     return isFR
-      ? { text: 'Certifications :\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' }
-      : { text: 'Certifications:\nâœ… (ISC)Â² Certified in Cybersecurity (CC)\nâœ… EC-Council CSCU\nâœ… Fortinet NSE 2 Network Security\nâœ… TryHackMe — Intro to Cybersecurity\nðŸ”„ CompTIA Security+ / Network+ (2026)' };
+      ? { text: 'Certifications :\n✅ (ISC)² Certified in Cybersecurity (CC)\n✅ EC-Council CSCU\n✅ Fortinet NSE 2 Network Security\n✅ TryHackMe — Intro to Cybersecurity\n🔄 CompTIA Security+ / Network+ (2026)' }
+      : { text: 'Certifications:\n✅ (ISC)² Certified in Cybersecurity (CC)\n✅ EC-Council CSCU\n✅ Fortinet NSE 2 Network Security\n✅ TryHackMe — Intro to Cybersecurity\n🔄 CompTIA Security+ / Network+ (2026)' };
 
   // ── Education
   if (/school|university|education|degree|study|étude|université|diplôme|master/.test(i))
     return isFR
-      ? { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOrigine : Côte d\'Ivoire ðŸ‡¨ðŸ‡®\nFormation technique solide en cryptographie, sécurité réseau et développement.' }
-      : { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey ðŸ‡ºðŸ‡¸\nOriginally from Côte d\'Ivoire ðŸ‡¨ðŸ‡®' };
+      ? { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey 🇺🇸\nOrigine : Côte d\'Ivoire 🇨🇮\nFormation technique solide en cryptographie, sécurité réseau et développement.' }
+      : { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey 🇺🇸\nOriginally from Côte d\'Ivoire 🇨🇮' };
 
   // ── Languages
   if (/french|français|speak|langue|language|parle/.test(i))
-    return { text: 'Je parle français et anglais! ðŸ‡«ðŸ‡·ðŸ‡ºðŸ‡¸ French is my first language — originally from Côte d\'Ivoire. Feel free to chat in either language!' };
+    return { text: 'Je parle français et anglais! 🇫🇷🇺🇸 French is my first language — originally from Côte d\'Ivoire. Feel free to chat in either language!' };
 
   // ── Location
   if (/location|where|country|ville|pays|habite/.test(i))
     return isFR
-      ? { text: 'Basé à Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — disponible en remote, présentiel ou peu importe la localisation.' }
-      : { text: 'Based in Montclair, New Jersey, USA ðŸ‡ºðŸ‡¸ — open to remote, on-site, or any location.' };
+      ? { text: 'Basé à Montclair, New Jersey, USA 🇺🇸 — disponible en remote, présentiel ou peu importe la localisation.' }
+      : { text: 'Based in Montclair, New Jersey, USA 🇺🇸 — open to remote, on-site, or any location.' };
 
   // ── Availability
   if (/available|opportunit|internship|open|disponib|stage/.test(i))
@@ -132,13 +132,13 @@ function getBotResponse(
 
   // ── Easter egg
   if (/flag|hack me|secret|password|mot de passe/.test(i))
-    return { text: 'Nice try, hacker ðŸ˜ FLAG{n0_fr33_fl4gs_h3r3} — but head to the Challenges page to earn real flags! ðŸ' };
+    return { text: 'Nice try, hacker 😏 FLAG{n0_fr33_fl4gs_h3r3} — but head to the Challenges page to earn real flags! 🏁' };
 
   // ── Resume / CV
   if (/resume|cv|curriculum/.test(i))
     return isFR
-      ? { text: 'Mon CV est disponible en téléchargement sur la page About ! ðŸ“„\nOu contacte directement sur LinkedIn pour le recevoir.' }
-      : { text: 'My resume is available for download on the About page! ðŸ“„\nOr reach out directly on LinkedIn.' };
+      ? { text: 'Mon CV est disponible en téléchargement sur la page About ! 📄\nOu contacte directement sur LinkedIn pour le recevoir.' }
+      : { text: 'My resume is available for download on the About page! 📄\nOr reach out directly on LinkedIn.' };
 
   // ── Help
   if (/help|what can|command|aide|menu/.test(i))
@@ -147,8 +147,8 @@ function getBotResponse(
       : { text: 'I can tell you about:\n• Bio & background\n• Skills & tools\n• Projects\n• Certifications\n• TryHackMe / CTF stats\n• How to get in touch\n\nI can also navigate! Say "show me the projects" 🚀' };
 
   return isFR
-    ? { text: 'Je n\'ai pas de réponse spécifique à ça. Explore les sections du portfolio, ou contacte directement sur LinkedIn ! ðŸ”' }
-    : { text: "I don't have a specific answer for that. Check the portfolio sections, or reach out on LinkedIn for anything specific! ðŸ”" };
+    ? { text: 'Je n\'ai pas de réponse spécifique à ça. Explore les sections du portfolio, ou contacte directement sur LinkedIn ! 🔐' }
+    : { text: "I don't have a specific answer for that. Check the portfolio sections, or reach out on LinkedIn for anything specific! 🔐" };
 }
 
 const QUICK_REPLIES_EN = ['Who are you?', 'Your skills?', 'Projects', 'CTF stats', 'Contact info'];
@@ -169,7 +169,7 @@ export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
   useEffect(() => {
     setMessages([{
       role: 'bot',
-      text: `${getGreeting()}\n\nI'm ApolloBot ðŸ‘¾ — Aboubacar's portfolio assistant. Ask me anything or say "help".\n\nðŸ’¡ Je parle aussi français !`,
+      text: `${getGreeting()}\n\nI'm ApolloBot 👾 — Aboubacar's portfolio assistant. Ask me anything or say "help".\n\n💡 Je parle aussi français !`,
       time: new Date(),
     }]);
   }, []);
@@ -188,7 +188,7 @@ export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
     if (!trimmed) return;
 
     // Detect language from input
-    const isFR = /[àéèêÃ«îïôùûÃ¼]|bonjour|salut|merci|oui|non|comment|qui\b|quoi\b|quel\b|projet|compéten|certif|contact|parle|disponib|où\b|tu\b/.test(trimmed.toLowerCase());
+    const isFR = /[àéèêëîïôùûü]|bonjour|salut|merci|oui|non|comment|qui\b|quoi\b|quel\b|projet|compéten|certif|contact|parle|disponib|où\b|tu\b/.test(trimmed.toLowerCase());
     if (isFR) setLang('fr');
 
     setMessages(prev => [...prev, { role: 'user', text: trimmed, time: new Date() }]);
@@ -273,7 +273,7 @@ export function ChatBot({ navigate }: { navigate: (p: Page) => void }) {
                   onMouseLeave={e => { e.currentTarget.style.color = '#555'; e.currentTarget.style.borderColor = '#1a2332'; }}
                   title="Toggle language"
                 >
-                  {lang === 'en' ? 'ðŸ‡«ðŸ‡· FR' : 'ðŸ‡ºðŸ‡¸ EN'}
+                  {lang === 'en' ? '🇫🇷 FR' : '🇺🇸 EN'}
                 </button>
                 <span className="rounded-full flex-shrink-0"
                   style={{ width: 8, height: 8, background: '#00ff41', boxShadow: '0 0 6px #00ff41' }} />

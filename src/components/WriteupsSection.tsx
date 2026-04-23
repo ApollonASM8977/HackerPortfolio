@@ -117,7 +117,7 @@ const WRITEUPS: Writeup[] = [
     tools: ['Python3 (pycryptodome)', 'openssl', 'RsaCtfTool'],
     steps: [
       'XOR encryption: key XOR plaintext ↑ ciphertext, reversible',
-      'RSA maths: n=pÃ—q, Ï†(n)=(p-1)(q-1), e·dâ‰¡1 mod Ï†(n)',
+      'RSA maths: n=p×q, Ï†(n)=(p-1)(q-1), e·d≡1 mod Ï†(n)',
       'Factor weak n with small primes using sympy.factorint()',
       'Compute d = modular_inverse(e, phi) with Python gmpy2',
       'Decrypt: m = pow(c, d, n) ↑ long_to_bytes(m)',

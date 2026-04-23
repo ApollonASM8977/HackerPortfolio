@@ -171,7 +171,7 @@ export function ChallengesSection() {
     setSolved(prev => new Set([...prev, id]));
     setShowSuccess(id);
     setTimeout(() => setShowSuccess(null), 3500);
-    // ðŸŽ‰ Confetti burst
+    // 🎉 Confetti burst
     confetti({ particleCount: 90, spread: 70, origin: { y: 0.55 },
       colors: ['#00ff41', '#00d4ff', '#ffcc00', '#a855f7'] });
     setTimeout(() =>
@@ -234,7 +234,7 @@ export function ChallengesSection() {
             animate={{ opacity: 1, scale: 1 }}
             className="mb-8 hacker-panel p-6 text-center border border-[#00ff41] w-full max-w-2xl"
           >
-            <div className="text-3xl mb-2">ðŸ†</div>
+            <div className="text-3xl mb-2">🏆</div>
             <div className="text-[#00ff41] text-xl font-bold glow-green">ALL CHALLENGES SOLVED!</div>
             <div className="text-[#666] text-sm mt-1">You've proven your skills. Welcome to the team.</div>
           </motion.div>
@@ -287,7 +287,7 @@ export function ChallengesSection() {
                     </div>
                   </div>
                   <span className="text-[#333] text-sm">
-                    {active === c.id ? 'â–²' : 'â–¼'}
+                    {active === c.id ? '▲' : '▼'}
                   </span>
                 </div>
                 <p className="text-[#4a5568] text-xs leading-5">{c.description}</p>
@@ -321,7 +321,7 @@ export function ChallengesSection() {
                   exit={{ opacity: 0 }}
                   className="mt-2 text-center text-xs text-[#00ff41] glow-green font-mono font-bold"
                 >
-                  ðŸŽ‰ Challenge Solved! +100 pts
+                  🎉 Challenge Solved! +100 pts
                 </motion.div>
               )}
             </AnimatePresence>

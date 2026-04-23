@@ -7,12 +7,12 @@ const PROMPT = 'apollon@kali:~$ ';
 
 const BOOT: (Line & { delay: number })[] = [
   { text: 'BIOS v2.4.1 — POST check...', color: '#444', delay: 80 },
-  { text: 'â–¸ CPU  Intel Core i7-12700H ......... [OK]', color: '#00ff41', delay: 240 },
-  { text: 'â–¸ RAM  16 384 MB DDR5 ............... [OK]', color: '#00ff41', delay: 420 },
-  { text: 'â–¸ NET  eth0 192.168.1.100 ........... [OK]', color: '#00ff41', delay: 600 },
-  { text: 'â–¸ SEC  Firewall active .............. [OK]', color: '#00ff41', delay: 780 },
+  { text: '▸ CPU  Intel Core i7-12700H ......... [OK]', color: '#00ff41', delay: 240 },
+  { text: '▸ RAM  16 384 MB DDR5 ............... [OK]', color: '#00ff41', delay: 420 },
+  { text: '▸ NET  eth0 192.168.1.100 ........... [OK]', color: '#00ff41', delay: 600 },
+  { text: '▸ SEC  Firewall active .............. [OK]', color: '#00ff41', delay: 780 },
   { text: '', color: '', delay: 900 },
-  { text: 'Loading apollon@kali  [â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ] 100%', color: '#00d4ff', delay: 1080 },
+  { text: 'Loading apollon@kali  [████████████] 100%', color: '#00d4ff', delay: 1080 },
   { text: '', color: '', delay: 1200 },
   { text: 'Welcome back. Type "help" for commands.', color: '#ffcc00', delay: 1380 },
 ];
@@ -258,7 +258,7 @@ export function LiveTerminal() {
           style={{ color: soundOn ? '#00ff41' : '#333', border: `1px solid ${soundOn ? '#00ff4144' : '#1a2332'}` }}
           title={soundOn ? 'Sound ON — click to mute' : 'Sound OFF — click to enable'}
         >
-          {soundOn ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {soundOn ? '🔊' : '🔇'}
         </button>
       </div>
 
@@ -280,10 +280,10 @@ export function LiveTerminal() {
               autoComplete="off"
               spellCheck={false}
             />
-            <span className="blink text-[#00ff41] select-none">â–ˆ</span>
+            <span className="blink text-[#00ff41] select-none">█</span>
           </div>
         )}
-        {state === 'running' && <span className="blink text-[#00ff41]">â–ˆ</span>}
+        {state === 'running' && <span className="blink text-[#00ff41]">█</span>}
         <div ref={bottomRef} />
       </div>
     </div>

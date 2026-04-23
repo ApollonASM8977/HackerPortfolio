@@ -82,7 +82,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       }
       i++;
       if (i >= wl.length) {
-        setResult('âœ— Not in wordlist — try manual input');
+        setResult('✗ Not in wordlist — try manual input');
         clearInterval(interval);
         setCracking(false);
       }
@@ -98,7 +98,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
       setSolved(newSolved);
       if (newSolved.every(Boolean)) setTimeout(onSolve, 500);
     } else {
-      setManualResult('âœ— Wrong — that hash doesn\'t match');
+      setManualResult('✗ Wrong — that hash doesn\'t match');
     }
   };
 
@@ -144,7 +144,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
             'border-[#ffcc00] text-[#ffcc00] hover:bg-[#ffcc0011]'
           }`}
         >
-          {cracking ? 'âš¡ Cracking...' : solved[level] ? '✓ Solved' : 'âš¡ Run Wordlist Attack'}
+          {cracking ? '⚡ Cracking...' : solved[level] ? '✓ Solved' : '⚡ Run Wordlist Attack'}
         </button>
 
         {cracking && (
@@ -190,7 +190,7 @@ export function HashChallenge({ onSolve }: { onSolve: () => void }) {
 
       {solved.every(Boolean) && (
         <div className="text-center text-[#00ff41] font-bold glow-green py-2">
-          ðŸ”“ ALL HASHES CRACKED! You're a password auditor!
+          🔓 ALL HASHES CRACKED! You're a password auditor!
         </div>
       )}
     </div>

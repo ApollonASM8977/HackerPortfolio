@@ -39,7 +39,7 @@ function KonamiOverlay({ onDone }: { onDone: () => void }) {
       <motion.div initial={{ scale:0.5, opacity:0 }} animate={{ scale:1, opacity:1 }}
         transition={{ type:'spring', stiffness:200, damping:15 }} className="text-center">
         <div className="mono text-[#ff0040] text-xs mb-3 tracking-widest animate-pulse">
-          â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ SYSTEM BREACH DETECTED â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+          ██████ SYSTEM BREACH DETECTED ██████
         </div>
         <div className="mono font-bold text-[#00ff41] text-4xl sm:text-6xl glow-green mb-4">ROOT ACCESS</div>
         <div className="mono text-[#00ff41] text-xl glow-green mb-6">GRANTED</div>
@@ -49,7 +49,7 @@ function KonamiOverlay({ onDone }: { onDone: () => void }) {
 [+] uid=0(root) gid=0(root)
 [!] FLAG{k0n4m1_m4st3r_h4ck3r}`}
         </pre>
-        <div className="mt-6 mono text-[#444] text-xs">→→↑↑←↑←↑BA — classic ðŸŽ®</div>
+        <div className="mt-6 mono text-[#444] text-xs">→→↑↑←↑←↑BA — classic 🎮</div>
       </motion.div>
     </motion.div>
   );

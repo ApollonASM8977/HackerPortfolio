@@ -153,54 +153,54 @@ const TOOLS = [
 ];
 
 const CERTS = [
-  { name: '(ISC)Â² Certified in Cybersecurity (CC)',  icon: 'ðŸ›¡ï¸', status: 'Obtained',          color: '#00ff41' },
-  { name: 'EC-Council — CSCU',                       icon: 'ðŸ”', status: 'Obtained',          color: '#00ff41' },
+  { name: '(ISC)² Certified in Cybersecurity (CC)',  icon: '🛡️', status: 'Obtained',          color: '#00ff41' },
+  { name: 'EC-Council — CSCU',                       icon: '🔐', status: 'Obtained',          color: '#00ff41' },
   { name: 'Fortinet — NSE 2 Network Security',       icon: '🔒', status: 'Obtained',          color: '#00ff41' },
-  { name: 'TryHackMe — Intro to Cybersecurity Path', icon: 'ðŸ§ ', status: 'Aug 24 2024',       color: '#00d4ff' },
-  { name: 'TryHackMe — Pre Security Path',           icon: 'ðŸ”‘', status: 'Sep 8 2024',        color: '#00d4ff' },
-  { name: 'CompTIA Security+ / Network+',            icon: 'ðŸ“¡', status: 'In progress 2026',  color: '#ffcc00' },
+  { name: 'TryHackMe — Intro to Cybersecurity Path', icon: '🧠', status: 'Aug 24 2024',       color: '#00d4ff' },
+  { name: 'TryHackMe — Pre Security Path',           icon: '🔑', status: 'Sep 8 2024',        color: '#00d4ff' },
+  { name: 'CompTIA Security+ / Network+',            icon: '📡', status: 'In progress 2026',  color: '#ffcc00' },
 ];
 
 const INTERESTS = [
-  'ðŸ” Cryptography & Information Security',
-  'ðŸ§  Ethical Hacking & CTF Challenges',
-  'ðŸ“¡ Network Security & Vulnerability Assessment',
-  'âš™ï¸  Algorithms & Data Structures',
-  'ðŸ’» Full-Stack Web Development',
+  '🔐 Cryptography & Information Security',
+  '🧠 Ethical Hacking & CTF Challenges',
+  '📡 Network Security & Vulnerability Assessment',
+  '⚙️  Algorithms & Data Structures',
+  '💻 Full-Stack Web Development',
 ];
 
 const TIMELINE = [
-  { year: '2019', title: 'B.S. Computer Science — Started', place: 'Université de Côte d\'Ivoire ðŸ‡¨ðŸ‡®', color: '#00ff41' },
+  { year: '2019', title: 'B.S. Computer Science — Started', place: 'Université de Côte d\'Ivoire 🇨🇮', color: '#00ff41' },
   { year: '2023', title: 'TryHackMe — First room', place: 'Started ethical hacking journey · 589 events Y1', color: '#00d4ff' },
   { year: '2023', title: 'TryHackMe WIZARD rank [0xA]', place: 'Top 4% worldwide — 21 badges earned', color: '#ffcc00' },
-  { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ ðŸ‡ºðŸ‡¸', color: '#a855f7' },
-  { year: '2024', title: '(ISC)Â² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
+  { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ 🇺🇸', color: '#a855f7' },
+  { year: '2024', title: '(ISC)² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
   { year: '2025', title: '98+ Rooms · 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
   { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
 ];
 
 const BADGES: { name: string; rarity: 'Legendary' | 'Epic' | 'Rare' | 'Uncommon' | 'Common' | 'Seasonal'; color: string; icon: string }[] = [
-  { name: '365-Day Streak',       rarity: 'Legendary', color: '#ffcc00', icon: 'ðŸ”¥' },
-  { name: '180-Day Streak',       rarity: 'Epic',      color: '#a855f7', icon: 'ðŸ”¥' },
-  { name: 'Mr. Robot',            rarity: 'Rare',      color: '#00d4ff', icon: 'ðŸ¤–' },
-  { name: 'Throwback',            rarity: 'Rare',      color: '#00d4ff', icon: 'ðŸªŸ' },
-  { name: 'cat',                  rarity: 'Rare',      color: '#00d4ff', icon: 'ðŸ±' },
-  { name: '90-Day Streak',        rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ”¥' },
-  { name: 'Blue',                 rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ’™' },
-  { name: 'Metasploitable',       rarity: 'Uncommon',  color: '#00ff41', icon: 'ðŸ’»' },
-  { name: 'World Wide Web',       rarity: 'Uncommon',  color: '#00ff41', icon: 'ðŸŒ' },
-  { name: 'Pre Security',         rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ›¡ï¸' },
-  { name: 'Intro to Cyber',       rarity: 'Uncommon',  color: '#00d4ff', icon: 'ðŸ§ ' },
-  { name: 'Web Fundamentals',     rarity: 'Uncommon',  color: '#00ff41', icon: 'ðŸ•¸ï¸' },
-  { name: 'Hash Cracker',         rarity: 'Common',    color: '#aaa',    icon: '#ï¸âƒ£' },
-  { name: '30-Day Streak',        rarity: 'Common',    color: '#aaa',    icon: 'ðŸ”¥' },
-  { name: '7-Day Streak',         rarity: 'Common',    color: '#aaa',    icon: 'ðŸ”¥' },
-  { name: 'Networking Nerd',      rarity: 'Common',    color: '#aaa',    icon: 'ðŸ“¡' },
-  { name: 'Linux Fundamentals',   rarity: 'Common',    color: '#aaa',    icon: 'ðŸ§' },
-  { name: 'OG',                   rarity: 'Common',    color: '#aaa',    icon: 'ðŸ‘¾' },
-  { name: 'Advent of Cyber 2024', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
-  { name: 'Advent of Cyber 2023', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
-  { name: 'Advent of Cyber 2022', rarity: 'Seasonal',  color: '#ff6b6b', icon: 'ðŸŽ„' },
+  { name: '365-Day Streak',       rarity: 'Legendary', color: '#ffcc00', icon: '🔥' },
+  { name: '180-Day Streak',       rarity: 'Epic',      color: '#a855f7', icon: '🔥' },
+  { name: 'Mr. Robot',            rarity: 'Rare',      color: '#00d4ff', icon: '🤖' },
+  { name: 'Throwback',            rarity: 'Rare',      color: '#00d4ff', icon: '🪟' },
+  { name: 'cat',                  rarity: 'Rare',      color: '#00d4ff', icon: '🐱' },
+  { name: '90-Day Streak',        rarity: 'Uncommon',  color: '#00d4ff', icon: '🔥' },
+  { name: 'Blue',                 rarity: 'Uncommon',  color: '#00d4ff', icon: '💙' },
+  { name: 'Metasploitable',       rarity: 'Uncommon',  color: '#00ff41', icon: '💻' },
+  { name: 'World Wide Web',       rarity: 'Uncommon',  color: '#00ff41', icon: '🌐' },
+  { name: 'Pre Security',         rarity: 'Uncommon',  color: '#00d4ff', icon: '🛡️' },
+  { name: 'Intro to Cyber',       rarity: 'Uncommon',  color: '#00d4ff', icon: '🧠' },
+  { name: 'Web Fundamentals',     rarity: 'Uncommon',  color: '#00ff41', icon: '🕸️' },
+  { name: 'Hash Cracker',         rarity: 'Common',    color: '#aaa',    icon: '#️⃣' },
+  { name: '30-Day Streak',        rarity: 'Common',    color: '#aaa',    icon: '🔥' },
+  { name: '7-Day Streak',         rarity: 'Common',    color: '#aaa',    icon: '🔥' },
+  { name: 'Networking Nerd',      rarity: 'Common',    color: '#aaa',    icon: '📡' },
+  { name: 'Linux Fundamentals',   rarity: 'Common',    color: '#aaa',    icon: '🐧' },
+  { name: 'OG',                   rarity: 'Common',    color: '#aaa',    icon: '👾' },
+  { name: 'Advent of Cyber 2024', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
+  { name: 'Advent of Cyber 2023', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
+  { name: 'Advent of Cyber 2022', rarity: 'Seasonal',  color: '#ff6b6b', icon: '🎄' },
 ];
 
 /* ───────────────────── HELPERS ─────────────────────── */
@@ -306,7 +306,7 @@ function BadgesShowcase() {
       <div className="flex items-center justify-between">
         <div className="mono text-[#333] text-xs">$ ls ~/.thm/badges/ &nbsp;·&nbsp; {BADGES.length} earned</div>
         <a href="https://tryhackme.com/p/exterminator" target="_blank" rel="noopener noreferrer"
-          className="mono text-[10px] text-[#00d4ff] hover:underline">tryhackme.com/p/exterminator â†—</a>
+          className="mono text-[10px] text-[#00d4ff] hover:underline">tryhackme.com/p/exterminator ↗</a>
       </div>
       {/* Legend */}
       <div className="flex flex-wrap gap-2 text-[10px] mono">
@@ -429,7 +429,7 @@ export function AboutSection() {
             <span className="mono text-[#00ff41] text-xs">Open to opportunities</span>
           </div>
           <div className="hacker-panel px-5 py-3 mono text-[#aaa] text-xs">
-            ðŸ‡ºðŸ‡¸ New Jersey &nbsp;·&nbsp; Originally ðŸ‡¨ðŸ‡® Côte d'Ivoire
+            🇺🇸 New Jersey &nbsp;·&nbsp; Originally 🇨🇮 Côte d'Ivoire
           </div>
         </div>
       </motion.div>
@@ -491,7 +491,7 @@ export function AboutSection() {
           <ul className="flex flex-col gap-3">
             {INTERESTS.map(item => (
               <li key={item} className="flex items-center justify-center gap-3 text-[#aaa] text-xs">
-                <span className="text-[#00ff41]">â€º</span>
+                <span className="text-[#00ff41]">›</span>
                 {item}
               </li>
             ))}

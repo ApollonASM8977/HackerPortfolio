@@ -253,7 +253,7 @@ export function NetworkChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#ff4444] text-xs mt-2"
           >
-            âœ— Incorrect. Read the log carefully.
+            ✗ Incorrect. Read the log carefully.
           </motion.div>
         )}
       </AnimatePresence>

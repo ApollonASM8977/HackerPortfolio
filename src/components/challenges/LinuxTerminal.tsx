@@ -241,7 +241,7 @@ export function LinuxTerminal({ onSolve }: { onSolve: () => void }) {
 
       {solved && (
         <div className="text-[#00ff41] font-bold mt-2 glow-green">
-          ðŸŽ‰ FLAG CAPTURED! You found it: FLAG{"{"}y0u_kn0w_y0ur_l1nux_c0mmands{"}"}
+          🎉 FLAG CAPTURED! You found it: FLAG{"{"}y0u_kn0w_y0ur_l1nux_c0mmands{"}"}
         </div>
       )}
 

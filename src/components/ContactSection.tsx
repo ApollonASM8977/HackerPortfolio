@@ -143,7 +143,7 @@ export function ContactSection() {
                              rounded-lg mono text-xs text-[#00ff41] hover:bg-[#00ff4111]
                              transition-all disabled:opacity-50">
                   {status === 'sending'
-                    ? <><span className="animate-pulse">Sending</span><span className="blink">â–Œ</span></>
+                    ? <><span className="animate-pulse">Sending</span><span className="blink">▌</span></>
                     : <><Send className="w-3.5 h-3.5" /> Send Message</>}
                 </motion.button>
               )}

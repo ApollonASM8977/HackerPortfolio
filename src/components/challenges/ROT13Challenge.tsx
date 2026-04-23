@@ -121,10 +121,10 @@ export function ROT13Challenge({ onSolve }: Props) {
         className="font-mono text-xs px-3 py-2 rounded"
         style={{ background: '#0d1117', border: '1px solid #1a2332', color: '#555' }}
       >
-        ðŸ’¡ Hint: {level.hint}
+        💡 Hint: {level.hint}
         {level.level3hint && (
           <div className="mt-1" style={{ color: '#00ff4188' }}>
-            ðŸš© {level.level3hint}
+            🚩 {level.level3hint}
           </div>
         )}
       </div>
@@ -219,7 +219,7 @@ export function ROT13Challenge({ onSolve }: Props) {
             style={{ color: '#ff4444' }}
           >
             <XCircle size={14} />
-            âœ— Incorrect. Try again.
+            ✗ Incorrect. Try again.
           </motion.div>
         )}
       </AnimatePresence>

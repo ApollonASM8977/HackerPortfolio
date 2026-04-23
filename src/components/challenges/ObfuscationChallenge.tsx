@@ -100,7 +100,7 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
         onClick={() => setShowHint(h => !h)}
         className="text-[#444] hover:text-[#ffcc00] text-xs mono transition-colors text-left"
       >
-        {showHint ? 'â–¾' : 'â–¸'} Hint
+        {showHint ? '▾' : '▸'} Hint
       </button>
       {showHint && (
         <pre className="text-[#ffcc00] text-xs mono whitespace-pre-wrap">{cur.hint}</pre>
@@ -126,7 +126,7 @@ export function ObfuscationChallenge({ onSolve }: { onSolve: () => void }) {
       </div>
 
       {status === 'ok'  && <p className="text-[#00ff41] text-xs mono">✓ Correct! Flag: {cur.flag}</p>}
-      {status === 'err' && <p className="text-[#ff4444] text-xs mono">âœ— Incorrect. Try again.</p>}
+      {status === 'err' && <p className="text-[#ff4444] text-xs mono">✗ Incorrect. Try again.</p>}
     </div>
   );
 }

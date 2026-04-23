@@ -87,7 +87,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
 
       {/* Login form */}
       <div className="bg-black rounded border border-[#1a2332] p-4 space-y-3">
-        <div className="text-[#00d4ff] text-xs font-bold">ðŸ” VULNERABLE LOGIN PANEL</div>
+        <div className="text-[#00d4ff] text-xs font-bold">🔐 VULNERABLE LOGIN PANEL</div>
         <div>
           <label className="text-[#666] text-xs block mb-1">Username:</label>
           <input
@@ -130,7 +130,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
       {result && (
         <div className={`rounded p-3 border text-xs ${result.success ? 'border-[#00ff4133] bg-[#00ff4108]' : 'border-[#ff004033] bg-[#ff000008]'}`}>
           <div className={`font-bold ${result.success ? 'text-[#00ff41]' : 'text-[#ff0040]'}`}>
-            {result.success ? '✓' : 'âœ—'} {result.message}
+            {result.success ? '✓' : '✗'} {result.message}
           </div>
           {result.data && <div className="text-[#ccc] mt-1">{result.data}</div>}
         </div>
@@ -168,7 +168,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
         onClick={() => setShowHint(!showHint)}
         className="text-xs text-[#666] hover:text-[#ffcc00] border border-[#1a2332] px-3 py-1 rounded transition-all"
       >
-        {showHint ? 'Hide hint' : 'ðŸ’¡ Hint'}
+        {showHint ? 'Hide hint' : '💡 Hint'}
       </button>
       {showHint && (
         <div className="text-xs text-[#ffcc00] bg-[#1a1500] border border-[#ffcc0033] rounded p-2 space-y-1">
@@ -179,7 +179,7 @@ export function SQLChallenge({ onSolve }: { onSolve: () => void }) {
 
       {solved && (
         <div className="text-center text-[#00ff41] font-bold glow-green py-2">
-          ðŸŽ‰ DATABASE DUMPED! FLAG captured!
+          🎉 DATABASE DUMPED! FLAG captured!
         </div>
       )}
     </div>

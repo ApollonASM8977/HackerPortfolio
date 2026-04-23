@@ -114,20 +114,20 @@ export function CaesarChallenge({ onSolve }: { onSolve: () => void }) {
           onClick={() => setShowHint(!showHint)}
           className="text-xs text-[#666] hover:text-[#ffcc00] border border-[#1a2332] px-3 py-1 rounded transition-all"
         >
-          {showHint ? 'Hide hint' : 'ðŸ’¡ Show hint'}
+          {showHint ? 'Hide hint' : '💡 Show hint'}
         </button>
         {isCorrect && <span className="text-[#00ff41] text-xs font-bold animate-pulse">✓ CORRECT! Shift = {shift}</span>}
       </div>
 
       {showHint && (
         <div className="text-xs text-[#ffcc00] bg-[#1a1500] border border-[#ffcc0033] rounded p-2">
-          ðŸ’¡ {current.hint}
+          💡 {current.hint}
         </div>
       )}
 
       {solved.every(Boolean) && (
         <div className="text-center text-[#00ff41] font-bold glow-green py-2">
-          ðŸŽ‰ ALL LEVELS SOLVED! Master cryptanalyst!
+          🎉 ALL LEVELS SOLVED! Master cryptanalyst!
         </div>
       )}
     </div>

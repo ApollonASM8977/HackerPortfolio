@@ -166,7 +166,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 const shift = k.charCodeAt(0) - 65;
                 return (
                   <span key={i} className="text-[#00d4ff]">
-                    {ch}âˆ’{k}({shift})={liveDecrypt[i]}{' '}
+                    {ch}−{k}({shift})={liveDecrypt[i]}{' '}
                   </span>
                 );
               })}
@@ -200,7 +200,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
           >
             <div className="bg-[#020408] border border-[#1a2332] rounded p-2">
               <div className="text-[#555] text-xs mb-1">
-                Formula: plaintext = (cipherchar âˆ’ keychar + 26) mod 26
+                Formula: plaintext = (cipherchar − keychar + 26) mod 26
               </div>
               <div className="flex flex-wrap gap-x-1 gap-y-0.5">
                 {ALPHABET.map((ch, i) => (
@@ -213,7 +213,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
                 ))}
               </div>
               <div className="text-[#555] text-xs mt-2">
-                Example (Level 1): J(9) âˆ’ C(2) = 7 ↑ H &nbsp;|&nbsp; Y(24) âˆ’ Y(24) = 0 ↑ A
+                Example (Level 1): J(9) − C(2) = 7 ↑ H &nbsp;|&nbsp; Y(24) − Y(24) = 0 ↑ A
               </div>
             </div>
           </motion.div>
@@ -261,7 +261,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#ff4444] text-xs mt-2"
           >
-            âœ— Incorrect. Check your key and decryption formula.
+            ✗ Incorrect. Check your key and decryption formula.
           </motion.div>
         )}
       </AnimatePresence>
@@ -273,7 +273,7 @@ export function VigenereChallenge({ onSolve }: { onSolve: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center text-[#00ff41] font-bold py-2 border border-[#00ff4133] rounded bg-[#00ff4108]"
         >
-          VIGENÃˆRE CIPHER BROKEN — Cryptanalyst status achieved!
+          VIGENÈRE CIPHER BROKEN — Cryptanalyst status achieved!
         </motion.div>
       )}
     </div>

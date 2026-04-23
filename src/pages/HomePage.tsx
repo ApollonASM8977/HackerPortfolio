@@ -74,11 +74,11 @@ export function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         <p className="mono text-[#444] text-xs mb-3 tracking-widest">@ApollonASM8977</p>
         <div className="h-6 flex justify-center items-center mb-4">
           <span className="mono text-[#00d4ff] text-sm">
-            {displayed}<span className="blink text-[#00ff41]">â–ˆ</span>
+            {displayed}<span className="blink text-[#00ff41]">█</span>
           </span>
         </div>
         <div className="flex flex-wrap justify-center gap-2 mb-3">
-          {[['ðŸŽ“ M.S. Cybersecurity','#00ff41'],['ðŸ§™ WIZARD Rank','#00d4ff'],['ðŸ† Top 4%','#ffcc00'],['ðŸ›¡ï¸ (ISC)Â² CC','#a855f7']].map(([l,c]) => (
+          {[['🎓 M.S. Cybersecurity','#00ff41'],['🧙 WIZARD Rank','#00d4ff'],['🏆 Top 4%','#ffcc00'],['🛡️ (ISC)² CC','#a855f7']].map(([l,c]) => (
             <span key={l} className="px-3 py-1 text-xs rounded-full mono"
               style={{ color: c, border:`1px solid ${c}44`, background:`${c}11` }}>{l}</span>
           ))}

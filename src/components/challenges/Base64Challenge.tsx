@@ -183,7 +183,7 @@ export function Base64Challenge({ onSolve }: { onSolve: () => void }) {
             exit={{ opacity: 0 }}
             className="text-[#ff4444] text-xs mt-2"
           >
-            âœ— Incorrect. Try again. (Check case sensitivity)
+            ✗ Incorrect. Try again. (Check case sensitivity)
           </motion.div>
         )}
       </AnimatePresence>
