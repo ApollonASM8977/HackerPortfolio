@@ -176,7 +176,7 @@ const TIMELINE = [
   { year: '2024', title: 'M.S. Cybersecurity — Started', place: 'Montclair State University, NJ 🇺🇸', color: '#a855f7' },
   { year: '2024', title: '(ISC)² CC Certification', place: 'Certified in Cybersecurity (CC)', color: '#00ff41' },
   { year: '2025', title: '98+ Rooms · 13 CTF challenges built', place: 'TryHackMe | Portfolio launch', color: '#ff6b6b' },
-  { year: '2026', title: 'M.S. Cybersecurity — Expected', place: 'Graduation + CompTIA Security+ / Network+', color: '#00d4ff' },
+  { year: '2026', title: 'M.S. Cybersecurity — Graduated 🎓', place: 'Montclair State University · May 12, 2026', color: '#00d4ff' },
 ];
 
 const BADGES: { name: string; rarity: 'Legendary' | 'Epic' | 'Rare' | 'Uncommon' | 'Common' | 'Seasonal'; color: string; icon: string }[] = [
@@ -413,8 +413,9 @@ export function AboutSection() {
       {/* Bio */}
       <motion.div {...f(0.1)} className="flex flex-col items-center gap-5 w-full max-w-2xl text-center">
         <p className="text-[#aaa] leading-8 text-sm">
-          I'm a cybersecurity graduate student at{' '}
-          <span className="text-[#00ff41]">Montclair State University</span>, passionate about
+          I'm a{' '}
+          <span className="text-[#00ff41]">M.S. Cybersecurity graduate</span>{' '}
+          from Montclair State University, passionate about
           breaking and building secure systems. I specialize in cryptography, ethical hacking,
           and full-stack development.
         </p>

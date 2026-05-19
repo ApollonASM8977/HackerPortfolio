@@ -43,7 +43,7 @@ function getOutput(raw: string): CmdResult {
   ]};
   if (cmd === 'cat README.md') return { lines: [
     { text: '# Aboubacar Sidick Meite — @ApollonASM8977', color: '#00ff41' },
-    { text: 'M.S. Cybersecurity @ Montclair State University', color: '#ccc' },
+    { text: 'M.S. Cybersecurity Graduate — Montclair State University', color: '#ccc' },
     { text: 'Skills: Python · Linux · React · Cryptography · Pentesting', color: '#aaa' },
     { text: 'Contact: linkedin.com/in/aboubacar-sidick-meite-b5b309276', color: '#00d4ff' },
   ]};

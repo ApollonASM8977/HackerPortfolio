@@ -75,8 +75,8 @@ function getBotResponse(
   // ── Who / About
   if (/who|about|apollon|aboubacar|yourself|qui est|c'est qui|présente/.test(i))
     return isFR
-      ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est un étudiant en M.S. Cybersecurity à Montclair State University, New Jersey. Chercheur en sécurité, joueur CTF et développeur full-stack spécialisé en cryptographie et hacking éthique. 🇨🇮↑🇺🇸' }
-      : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a cybersecurity grad student at Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. 🇨🇮↑🇺🇸' };
+      ? { text: 'Aboubacar Sidick Meite (alias ApollonASM8977) est diplômé en M.S. Cybersecurity de Montclair State University, New Jersey. Chercheur en sécurité, joueur CTF et développeur full-stack spécialisé en cryptographie et hacking éthique. 🇨🇮↑🇺🇸' }
+      : { text: 'Aboubacar Sidick Meite (aka ApollonASM8977) is a M.S. Cybersecurity graduate from Montclair State University, NJ. Security researcher, CTF player, and full-stack dev specializing in cryptography and ethical hacking. 🇨🇮↑🇺🇸' };
 
   // ── Skills
   if (/skill|technolog|compéten|outil|tools|stack/.test(i))
@@ -111,8 +111,8 @@ function getBotResponse(
   // ── Education
   if (/school|university|education|degree|study|étude|université|diplôme|master/.test(i))
     return isFR
-      ? { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey 🇺🇸\nOrigine : Côte d\'Ivoire 🇨🇮\nFormation technique solide en cryptographie, sécurité réseau et développement.' }
-      : { text: 'M.S. Cybersecurity @ Montclair State University, New Jersey 🇺🇸\nOriginally from Côte d\'Ivoire 🇨🇮' };
+      ? { text: 'Diplômé M.S. Cybersecurity — Montclair State University, New Jersey 🇺🇸 (Mai 2026)\nOrigine : Côte d\'Ivoire 🇨🇮\nFormation solide en cryptographie, sécurité réseau et développement.' }
+      : { text: 'M.S. Cybersecurity Graduate — Montclair State University, New Jersey 🇺🇸 (May 2026)\nOriginally from Côte d\'Ivoire 🇨🇮' };
 
   // ── Languages
   if (/french|français|speak|langue|language|parle/.test(i))

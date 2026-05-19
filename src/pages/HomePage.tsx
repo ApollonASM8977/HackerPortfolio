@@ -7,7 +7,7 @@ import { GlitchText }  from '../components/GlitchText';
 import type { Page } from '../App';
 
 const ROLES = [
-  'M.S. Cybersecurity @ Montclair State',
+  'M.S. Cybersecurity Graduate',
   'Security Researcher & CTF Player',
   'Full-Stack Developer',
   'TryHackMe WIZARD — Top 4%',

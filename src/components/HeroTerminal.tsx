@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const ROLES = [
-  'M.S. Cybersecurity @ Montclair State University',
+  'M.S. Cybersecurity Graduate — Montclair State University',
   'Security Researcher & CTF Player',
   'Full-Stack Developer',
   'TryHackMe WIZARD — Top 4% Worldwide',
@@ -86,7 +86,7 @@ export function HeroTerminal() {
         {/* Badges */}
         <div className="flex flex-wrap justify-center gap-2 mt-5">
           {[
-            { label: '🎓 M.S. Cybersecurity', color: '#00ff41' },
+            { label: '🎓 M.S. Cybersecurity Graduate', color: '#00ff41' },
             { label: '🧙 TryHackMe WIZARD', color: '#00d4ff' },
             { label: '🏆 Top 4% Worldwide', color: '#ffcc00' },
             { label: '🔐 (ISC)² CC Certified', color: '#ff6b6b' },
